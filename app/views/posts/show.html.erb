@@ -1,0 +1,14 @@
+show
+<p id="notice"><%= notice %></p>
+
+<ride-details>
+<p>
+  <strong>Name:</strong>
+  <%= @post.name %>
+  <strong>Content:</strong>
+  <%= @post.content %>
+</p>
+
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>
+</ride-details>

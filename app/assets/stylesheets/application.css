@@ -1,0 +1,39 @@
+header{
+    height: 64px;
+    position: absolute;
+    width: 100%;
+    display: block;
+}
+  
+.header-logo{
+    float: left;
+    padding-left: 20px;
+    font-size: 22px;
+    line-height: 64px;
+    
+}
+.header-menus{
+    float: right;
+    padding-right: 100px;
+    margin: 20px
+}
+.header-menus li{
+    float: left;
+    line-height: 40px;
+    font-size: 13px;
+    padding-left: 35px;
+    list-style: none;
+    color: rgb(43, 42, 42);
+}
+header :link{
+    color: rgb(165, 165, 165);
+}
+header :visited{
+    color: rgb(238, 238, 238);
+}
+header :hover{
+    color: rgb(187, 187, 187);
+}
+header :active{
+    color: rgb(124, 124, 124);
+}
