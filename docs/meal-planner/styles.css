@@ -1155,3 +1155,123 @@ body {
     flex: 1 1 calc(50% - 4px);
   }
 }
+
+/* ---- 写真で選ぶ (photo picking) ---- */
+.uk-step + .uk-step {
+  margin-top: 4px;
+}
+.uk-anchor {
+  background: #edf4ee;
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+.uk-dish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin-top: 10px;
+}
+.uk-dish-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding: 0;
+  background: #fff;
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  color: inherit;
+  font: inherit;
+}
+.uk-dish-card:hover {
+  border-color: #9fbfae;
+}
+.uk-dish-card.selected {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px #1d514026;
+}
+.uk-dish-card .dish-figure {
+  margin: 0;
+}
+.uk-dish-card .dish-image {
+  border-radius: 0;
+  aspect-ratio: 1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.uk-dish-card .image-caption {
+  display: none;
+}
+.uk-dish-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px 10px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+.uk-dish-check {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+}
+.uk-more {
+  margin-top: 10px;
+  width: 100%;
+}
+.uk-day {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+.uk-day > .dish-figure {
+  margin: 0;
+}
+.uk-day > .dish-figure .dish-image {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+.uk-day > .dish-figure .image-caption {
+  font-size: 9px;
+}
+.uk-swap {
+  grid-column: 1 / -1;
+  border-top: 1px dashed var(--line);
+  padding-top: 10px;
+}
+@media (max-width: 520px) {
+  .uk-dish-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .uk-day {
+    grid-template-columns: 88px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+  }
+  .uk-day > .dish-figure .dish-image {
+    width: 88px;
+    height: 88px;
+  }
+}
+.uk-day .actions {
+  gap: 6px;
+}
+.uk-day .actions .btn {
+  min-height: 36px;
+  padding: 6px 14px;
+  font-size: 13px;
+}

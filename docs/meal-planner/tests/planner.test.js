@@ -16,6 +16,7 @@ import {
   leftoverUses,
   normalizeConditions,
   storageAdvice,
+  swapCandidates,
   swapDay,
   totalDays,
 } from "../js/planner.js";
@@ -363,4 +364,21 @@ test("AI request failures become messages; nothing is invented", async () => {
   const ok = await run(respond(200, { schemaVersion: 1, recipes: [goodAi()] }));
   assert.equal(ok.status, "ok");
   assert.equal(ok.recipes.length, 1);
+});
+
+test("swap choices for photo picking: ranked, feasible, only that day changes", () => {
+  const ctx = ctxFor({ days: 4 });
+  const plan = buildPlan(ctx, { seed: 3 });
+  const before = expandDays(plan.cooks).map((d) => d.recipeId);
+  const result = swapCandidates(plan.cooks, 2, ctx, 6);
+  assert.ok(result.ok);
+  assert.ok(result.options.length > 1 && result.options.length <= 6);
+  for (const o of result.options) {
+    const after = expandDays(o.cooks).map((d) => d.recipeId);
+    assert.equal(after[2], o.recipe.id);
+    assert.notEqual(after[2], before[2]);
+    assert.deepEqual(after.filter((_, i) => i !== 2), before.filter((_, i) => i !== 2));
+    assert.ok(!before.includes(o.recipe.id), "no repeats when repeating is off");
+  }
+  assert.equal(swapCandidates(plan.cooks, 0, ctx).ok, false, "day 1 is fixed");
 });

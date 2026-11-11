@@ -20,10 +20,10 @@ import {
   normalizeConditions,
   planWarnings,
   storageAdvice,
-  swapDay,
+  swapCandidates,
 } from "./planner.js";
 import { requestAiRecipes, validateAiRecipe } from "./ai.js";
-import { searchRecipes } from "./catalog.js";
+import { dishImage } from "./images.js";
 
 export const USEKIRI_KEY = "gohan-keikaku-usekiri-v1";
 export const HISTORY_KEY = "gohan-keikaku-history-v1";
@@ -153,40 +153,62 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
   }
 
   // ---- Step 2: the dish the user wants to eat ----
+  let showAllDishes = false;
+  /** A tappable photo card for a dish. */
+  function dishCard(r, { selected = false, note = "", onPick, eager = false }) {
+    const card = el("button", undefined, "uk-dish-card" + (selected ? " selected" : ""));
+    card.type = "button";
+    card.setAttribute("aria-pressed", String(selected));
+    card.setAttribute("aria-label", `${r.name}（約${r.time}分）${selected ? "・選択中" : ""}`);
+    const info = el("span", undefined, "uk-dish-info");
+    info.append(el("strong", r.name), el("span", `約${r.time}分${note ? "・" + note : ""}`, "small muted"));
+    const figure = dishImage(r);
+    if (eager) figure.querySelector("img").loading = "eager";
+    card.append(figure, info);
+    if (selected) card.append(el("span", "✓", "uk-dish-check"));
+    card.addEventListener("click", onPick);
+    return card;
+  }
   function renderDishList() {
-    const root = $("ukDishList");
+    const root = $("ukDishGrid");
     root.replaceChildren();
     const anchor = byId.get(state.anchorId);
+    $("ukAnchor").hidden = !anchor;
     $("ukAnchor").textContent = anchor
-      ? `選んだ料理：${anchor.name}（約${anchor.time}分）— 1日目に固定します`
-      : "まだ選んでいません。下から食べたい料理を1つ選んでください。";
-    const query = $("ukDishSearch").value;
-    const list = searchRecipes(
-      [...byId.values()],
-      { query, maxTime: state.cond.maxTime === null ? "all" : state.cond.maxTime },
-      new Set(),
-    );
+      ? `選んだ料理：${anchor.name}（約${anchor.time}分）。1日目に固定して、ほかの日を組み立てます。`
+      : "";
+    $("ukMakePlan").disabled = !anchor;
+    $("ukMakeHint").hidden = Boolean(anchor);
     const favorites = getFavorites();
-    list.sort((a, b) => Number(favorites.has(b.id)) - Number(favorites.has(a.id)));
-    const shown = list.slice(0, query.trim() ? 12 : 8);
-    for (const r of shown) {
-      const b = makeBtn(
-        `${r.id === state.anchorId ? "✓ " : ""}${r.name}・約${r.time}分${favorites.has(r.id) ? " ♥" : ""}`,
-        () => {
-          state.anchorId = r.id;
-          state.cooks = [];
-          save();
-          renderAll();
-          $("ukMessage").textContent = `「${r.name}」を選びました。「仮の献立をつくる」を押してください。`;
-        },
-        "ghost uk-dish" + (r.id === state.anchorId ? " selected" : ""),
+    const rank = (r) =>
+      (r.id === state.anchorId ? 8 : 0) +
+      (history[r.id] ? 4 : 0) +
+      (favorites.has(r.id) ? 2 : 0) +
+      (r.image?.status === "ready" ? 1 : 0);
+    const list = [...byId.values()]
+      .filter((r) => fitsTime(r, state.cond) || r.id === state.anchorId)
+      .sort((a, b) => rank(b) - rank(a));
+    const shown = showAllDishes ? list : list.slice(0, 12);
+    for (const [k, r] of shown.entries())
+      root.append(
+        dishCard(r, {
+          eager: k < 6,
+          selected: r.id === state.anchorId,
+          note: r.source === "ai" ? "AI提案" : favorites.has(r.id) ? "♥" : "",
+          onPick: () => {
+            state.anchorId = r.id;
+            state.cooks = [];
+            save();
+            renderAll();
+            $("ukMessage").textContent = `「${r.name}」を選びました。「仮の献立をつくる」を押してください。`;
+            $("ukMakePlan").scrollIntoView({ block: "center", behavior: "smooth" });
+          },
+        }),
       );
-      b.setAttribute("aria-pressed", String(r.id === state.anchorId));
-      root.append(b);
-    }
-    if (!shown.length) root.append(el("p", "条件に合う料理が見つかりません。検索語や調理時間を変えてください。", "small muted"));
-    else if (list.length > shown.length)
-      root.append(el("p", `ほか${list.length - shown.length}品。料理名や食材で絞り込めます。`, "small muted"));
+    if (!list.length)
+      root.append(el("p", "調理時間の条件に合う料理がありません。条件を変えてください。", "small muted"));
+    $("ukMoreDishes").hidden = showAllDishes || list.length <= shown.length;
+    $("ukMoreDishes").textContent = `もっと見る（ほか${list.length - shown.length}品）`;
   }
 
   // ---- Step 3: home ingredients (names only) ----
@@ -290,24 +312,34 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
           new Set(it.uses.map((u) => u.cookIndex)).size > 1 &&
           it.uses.some((u) => u.cookIndex === day.cookIndex),
       ).map((it) => it.name);
+      const isAnchorDay = day.cookIndex === 0 && !day.fromMakeAhead;
       const actions = el("div", undefined, "actions");
-      actions.append(
-        makeBtn("レシピ", () => detail(r, day.fromMakeAhead ? 1 : cook.servings), "secondary"),
-        makeBtn("この日だけ交換", () => onSwap(i), "ghost"),
-        makeBtn(history[r.id] && history[r.id].last === today() ? "作った ✓" : "作った", () => {
-          const h = history[r.id] ?? { count: 0, last: "" };
-          if (h.last !== today()) history[r.id] = { count: h.count + 1, last: today() };
-          save();
-          renderAll();
-        }, "ghost"),
-      );
-      li.append(
+      actions.append(makeBtn("レシピ", () => detail(r, day.fromMakeAhead ? 1 : cook.servings), "secondary"));
+      if (!isAnchorDay)
+        actions.append(
+          makeBtn(swapOpen === i ? "交換をやめる" : "この日だけ交換", () => {
+            swapOpen = swapOpen === i ? null : i;
+            renderPlan();
+          }, "ghost"),
+        );
+      if (!day.fromMakeAhead)
+        actions.append(
+          makeBtn(history[r.id] && history[r.id].last === today() ? "作った ✓" : "作った", () => {
+            const h = history[r.id] ?? { count: 0, last: "" };
+            if (h.last !== today()) history[r.id] = { count: h.count + 1, last: today() };
+            save();
+            renderAll();
+          }, "ghost"),
+        );
+      const body = el("div", undefined, "uk-day-body");
+      body.append(
         head,
         tags,
         el("p", shared.length ? `使い回す食材：${shared.join("・")}` : "ほかの日と共通の傷みやすい食材はありません", "small muted"),
         actions,
       );
-      if (day.fromMakeAhead) li.querySelectorAll(".actions .btn")[2].disabled = true;
+      li.append(dishImage(r), body);
+      if (swapOpen === i) li.append(swapPicker(i));
       root.append(li);
     });
   }
@@ -316,8 +348,9 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
   }
   function makePlan(start = null) {
     readConditions();
+    swapOpen = null;
     if (!state.anchorId) {
-      $("ukMessage").textContent = "先に「2. 食べたい料理」を選んでください。";
+      $("ukMessage").textContent = "先に、食べたい料理の写真を1つ選んでください。";
       return false;
     }
     seed = (seed * 48271 + 11) % 2147483647;
@@ -332,18 +365,40 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     renderAll();
     return true;
   }
-  function onSwap(dayIndex) {
-    seed = (seed * 48271 + 7) % 2147483647;
-    const result = swapDay(state.cooks, dayIndex, ctx(), seed);
+  let swapOpen = null;
+  /** Photo choices for one day, best fit first. */
+  function swapPicker(dayIndex) {
+    const box = el("div", undefined, "uk-swap");
+    const result = swapCandidates(state.cooks, dayIndex, ctx(), 6);
     if (!result.ok) {
-      $("ukReplanMessage").textContent = "";
-      $("ukMessage").textContent = result.message;
-      return;
+      box.append(el("p", result.message, "small"));
+      return box;
     }
-    state.cooks = result.cooks;
-    $("ukMessage").textContent = `${dayIndex + 1}日目の料理を交換しました。買い物リストと残量を計算し直しました。`;
-    save();
-    renderAll();
+    box.append(el("p", "写真から選んでください（先頭ほど、買う食材を使い回しやすい料理です）。写真はAI生成の盛り付けイメージです。", "small muted"));
+    const grid = el("div", undefined, "uk-dish-grid");
+    for (const option of result.options) {
+      const others = option.cooks.filter((_, k) => k !== option.cooks.findIndex((c) => c.recipeId === option.recipe.id));
+      const otherIngredients = new Set(
+        others.flatMap((c) => byId.get(c.recipeId).ingredients.filter((x) => x[3] !== "調味料" && x[3] !== "主食").map((x) => nameKey(x[0]))),
+      );
+      const reuse = option.recipe.ingredients
+        .filter((x) => x[3] !== "調味料" && x[3] !== "主食" && otherIngredients.has(nameKey(x[0])))
+        .map((x) => x[0]);
+      grid.append(
+        dishCard(option.recipe, {
+          note: reuse.length ? `${reuse.slice(0, 2).join("・")}を使い回し` : "",
+          onPick: () => {
+            state.cooks = option.cooks;
+            swapOpen = null;
+            $("ukMessage").textContent = `${dayIndex + 1}日目を「${option.recipe.name}」に交換しました。買い物リストと残量を計算し直しました。`;
+            save();
+            renderAll();
+          },
+        }),
+      );
+    }
+    box.append(grid);
+    return box;
   }
 
   // ---- Step 5: shopping list and pack sizes ----
@@ -616,7 +671,10 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
         $("ukMessage").textContent = "選んだ料理は調理時間の条件を超えています。そのまま使う場合は献立に注意が表示されます。";
       else if (daysChanged) $("ukMessage").textContent = "日数を変えたため、献立をもう一度つくってください。";
     });
-  $("ukDishSearch").addEventListener("input", renderDishList);
+  $("ukMoreDishes").addEventListener("click", () => {
+    showAllDishes = true;
+    renderDishList();
+  });
   $("ukPantryAdd").addEventListener("click", onPantryAdd);
   $("ukPantryInput").addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
@@ -628,6 +686,7 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     if (makePlan()) {
       $("ukMessage").textContent = "仮の献立をつくりました。買い物リストで買うパックの量を入力すると、残りを計算して組み直せます。";
       $("ukReplanMessage").textContent = "";
+      $("ukPlanCard").scrollIntoView({ block: "start", behavior: "smooth" });
     }
   });
   $("ukRegenerate").addEventListener("click", () => {
