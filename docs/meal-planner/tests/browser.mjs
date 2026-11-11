@@ -4,6 +4,7 @@ import { createServer } from "node:http";
 import { readFile, mkdir } from "node:fs/promises";
 import { fileURLToPath } from "node:url";
 import { resolve, extname } from "node:path";
+import { formatStep } from "../js/catalog.js";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const catalog = JSON.parse(
   await readFile(resolve(root, "data/recipes.json")),
@@ -151,6 +152,18 @@ try {
         `${name}： ${Math.round(amount * Number(servings) * 100) / 100}${unit}`,
       ),
       "scaled detail ingredients",
+    );
+    const steps = await page.locator("#detailSteps li").allTextContents();
+    check(
+      steps.length === first.steps.length &&
+        steps.every((t, i) => t === formatStep(first.steps[i], Number(servings))),
+      "scaled detail steps",
+    );
+    check(
+      (await page.locator("#detailCheck").textContent()).includes(
+        "試作による検証は未実施",
+      ),
+      "recipe check status shown",
     );
     await page.click("#closeDetail");
     await page.click("[data-tab=shop]");
