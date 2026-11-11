@@ -1,0 +1,574 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-11-11",
+  "generator": "OpenAI image_gen in Codex",
+  "rights": {
+    "basis": "OpenAI Terms of Use — Ownership of content",
+    "url": "https://openai.com/policies/terms-of-use/",
+    "checkedAt": "2026-11-11",
+    "note": "Original AI-generated outputs from text prompts; no third-party reference photos. Output ownership subject to applicable law; exclusivity is not guaranteed."
+  },
+  "style": "Square photorealistic recipe image; warm ivory tabletop, white ceramic, natural upper-left window light, 45 degree overhead, no text or logos.",
+  "images": [
+    {
+      "recipeId": "mapo",
+      "name": "四川風麻婆豆腐",
+      "promptSubject": "Sichuan mapo tofu with ground pork, chili bean sauce and scallions",
+      "originalFile": "exec-ed6d4a6a-ca62-482a-a7ca-493041bad90f.png",
+      "originalSha256": "1e5fb7236c131eb94158ae19e38639b27bb9d0f12d463cae1e6abd6aa3107033",
+      "assets": [
+        {
+          "src": "assets/images/mapo.webp",
+          "bytes": 69956
+        },
+        {
+          "src": "assets/images/mapo-320.webp",
+          "bytes": 19038
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "ginger",
+      "name": "豚の生姜焼き",
+      "promptSubject": "Japanese pork ginger stir fry, thin irregular pork slices with translucent sliced onions in glossy soy ginger sauce. Only pork and onion, no cabbage.",
+      "originalFile": "exec-99897512-e2a6-44d4-8618-9980357dbb87.png",
+      "originalSha256": "ec8a7dce6da778aad97f2e231f7d6907fc52423ced5a8fd9e574401a2924f8e5",
+      "assets": [
+        {
+          "src": "assets/images/ginger.webp",
+          "bytes": 55180
+        },
+        {
+          "src": "assets/images/ginger-320.webp",
+          "bytes": 14906
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "chicken",
+      "name": "鶏の照り焼き",
+      "promptSubject": "Japanese chicken teriyaki, sliced cooked skin-on chicken thigh with glossy caramel soy glaze, a few lettuce leaves at the side.",
+      "originalFile": "exec-5f1cb7c5-647c-429d-ac66-18e483b900da.png",
+      "originalSha256": "31f419f71cf1fafb39533c47b3b2527e03a89fde3058a65fa0c6a38a3d7aa4a6",
+      "assets": [
+        {
+          "src": "assets/images/chicken.webp",
+          "bytes": 61188
+        },
+        {
+          "src": "assets/images/chicken-320.webp",
+          "bytes": 18384
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "pasta",
+      "name": "きのこクリームパスタ",
+      "promptSubject": "Japanese creamy shimeji mushroom and bacon spaghetti, pale milk cream sauce, visible shimeji mushrooms and small bacon pieces.",
+      "originalFile": "exec-b5caabe3-6f9d-4046-adb2-76472fb6c495.png",
+      "originalSha256": "c78b7b68ef00842eb5642e8ca7fe6d26490296ae536c92e76900b3c93905a902",
+      "assets": [
+        {
+          "src": "assets/images/pasta.webp",
+          "bytes": 53992
+        },
+        {
+          "src": "assets/images/pasta-320.webp",
+          "bytes": 13626
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "salmon",
+      "name": "鮭のホイル焼き",
+      "promptSubject": "Japanese salmon baked in an opened foil parcel, one cooked salmon fillet over thin sliced onions with enoki mushrooms and a little melted butter. Foil sits on the white plate.",
+      "originalFile": "exec-35ef8220-f39e-410a-8d84-250b18ec93a9.png",
+      "originalSha256": "e14fd4980aeacbff47c5c57e56ecdb2621270333df68b843455fdde1bb53b5cd",
+      "assets": [
+        {
+          "src": "assets/images/salmon.webp",
+          "bytes": 64396
+        },
+        {
+          "src": "assets/images/salmon-320.webp",
+          "bytes": 17680
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "curry",
+      "name": "チキンカレー",
+      "promptSubject": "Japanese chicken curry rice, thick brown mild curry with chicken, potato chunks, carrots and onions beside white rice on same white plate.",
+      "originalFile": "exec-13207be3-9e76-4e07-a733-a9d5aa9fc6e3.png",
+      "originalSha256": "ceb411300c611effda5c6bfb08ce1f7d6b7e773cebf54c6935821d40bf9172cd",
+      "assets": [
+        {
+          "src": "assets/images/curry.webp",
+          "bytes": 41954
+        },
+        {
+          "src": "assets/images/curry-320.webp",
+          "bytes": 13082
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "chili",
+      "name": "豚キムチ炒め",
+      "promptSubject": "Japanese pork kimchi stir fry, thin pork slices and napa cabbage kimchi with green garlic chives. No rice.",
+      "originalFile": "exec-65d1857f-0af2-42e8-a59d-30ae88a103ab.png",
+      "originalSha256": "e1b82e8390d0cd0f2084e06e5684d2c80d827c51fbb990158603b8d257df836a",
+      "assets": [
+        {
+          "src": "assets/images/chili.webp",
+          "bytes": 67892
+        },
+        {
+          "src": "assets/images/chili-320.webp",
+          "bytes": 18638
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "hamburg",
+      "name": "煮込みハンバーグ",
+      "promptSubject": "Japanese simmered hamburg steak: one oval ground beef/pork patty simmered in red chunky tomato sauce with softened onions. No pasta or sides.",
+      "originalFile": "exec-9a3967f5-9f96-4802-979f-c420aeb9b989.png",
+      "originalSha256": "1ddd442983fc2748e582d190b1f0b7265312d602d1a922ce0c0d99bb5b0ca65a",
+      "assets": [
+        {
+          "src": "assets/images/hamburg.webp",
+          "bytes": 64516
+        },
+        {
+          "src": "assets/images/hamburg-320.webp",
+          "bytes": 16220
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "oyako",
+      "name": "親子丼",
+      "promptSubject": "Japanese oyakodon rice bowl: cooked chicken thigh pieces and translucent onion bound in softly set but cooked yellow egg, over white rice. No unrelated garnish.",
+      "originalFile": "exec-1ffd2d56-691e-4277-8dc7-d91f79e8b63e.png",
+      "originalSha256": "19b5f1726857c2b0b0d681a406a2e9c3bb43210c7903a383c1653e40e11f4d00",
+      "assets": [
+        {
+          "src": "assets/images/oyako.webp",
+          "bytes": 43182
+        },
+        {
+          "src": "assets/images/oyako-320.webp",
+          "bytes": 12892
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "pepper",
+      "name": "青椒肉絲",
+      "promptSubject": "Chinese qingjiao rousi, stir fried thin strips of beef, green bell pepper and pale bamboo shoots with light glossy brown sauce. No rice.",
+      "originalFile": "exec-8f96e656-db3c-4b72-b441-fbb35c1442ab.png",
+      "originalSha256": "0ddf2f6e68c96a3f2bf8da22ca65a9b6b72934a0b577d11d7a15c8121c365093",
+      "assets": [
+        {
+          "src": "assets/images/pepper.webp",
+          "bytes": 65624
+        },
+        {
+          "src": "assets/images/pepper-320.webp",
+          "bytes": 17936
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "tomato",
+      "name": "トマトと卵の中華炒め",
+      "promptSubject": "Chinese stir fried tomato and egg, large juicy red tomato wedges, fluffy cooked yellow scrambled egg, a little chopped scallion. No rice.",
+      "originalFile": "exec-05337fb4-5d2e-4662-9b24-751b9ed71c3c.png",
+      "originalSha256": "a7d35cf365bd079cbf83ae81fcf3421312201dd854aa2ec1403e2f6bacc4f856",
+      "assets": [
+        {
+          "src": "assets/images/tomato.webp",
+          "bytes": 52988
+        },
+        {
+          "src": "assets/images/tomato-320.webp",
+          "bytes": 15346
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "stew",
+      "name": "鶏と野菜のポトフ",
+      "promptSubject": "Japanese chicken and vegetable pot-au-feu, clear pale broth with cooked chicken thigh chunks, cabbage, carrots and potatoes. No sausage.",
+      "originalFile": "exec-f7f87acd-f9fc-48ac-aef5-a2e2248d80d6.png",
+      "originalSha256": "6cbafef3aff06322e3992d4a27aca8a839bd2933a860bc34f8e7e40c68e3cc1f",
+      "assets": [
+        {
+          "src": "assets/images/stew.webp",
+          "bytes": 47694
+        },
+        {
+          "src": "assets/images/stew-320.webp",
+          "bytes": 11180
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "saba_miso",
+      "name": "さばの味噌煮",
+      "promptSubject": "Japanese saba misoni, two mackerel fillet pieces with recognizable silver blue patterned skin, simmered in thick light brown miso sauce with ginger slivers. No rice.",
+      "originalFile": "exec-4266c2f4-cff3-4a1f-ba4d-b821a82c1b67.png",
+      "originalSha256": "5ede2144f6f7734019baba5ecf54d69a9607e95d1460144bc92c65e2a72742b9",
+      "assets": [
+        {
+          "src": "assets/images/saba_miso.webp",
+          "bytes": 58330
+        },
+        {
+          "src": "assets/images/saba_miso-320.webp",
+          "bytes": 14726
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "buri",
+      "name": "ぶりの照り焼き",
+      "promptSubject": "Japanese buri teriyaki: one thick cooked yellowtail fish fillet, recognizable grey edge skin, glazed with glossy amber soy mirin sauce. No rice, no side dishes.",
+      "originalFile": "exec-d8eb99c1-3310-48dd-9f9f-51aee6e92d79.png",
+      "originalSha256": "e9e19c16d6e038e6d7ef288588db655abd4c1d1f3201a25e2547580a125772de",
+      "assets": [
+        {
+          "src": "assets/images/buri.webp",
+          "bytes": 45650
+        },
+        {
+          "src": "assets/images/buri-320.webp",
+          "bytes": 12720
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "nikujaga",
+      "name": "肉じゃが",
+      "promptSubject": "Japanese nikujaga, thin beef slices, large potato pieces, carrots and translucent onions in a small amount of light soy broth. No green beans, no noodles.",
+      "originalFile": "exec-6489d942-19c5-4fa4-a1f4-f312f2f38c19.png",
+      "originalSha256": "92efe7b5e0a57cc755749181d1b5a6f65e81e1d53ebe291d2c266a2387f4e05a",
+      "assets": [
+        {
+          "src": "assets/images/nikujaga.webp",
+          "bytes": 39584
+        },
+        {
+          "src": "assets/images/nikujaga-320.webp",
+          "bytes": 11942
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "tonjiru",
+      "name": "具だくさん豚汁",
+      "promptSubject": "Japanese tonjiru miso soup in ivory ceramic bowl, thin pork pieces, daikon radish, carrot half moons, burdock and tofu cubes in cloudy tan miso broth. No rice.",
+      "originalFile": "exec-66b4eb65-0d6c-44c7-85b5-065025e6bc99.png",
+      "originalSha256": "7221161b551e34972caeb8b2d6eb6948973b83cea60356265ea480c1d2bfe33a",
+      "assets": [
+        {
+          "src": "assets/images/tonjiru.webp",
+          "bytes": 43932
+        },
+        {
+          "src": "assets/images/tonjiru-320.webp",
+          "bytes": 12158
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "soboro",
+      "name": "鶏そぼろ丼",
+      "promptSubject": "Japanese chicken soboro don: white rice bowl topped with two distinct halves of finely crumbled cooked soy chicken mince and fluffy yellow scrambled egg. No peas or green garnish.",
+      "originalFile": "exec-e4ebf912-3fc7-4cb0-aaf0-b6aff1285dd6.png",
+      "originalSha256": "1f1ea4fb234c009ae804b4bd8277f2c67ff6396f61998f69380b3578af05cd3d",
+      "assets": [
+        {
+          "src": "assets/images/soboro.webp",
+          "bytes": 62138
+        },
+        {
+          "src": "assets/images/soboro-320.webp",
+          "bytes": 18606
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "shogayaki_chicken",
+      "name": "鶏むね肉の生姜焼き",
+      "promptSubject": "Japanese chicken breast ginger stir fry, lean skinless chicken breast slices with sliced onions in glossy light brown soy ginger sauce. No rice or other sides.",
+      "originalFile": "exec-c914387c-11b6-4c60-aa27-0051dade3064.png",
+      "originalSha256": "df9bc08fc0c2b200fa0dd291aa2d21b2c824f771dcb35418f1381eb13c7b2a14",
+      "assets": [
+        {
+          "src": "assets/images/shogayaki_chicken.webp",
+          "bytes": 43116
+        },
+        {
+          "src": "assets/images/shogayaki_chicken-320.webp",
+          "bytes": 12820
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "tofu_steak",
+      "name": "豆腐ステーキきのこあん",
+      "promptSubject": "Japanese tofu steak with mushroom sauce: two golden pan-seared rectangular firm tofu slabs under glossy light soy gravy with shimeji mushrooms. No meat, no rice.",
+      "originalFile": "exec-a506df6f-1151-4619-b12d-98b046803e99.png",
+      "originalSha256": "19ac17e2a74570dbc3eef3254e7fdf4bd5e69154f57de36b83fe4e689b4164f2",
+      "assets": [
+        {
+          "src": "assets/images/tofu_steak.webp",
+          "bytes": 58068
+        },
+        {
+          "src": "assets/images/tofu_steak-320.webp",
+          "bytes": 15288
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    },
+    {
+      "recipeId": "sukiyaki",
+      "name": "牛肉と豆腐のすき煮",
+      "promptSubject": "Japanese beef and tofu suki-ni, thin cooked beef slices, white tofu blocks, diagonal cut long onion and softened napa cabbage, shallow brown soy broth in white ceramic bowl. No raw egg or noodles.",
+      "originalFile": "exec-de018ea6-b0f0-4c59-be62-aa9629a819e1.png",
+      "originalSha256": "5dae45ae1e8a1fa6ea6cd4dc1d9347f7b696fbb1c9582aed7e34a0cb4f842ff9",
+      "assets": [
+        {
+          "src": "assets/images/sukiyaki.webp",
+          "bytes": 63598
+        },
+        {
+          "src": "assets/images/sukiyaki-320.webp",
+          "bytes": 16364
+        }
+      ],
+      "review": {
+        "reviewer": "Codex visual review",
+        "checkedAt": "2026-11-11",
+        "criteria": [
+          "dish and principal ingredients",
+          "consistent light and tableware",
+          "square framing",
+          "no visible watermark or logo"
+        ],
+        "note": "Illustrative presentation; does not certify ingredient quantities or nutritional accuracy."
+      }
+    }
+  ]
+}

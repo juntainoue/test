@@ -1,0 +1,3782 @@
+{
+  "schemaVersion": 1,
+  "recipes": [
+    {
+      "id": "mapo",
+      "kcal": 350,
+      "protein": 25,
+      "name": "四川風麻婆豆腐",
+      "type": "中華",
+      "time": 25,
+      "hot": true,
+      "storage": "粗熱を素早く取り、清潔な容器で冷蔵。1～2日を目安に十分に再加熱。",
+      "ingredients": [
+        [
+          "豆腐",
+          150,
+          "g",
+          "豆腐"
+        ],
+        [
+          "豚ひき肉",
+          75,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "長ねぎ",
+          0.25,
+          "本",
+          "野菜"
+        ],
+        [
+          "にんにく",
+          1,
+          "片",
+          "野菜"
+        ],
+        [
+          "しょうが",
+          5,
+          "g",
+          "野菜"
+        ],
+        [
+          "豆板醤",
+          10,
+          "g",
+          "調味料"
+        ],
+        [
+          "甜麺醤",
+          8,
+          "g",
+          "調味料"
+        ],
+        [
+          "花椒粉",
+          2,
+          "g",
+          "調味料"
+        ],
+        [
+          "鶏がらスープの素",
+          3,
+          "g",
+          "調味料"
+        ],
+        [
+          "片栗粉",
+          5,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "豆腐を角切りにして軽く下ゆでする。",
+        "ひき肉、にんにく、しょうがを炒め、豆板醤・甜麺醤を加える。",
+        "水と鶏がらスープの素を加え、豆腐を煮る。",
+        "水溶き片栗粉でとろみを付け、最後に花椒を加える。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/mapo.webp",
+        "srcSmall": "assets/images/mapo-320.webp",
+        "alt": "四川風麻婆豆腐の盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "ginger",
+      "kcal": 430,
+      "protein": 30,
+      "name": "豚の生姜焼き",
+      "type": "和食",
+      "time": 20,
+      "hot": false,
+      "storage": "加熱後は速やかに冷蔵し、1～2日を目安に食べ切る。",
+      "ingredients": [
+        [
+          "豚こま肉",
+          130,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "しょうが",
+          10,
+          "g",
+          "野菜"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ],
+        [
+          "みりん",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "玉ねぎを薄切りにし、豚肉をほぐす。",
+        "豚肉と玉ねぎを炒める。",
+        "しょうゆ・みりん・すりおろししょうがを加え、全体に絡める。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/ginger.webp",
+        "srcSmall": "assets/images/ginger-320.webp",
+        "alt": "豚の生姜焼きの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "chicken",
+      "kcal": 410,
+      "protein": 36,
+      "name": "鶏の照り焼き",
+      "type": "和食",
+      "time": 25,
+      "hot": false,
+      "storage": "冷蔵1～2日を目安。中心まで十分に加熱する。",
+      "ingredients": [
+        [
+          "鶏もも肉",
+          180,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ],
+        [
+          "みりん",
+          15,
+          "ml",
+          "調味料"
+        ],
+        [
+          "砂糖",
+          5,
+          "g",
+          "調味料"
+        ],
+        [
+          "レタス",
+          50,
+          "g",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "鶏肉の厚みを揃える。",
+        "皮目から焼き、裏返して中心まで火を通す。",
+        "調味料を煮絡め、レタスを添える。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/chicken.webp",
+        "srcSmall": "assets/images/chicken-320.webp",
+        "alt": "鶏の照り焼きの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "pasta",
+      "kcal": 590,
+      "protein": 21,
+      "name": "きのこクリームパスタ",
+      "type": "洋食",
+      "time": 20,
+      "hot": false,
+      "storage": "乳製品を含むため作りたて推奨。余ったら速やかに冷蔵して翌日中を目安に。",
+      "ingredients": [
+        [
+          "パスタ",
+          100,
+          "g",
+          "主食"
+        ],
+        [
+          "しめじ",
+          80,
+          "g",
+          "野菜"
+        ],
+        [
+          "ベーコン",
+          40,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "牛乳",
+          120,
+          "ml",
+          "乳製品"
+        ],
+        [
+          "バター",
+          10,
+          "g",
+          "乳製品"
+        ],
+        [
+          "小麦粉",
+          8,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "パスタを表示どおりにゆでる。",
+        "しめじとベーコンをバターで炒める。",
+        "小麦粉を振り、牛乳を少しずつ加えてとろみを付ける。",
+        "パスタを和える。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/pasta.webp",
+        "srcSmall": "assets/images/pasta-320.webp",
+        "alt": "きのこクリームパスタの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "salmon",
+      "kcal": 320,
+      "protein": 27,
+      "name": "鮭のホイル焼き",
+      "type": "和食",
+      "time": 25,
+      "hot": false,
+      "storage": "魚は中心まで十分に加熱し、できるだけ当日中に食べる。",
+      "ingredients": [
+        [
+          "生鮭",
+          1,
+          "切",
+          "肉・魚"
+        ],
+        [
+          "えのき",
+          50,
+          "g",
+          "野菜"
+        ],
+        [
+          "玉ねぎ",
+          0.25,
+          "個",
+          "野菜"
+        ],
+        [
+          "バター",
+          10,
+          "g",
+          "乳製品"
+        ],
+        [
+          "しょうゆ",
+          8,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "ホイルに薄切り玉ねぎ、鮭、えのきをのせる。",
+        "バターとしょうゆをのせ、しっかり包む。",
+        "フライパンで蒸し焼きにし、鮭に十分火を通す。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/salmon.webp",
+        "srcSmall": "assets/images/salmon-320.webp",
+        "alt": "鮭のホイル焼きの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "curry",
+      "kcal": 690,
+      "protein": 30,
+      "name": "チキンカレー",
+      "type": "洋食",
+      "time": 35,
+      "hot": false,
+      "storage": "常温放置を避け、小分けに急冷して冷蔵。1～2日以内に再加熱して食べる。",
+      "ingredients": [
+        [
+          "鶏もも肉",
+          130,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "にんじん",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "じゃがいも",
+          1,
+          "個",
+          "野菜"
+        ],
+        [
+          "カレールウ",
+          25,
+          "g",
+          "調味料"
+        ],
+        [
+          "米",
+          100,
+          "g",
+          "主食"
+        ]
+      ],
+      "steps": [
+        "肉と野菜を一口大に切る。",
+        "炒めて水を加え、柔らかくなるまで煮る。",
+        "火を止めてルウを溶かし、再度弱火で煮込む。",
+        "ごはんと盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/curry.webp",
+        "srcSmall": "assets/images/curry-320.webp",
+        "alt": "チキンカレーの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "chili",
+      "kcal": 390,
+      "protein": 28,
+      "name": "豚キムチ炒め",
+      "type": "中華",
+      "time": 15,
+      "hot": true,
+      "storage": "冷蔵1～2日を目安。豚肉に十分火を通す。",
+      "ingredients": [
+        [
+          "豚こま肉",
+          130,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "キムチ",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "ニラ",
+          0.5,
+          "束",
+          "野菜"
+        ],
+        [
+          "ごま油",
+          10,
+          "ml",
+          "調味料"
+        ],
+        [
+          "しょうゆ",
+          5,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "豚肉を炒めて十分に火を通す。",
+        "キムチとニラを加えて炒める。",
+        "ごま油としょうゆで仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/chili.webp",
+        "srcSmall": "assets/images/chili-320.webp",
+        "alt": "豚キムチ炒めの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "hamburg",
+      "kcal": 510,
+      "protein": 33,
+      "name": "煮込みハンバーグ",
+      "type": "洋食",
+      "time": 35,
+      "hot": false,
+      "storage": "中心まで十分に加熱。冷蔵1～2日を目安に再加熱。",
+      "ingredients": [
+        [
+          "合いびき肉",
+          160,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "卵",
+          0.5,
+          "個",
+          "乳製品"
+        ],
+        [
+          "パン粉",
+          15,
+          "g",
+          "主食"
+        ],
+        [
+          "トマト缶",
+          120,
+          "g",
+          "野菜"
+        ],
+        [
+          "ケチャップ",
+          15,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "玉ねぎをみじん切りにし、ひき肉・卵・パン粉と混ぜる。",
+        "成形して両面を焼く。",
+        "トマト缶とケチャップを加えて煮込み、中心まで十分に火を通す。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/hamburg.webp",
+        "srcSmall": "assets/images/hamburg-320.webp",
+        "alt": "煮込みハンバーグの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "oyako",
+      "kcal": 620,
+      "protein": 35,
+      "name": "親子丼",
+      "type": "和食",
+      "time": 20,
+      "hot": false,
+      "storage": "卵を含むためできるだけ作りたてを食べる。",
+      "ingredients": [
+        [
+          "鶏もも肉",
+          120,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "卵",
+          2,
+          "個",
+          "乳製品"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "米",
+          100,
+          "g",
+          "主食"
+        ],
+        [
+          "めんつゆ",
+          35,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "玉ねぎと鶏肉をめんつゆと水で煮る。",
+        "鶏肉に十分火が通ったら溶き卵を入れる。",
+        "卵を好みの固さまで加熱してごはんにのせる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/oyako.webp",
+        "srcSmall": "assets/images/oyako-320.webp",
+        "alt": "親子丼の盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "pepper",
+      "kcal": 360,
+      "protein": 31,
+      "name": "青椒肉絲",
+      "type": "中華",
+      "time": 20,
+      "hot": false,
+      "storage": "冷蔵1～2日を目安。肉は十分に加熱する。",
+      "ingredients": [
+        [
+          "牛こま肉",
+          120,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "ピーマン",
+          2,
+          "個",
+          "野菜"
+        ],
+        [
+          "たけのこ水煮",
+          80,
+          "g",
+          "野菜"
+        ],
+        [
+          "オイスターソース",
+          15,
+          "ml",
+          "調味料"
+        ],
+        [
+          "しょうゆ",
+          8,
+          "ml",
+          "調味料"
+        ],
+        [
+          "片栗粉",
+          5,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "肉と野菜を細切りにする。",
+        "肉に片栗粉をまぶして炒める。",
+        "野菜を加えて炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/pepper.webp",
+        "srcSmall": "assets/images/pepper-320.webp",
+        "alt": "青椒肉絲の盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "tomato",
+      "kcal": 290,
+      "protein": 20,
+      "name": "トマトと卵の中華炒め",
+      "type": "中華",
+      "time": 15,
+      "hot": false,
+      "storage": "卵料理のため作りたて推奨。",
+      "ingredients": [
+        [
+          "トマト",
+          2,
+          "個",
+          "野菜"
+        ],
+        [
+          "卵",
+          2,
+          "個",
+          "乳製品"
+        ],
+        [
+          "長ねぎ",
+          0.25,
+          "本",
+          "野菜"
+        ],
+        [
+          "ごま油",
+          10,
+          "ml",
+          "調味料"
+        ],
+        [
+          "鶏がらスープの素",
+          3,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "トマトをくし切り、卵を溶く。",
+        "卵をふんわり炒めて一度取り出す。",
+        "トマトを炒め、卵を戻して調味する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/tomato.webp",
+        "srcSmall": "assets/images/tomato-320.webp",
+        "alt": "トマトと卵の中華炒めの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "stew",
+      "kcal": 350,
+      "protein": 29,
+      "name": "鶏と野菜のポトフ",
+      "type": "洋食",
+      "time": 35,
+      "hot": false,
+      "storage": "小分けにして速やかに冷蔵し、1～2日を目安に十分に再加熱。",
+      "ingredients": [
+        [
+          "鶏もも肉",
+          140,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "キャベツ",
+          120,
+          "g",
+          "野菜"
+        ],
+        [
+          "にんじん",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "じゃがいも",
+          1,
+          "個",
+          "野菜"
+        ],
+        [
+          "コンソメ",
+          5,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "鶏肉と野菜を大きめに切る。",
+        "鍋に入れて水とコンソメを加える。",
+        "野菜が柔らかく、鶏肉に十分火が通るまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/stew.webp",
+        "srcSmall": "assets/images/stew-320.webp",
+        "alt": "鶏と野菜のポトフの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "saba_miso",
+      "name": "さばの味噌煮",
+      "type": "和食",
+      "time": 25,
+      "hot": false,
+      "kcal": 390,
+      "protein": 27,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "さば",
+          1,
+          "切",
+          "肉・魚"
+        ],
+        [
+          "みそ",
+          20,
+          "g",
+          "調味料"
+        ],
+        [
+          "しょうが",
+          10,
+          "g",
+          "野菜"
+        ],
+        [
+          "みりん",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "主な食材（さばなど）を食べやすい大きさに切る。",
+        "鍋で必要な食材を軽く炒め、少量の水と調味料を加える。",
+        "ふたをして中まで十分に火が通るまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/saba_miso.webp",
+        "srcSmall": "assets/images/saba_miso-320.webp",
+        "alt": "さばの味噌煮の盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "buri",
+      "name": "ぶりの照り焼き",
+      "type": "和食",
+      "time": 20,
+      "hot": false,
+      "kcal": 360,
+      "protein": 28,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "ぶり",
+          1,
+          "切",
+          "肉・魚"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ],
+        [
+          "みりん",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材（ぶりなど）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/buri.webp",
+        "srcSmall": "assets/images/buri-320.webp",
+        "alt": "ぶりの照り焼きの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "nikujaga",
+      "name": "肉じゃが",
+      "type": "和食",
+      "time": 35,
+      "hot": false,
+      "kcal": 430,
+      "protein": 23,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "牛こま肉",
+          100,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "じゃがいも",
+          2,
+          "個",
+          "野菜"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "にんじん",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ],
+        [
+          "みりん",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "主な食材（牛こま肉など）を食べやすい大きさに切る。",
+        "鍋で必要な食材を軽く炒め、少量の水と調味料を加える。",
+        "ふたをして中まで十分に火が通るまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/nikujaga.webp",
+        "srcSmall": "assets/images/nikujaga-320.webp",
+        "alt": "肉じゃがの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "tonjiru",
+      "name": "具だくさん豚汁",
+      "type": "和食",
+      "time": 30,
+      "hot": false,
+      "kcal": 330,
+      "protein": 22,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "豚こま肉",
+          90,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "大根",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "にんじん",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "ごぼう",
+          40,
+          "g",
+          "野菜"
+        ],
+        [
+          "豆腐",
+          80,
+          "g",
+          "豆腐"
+        ],
+        [
+          "みそ",
+          20,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材を食べやすい大きさに切る。",
+        "鍋で水と調味料を温め、食材を入れる。",
+        "中まで火が通り、野菜が柔らかくなるまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/tonjiru.webp",
+        "srcSmall": "assets/images/tonjiru-320.webp",
+        "alt": "具だくさん豚汁の盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "soboro",
+      "name": "鶏そぼろ丼",
+      "type": "和食",
+      "time": 20,
+      "hot": false,
+      "kcal": 590,
+      "protein": 34,
+      "storage": "ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。",
+      "ingredients": [
+        [
+          "鶏ひき肉",
+          120,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "卵",
+          1,
+          "個",
+          "乳製品"
+        ],
+        [
+          "米",
+          100,
+          "g",
+          "主食"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ],
+        [
+          "砂糖",
+          8,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "米を炊飯し、ほかの食材を食べやすく切る。",
+        "主な食材を調味料とともに十分に加熱する。",
+        "ごはんと合わせて盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/soboro.webp",
+        "srcSmall": "assets/images/soboro-320.webp",
+        "alt": "鶏そぼろ丼の盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "shogayaki_chicken",
+      "name": "鶏むね肉の生姜焼き",
+      "type": "和食",
+      "time": 18,
+      "hot": false,
+      "kcal": 310,
+      "protein": 39,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          160,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "しょうが",
+          10,
+          "g",
+          "野菜"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材（鶏むね肉など）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/shogayaki_chicken.webp",
+        "srcSmall": "assets/images/shogayaki_chicken-320.webp",
+        "alt": "鶏むね肉の生姜焼きの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "tofu_steak",
+      "name": "豆腐ステーキきのこあん",
+      "type": "和食",
+      "time": 20,
+      "hot": false,
+      "kcal": 280,
+      "protein": 19,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "木綿豆腐",
+          250,
+          "g",
+          "豆腐"
+        ],
+        [
+          "しめじ",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "片栗粉",
+          10,
+          "g",
+          "調味料"
+        ],
+        [
+          "しょうゆ",
+          12,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材（木綿豆腐など）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/tofu_steak.webp",
+        "srcSmall": "assets/images/tofu_steak-320.webp",
+        "alt": "豆腐ステーキきのこあんの盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "sukiyaki",
+      "name": "牛肉と豆腐のすき煮",
+      "type": "和食",
+      "time": 25,
+      "hot": false,
+      "kcal": 490,
+      "protein": 32,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "牛こま肉",
+          130,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "豆腐",
+          150,
+          "g",
+          "豆腐"
+        ],
+        [
+          "長ねぎ",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "白菜",
+          150,
+          "g",
+          "野菜"
+        ],
+        [
+          "しょうゆ",
+          20,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "主な食材（牛こま肉など）を食べやすい大きさに切る。",
+        "鍋で必要な食材を軽く炒め、少量の水と調味料を加える。",
+        "ふたをして中まで十分に火が通るまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "ready",
+        "src": "assets/images/sukiyaki.webp",
+        "srcSmall": "assets/images/sukiyaki-320.webp",
+        "alt": "牛肉と豆腐のすき煮の盛り付けイメージ",
+        "source": "OpenAI image_gen — original text-to-image generation",
+        "rights": "OpenAI Terms of Use, Ownership of content; see IMAGE_GUIDE.md",
+        "reviewedAt": "2026-11-11"
+      }
+    },
+    {
+      "id": "tamagoyaki",
+      "name": "ほうれん草入り卵焼き",
+      "type": "和食",
+      "time": 15,
+      "hot": false,
+      "kcal": 250,
+      "protein": 18,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "卵",
+          2,
+          "個",
+          "乳製品"
+        ],
+        [
+          "ほうれん草",
+          80,
+          "g",
+          "野菜"
+        ],
+        [
+          "牛乳",
+          20,
+          "ml",
+          "乳製品"
+        ]
+      ],
+      "steps": [
+        "食材（卵など）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "ほうれん草入り卵焼きの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chikuzen",
+      "name": "筑前煮",
+      "type": "和食",
+      "time": 40,
+      "hot": false,
+      "kcal": 380,
+      "protein": 29,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏もも肉",
+          130,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "れんこん",
+          80,
+          "g",
+          "野菜"
+        ],
+        [
+          "にんじん",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "ごぼう",
+          60,
+          "g",
+          "野菜"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "主な食材（鶏もも肉など）を食べやすい大きさに切る。",
+        "鍋で必要な食材を軽く炒め、少量の水と調味料を加える。",
+        "ふたをして中まで十分に火が通るまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "筑前煮の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "saba_shio",
+      "name": "さばの塩焼き",
+      "type": "和食",
+      "time": 20,
+      "hot": false,
+      "kcal": 340,
+      "protein": 25,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "さば",
+          1,
+          "切",
+          "肉・魚"
+        ],
+        [
+          "大根",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "塩",
+          2,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材（さばなど）に下味を付ける。",
+        "フライパンまたはグリルで焼く。",
+        "肉・魚は中心まで十分に火を通し、野菜と盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "さばの塩焼きの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "udon",
+      "name": "鶏ときのこの温うどん",
+      "type": "和食",
+      "time": 20,
+      "hot": false,
+      "kcal": 510,
+      "protein": 29,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "うどん",
+          1,
+          "玉",
+          "主食"
+        ],
+        [
+          "鶏むね肉",
+          100,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "しめじ",
+          80,
+          "g",
+          "野菜"
+        ],
+        [
+          "長ねぎ",
+          0.3,
+          "本",
+          "野菜"
+        ],
+        [
+          "めんつゆ",
+          35,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "麺を袋の表示に従ってゆでる。",
+        "肉・野菜を必要に応じて十分に加熱し、調味料で味付けする。",
+        "麺と合わせて器に盛る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鶏ときのこの温うどんの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "katsuo",
+      "name": "かつおのたたき香味だれ",
+      "type": "和食",
+      "time": 15,
+      "hot": false,
+      "kcal": 230,
+      "protein": 33,
+      "storage": "生食用の食材を使用し、調理後は速やかに食べる。",
+      "ingredients": [
+        [
+          "かつおたたき",
+          150,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "大葉",
+          3,
+          "枚",
+          "野菜"
+        ],
+        [
+          "ポン酢",
+          25,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材を衛生的に下処理し、野菜を切る。",
+        "調味料を混ぜて香味だれを作る。",
+        "盛り付けてすぐに食べる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "かつおのたたき香味だれの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "nabe",
+      "name": "白菜と豚肉の重ね蒸し",
+      "type": "和食",
+      "time": 25,
+      "hot": false,
+      "kcal": 370,
+      "protein": 27,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "白菜",
+          250,
+          "g",
+          "野菜"
+        ],
+        [
+          "豚バラ肉",
+          110,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "ポン酢",
+          25,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材を下処理し、必要に応じて薄切りにする。",
+        "蒸し器またはふた付きフライパンで蒸す。",
+        "肉・魚には十分火を通し、調味料を添える。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "白菜と豚肉の重ね蒸しの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "tofu_hamburg",
+      "name": "豆腐入り鶏ハンバーグ",
+      "type": "和食",
+      "time": 25,
+      "hot": false,
+      "kcal": 290,
+      "protein": 31,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏ひき肉",
+          120,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "木綿豆腐",
+          100,
+          "g",
+          "豆腐"
+        ],
+        [
+          "玉ねぎ",
+          0.3,
+          "個",
+          "野菜"
+        ],
+        [
+          "片栗粉",
+          8,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材（鶏ひき肉など）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "豆腐入り鶏ハンバーグの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "tuna_pasta",
+      "name": "ツナとトマトのパスタ",
+      "type": "洋食",
+      "time": 20,
+      "hot": false,
+      "kcal": 570,
+      "protein": 29,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "パスタ",
+          100,
+          "g",
+          "主食"
+        ],
+        [
+          "ツナ缶",
+          1,
+          "缶",
+          "肉・魚"
+        ],
+        [
+          "トマト缶",
+          150,
+          "g",
+          "野菜"
+        ],
+        [
+          "にんにく",
+          1,
+          "片",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "パスタを袋の表示に従ってゆでる。",
+        "具材を切って炒め、ソースを作る。",
+        "パスタと和えて仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "ツナとトマトのパスタの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "bolognese",
+      "name": "ミートソーススパゲティ",
+      "type": "洋食",
+      "time": 30,
+      "hot": false,
+      "kcal": 670,
+      "protein": 35,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "パスタ",
+          100,
+          "g",
+          "主食"
+        ],
+        [
+          "合いびき肉",
+          120,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "トマト缶",
+          150,
+          "g",
+          "野菜"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "パスタを袋の表示に従ってゆでる。",
+        "具材を切って炒め、ソースを作る。",
+        "パスタと和えて仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "ミートソーススパゲティの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "carbonara",
+      "name": "カルボナーラ",
+      "type": "洋食",
+      "time": 20,
+      "hot": false,
+      "kcal": 750,
+      "protein": 31,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "パスタ",
+          100,
+          "g",
+          "主食"
+        ],
+        [
+          "卵",
+          1,
+          "個",
+          "乳製品"
+        ],
+        [
+          "ベーコン",
+          50,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "粉チーズ",
+          20,
+          "g",
+          "乳製品"
+        ]
+      ],
+      "steps": [
+        "パスタを袋の表示に従ってゆでる。",
+        "具材を切って炒め、ソースを作る。",
+        "パスタと和えて仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "カルボナーラの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "omelet",
+      "name": "きのこのチーズオムレツ",
+      "type": "洋食",
+      "time": 15,
+      "hot": false,
+      "kcal": 380,
+      "protein": 25,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "卵",
+          2,
+          "個",
+          "乳製品"
+        ],
+        [
+          "しめじ",
+          80,
+          "g",
+          "野菜"
+        ],
+        [
+          "チーズ",
+          40,
+          "g",
+          "乳製品"
+        ],
+        [
+          "牛乳",
+          30,
+          "ml",
+          "乳製品"
+        ]
+      ],
+      "steps": [
+        "食材（卵など）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "きのこのチーズオムレツの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chicken_tomato",
+      "name": "鶏肉のトマト煮",
+      "type": "洋食",
+      "time": 30,
+      "hot": false,
+      "kcal": 370,
+      "protein": 37,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          160,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "トマト缶",
+          150,
+          "g",
+          "野菜"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "にんにく",
+          1,
+          "片",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "主な食材（鶏むね肉など）を食べやすい大きさに切る。",
+        "鍋で必要な食材を軽く炒め、少量の水と調味料を加える。",
+        "ふたをして中まで十分に火が通るまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鶏肉のトマト煮の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "gratin",
+      "name": "鶏とブロッコリーのグラタン",
+      "type": "洋食",
+      "time": 35,
+      "hot": false,
+      "kcal": 610,
+      "protein": 42,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏もも肉",
+          150,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "ブロッコリー",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "牛乳",
+          180,
+          "ml",
+          "乳製品"
+        ],
+        [
+          "チーズ",
+          50,
+          "g",
+          "乳製品"
+        ],
+        [
+          "小麦粉",
+          15,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "主な食材を切り、肉は先に十分に加熱する。",
+        "耐熱容器に具材とソースを入れる。",
+        "オーブンで焼き色を付け、中心まで熱くする。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鶏とブロッコリーのグラタンの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "salmon_muniere",
+      "name": "鮭のムニエル",
+      "type": "洋食",
+      "time": 20,
+      "hot": false,
+      "kcal": 390,
+      "protein": 31,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "生鮭",
+          1,
+          "切",
+          "肉・魚"
+        ],
+        [
+          "バター",
+          15,
+          "g",
+          "乳製品"
+        ],
+        [
+          "小麦粉",
+          10,
+          "g",
+          "調味料"
+        ],
+        [
+          "レモン",
+          0.25,
+          "個",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "食材（生鮭など）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鮭のムニエルの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chicken_soup",
+      "name": "鶏むね肉と豆のスープ",
+      "type": "洋食",
+      "time": 25,
+      "hot": false,
+      "kcal": 330,
+      "protein": 36,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          130,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "ミックスビーンズ",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "キャベツ",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "コンソメ",
+          5,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材を食べやすい大きさに切る。",
+        "鍋で水と調味料を温め、食材を入れる。",
+        "中まで火が通り、野菜が柔らかくなるまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鶏むね肉と豆のスープの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "keema",
+      "name": "キーマカレー",
+      "type": "洋食",
+      "time": 25,
+      "hot": true,
+      "kcal": 680,
+      "protein": 31,
+      "storage": "ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。",
+      "ingredients": [
+        [
+          "鶏ひき肉",
+          140,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "トマト",
+          1,
+          "個",
+          "野菜"
+        ],
+        [
+          "カレー粉",
+          12,
+          "g",
+          "調味料"
+        ],
+        [
+          "米",
+          100,
+          "g",
+          "主食"
+        ]
+      ],
+      "steps": [
+        "米を炊飯し、ほかの食材を食べやすく切る。",
+        "主な食材を調味料とともに十分に加熱する。",
+        "ごはんと合わせて盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "キーマカレーの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chicken_herb",
+      "name": "チキンのハーブ焼き",
+      "type": "洋食",
+      "time": 25,
+      "hot": false,
+      "kcal": 380,
+      "protein": 40,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          180,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "じゃがいも",
+          1,
+          "個",
+          "野菜"
+        ],
+        [
+          "オリーブオイル",
+          10,
+          "ml",
+          "調味料"
+        ],
+        [
+          "乾燥ハーブ",
+          2,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材（鶏むね肉など）に下味を付ける。",
+        "フライパンまたはグリルで焼く。",
+        "肉・魚は中心まで十分に火を通し、野菜と盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "チキンのハーブ焼きの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "risotto",
+      "name": "きのことチーズのリゾット",
+      "type": "洋食",
+      "time": 25,
+      "hot": false,
+      "kcal": 530,
+      "protein": 20,
+      "storage": "ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。",
+      "ingredients": [
+        [
+          "米",
+          100,
+          "g",
+          "主食"
+        ],
+        [
+          "しめじ",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "チーズ",
+          30,
+          "g",
+          "乳製品"
+        ],
+        [
+          "コンソメ",
+          5,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "米を炊飯し、ほかの食材を食べやすく切る。",
+        "主な食材を調味料とともに十分に加熱する。",
+        "ごはんと合わせて盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "きのことチーズのリゾットの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "pork_piccata",
+      "name": "豚肉のピカタ",
+      "type": "洋食",
+      "time": 20,
+      "hot": false,
+      "kcal": 460,
+      "protein": 35,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "豚ロース肉",
+          150,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "卵",
+          1,
+          "個",
+          "乳製品"
+        ],
+        [
+          "粉チーズ",
+          15,
+          "g",
+          "乳製品"
+        ],
+        [
+          "小麦粉",
+          10,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材（豚ロース肉など）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "豚肉のピカタの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "shrimp_garlic",
+      "name": "えびのガーリックソテー",
+      "type": "洋食",
+      "time": 15,
+      "hot": false,
+      "kcal": 300,
+      "protein": 31,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "むきえび",
+          180,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "にんにく",
+          2,
+          "片",
+          "野菜"
+        ],
+        [
+          "ブロッコリー",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "オリーブオイル",
+          10,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材（むきえびなど）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "えびのガーリックソテーの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "shakshuka",
+      "name": "トマトと卵の煮込み",
+      "type": "洋食",
+      "time": 25,
+      "hot": false,
+      "kcal": 330,
+      "protein": 19,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "卵",
+          2,
+          "個",
+          "乳製品"
+        ],
+        [
+          "トマト缶",
+          180,
+          "g",
+          "野菜"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "パプリカ",
+          0.5,
+          "個",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "主な食材（卵など）を食べやすい大きさに切る。",
+        "鍋で必要な食材を軽く炒め、少量の水と調味料を加える。",
+        "ふたをして中まで十分に火が通るまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "トマトと卵の煮込みの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "mapo_nasu",
+      "name": "麻婆なす",
+      "type": "中華",
+      "time": 20,
+      "hot": true,
+      "kcal": 420,
+      "protein": 25,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "なす",
+          2,
+          "本",
+          "野菜"
+        ],
+        [
+          "豚ひき肉",
+          100,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "豆板醤",
+          10,
+          "g",
+          "調味料"
+        ],
+        [
+          "みそ",
+          10,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "麻婆なすの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "ebichili",
+      "name": "エビチリ",
+      "type": "中華",
+      "time": 20,
+      "hot": true,
+      "kcal": 350,
+      "protein": 30,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "むきえび",
+          170,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "長ねぎ",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "ケチャップ",
+          30,
+          "g",
+          "調味料"
+        ],
+        [
+          "豆板醤",
+          8,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "エビチリの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chicken_cashew",
+      "name": "鶏肉とカシューナッツ炒め",
+      "type": "中華",
+      "time": 20,
+      "hot": false,
+      "kcal": 520,
+      "protein": 37,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏もも肉",
+          150,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "カシューナッツ",
+          35,
+          "g",
+          "調味料"
+        ],
+        [
+          "ピーマン",
+          2,
+          "個",
+          "野菜"
+        ],
+        [
+          "オイスターソース",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鶏肉とカシューナッツ炒めの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "hoikoro",
+      "name": "回鍋肉",
+      "type": "中華",
+      "time": 20,
+      "hot": true,
+      "kcal": 480,
+      "protein": 28,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "豚バラ肉",
+          130,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "キャベツ",
+          180,
+          "g",
+          "野菜"
+        ],
+        [
+          "ピーマン",
+          1,
+          "個",
+          "野菜"
+        ],
+        [
+          "甜麺醤",
+          15,
+          "g",
+          "調味料"
+        ],
+        [
+          "豆板醤",
+          8,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "回鍋肉の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "banbanji",
+      "name": "棒棒鶏",
+      "type": "中華",
+      "time": 25,
+      "hot": false,
+      "kcal": 320,
+      "protein": 38,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          160,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "きゅうり",
+          1,
+          "本",
+          "野菜"
+        ],
+        [
+          "ごまだれ",
+          30,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材を下処理し、必要に応じて薄切りにする。",
+        "蒸し器またはふた付きフライパンで蒸す。",
+        "肉・魚には十分火を通し、調味料を添える。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "棒棒鶏の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "gyoza",
+      "name": "焼き餃子",
+      "type": "中華",
+      "time": 35,
+      "hot": false,
+      "kcal": 540,
+      "protein": 26,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "餃子の皮",
+          12,
+          "枚",
+          "主食"
+        ],
+        [
+          "豚ひき肉",
+          120,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "キャベツ",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "ニラ",
+          0.3,
+          "束",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "食材（餃子の皮など）を下処理して食べやすく切る。",
+        "フライパンで火の通りにくい食材から炒める。",
+        "調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "焼き餃子の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chahan",
+      "name": "えびと卵のチャーハン",
+      "type": "中華",
+      "time": 18,
+      "hot": false,
+      "kcal": 630,
+      "protein": 30,
+      "storage": "ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。",
+      "ingredients": [
+        [
+          "米",
+          110,
+          "g",
+          "主食"
+        ],
+        [
+          "むきえび",
+          100,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "卵",
+          2,
+          "個",
+          "乳製品"
+        ],
+        [
+          "長ねぎ",
+          0.3,
+          "本",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "米を炊飯し、ほかの食材を食べやすく切る。",
+        "主な食材を調味料とともに十分に加熱する。",
+        "ごはんと合わせて盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "えびと卵のチャーハンの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "tantan",
+      "name": "豆乳担々麺",
+      "type": "中華",
+      "time": 25,
+      "hot": true,
+      "kcal": 710,
+      "protein": 35,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "中華麺",
+          1,
+          "玉",
+          "主食"
+        ],
+        [
+          "豚ひき肉",
+          100,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "豆乳",
+          180,
+          "ml",
+          "乳製品"
+        ],
+        [
+          "豆板醤",
+          8,
+          "g",
+          "調味料"
+        ],
+        [
+          "練りごま",
+          15,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "麺を袋の表示に従ってゆでる。",
+        "肉・野菜を必要に応じて十分に加熱し、調味料で味付けする。",
+        "麺と合わせて器に盛る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "豆乳担々麺の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "harusame",
+      "name": "鶏と春雨の中華スープ",
+      "type": "中華",
+      "time": 20,
+      "hot": false,
+      "kcal": 320,
+      "protein": 27,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          110,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "春雨",
+          35,
+          "g",
+          "主食"
+        ],
+        [
+          "白菜",
+          120,
+          "g",
+          "野菜"
+        ],
+        [
+          "鶏がらスープの素",
+          5,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材を食べやすい大きさに切る。",
+        "鍋で水と調味料を温め、食材を入れる。",
+        "中まで火が通り、野菜が柔らかくなるまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鶏と春雨の中華スープの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "blackpepper",
+      "name": "牛肉の黒胡椒炒め",
+      "type": "中華",
+      "time": 18,
+      "hot": true,
+      "kcal": 410,
+      "protein": 34,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "牛こま肉",
+          140,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "玉ねぎ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "パプリカ",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "黒胡椒",
+          3,
+          "g",
+          "調味料"
+        ],
+        [
+          "オイスターソース",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "牛肉の黒胡椒炒めの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chicken_lemon",
+      "name": "鶏肉のレモン炒め",
+      "type": "中華",
+      "time": 20,
+      "hot": false,
+      "kcal": 340,
+      "protein": 39,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          170,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "パプリカ",
+          1,
+          "個",
+          "野菜"
+        ],
+        [
+          "レモン",
+          0.5,
+          "個",
+          "野菜"
+        ],
+        [
+          "しょうゆ",
+          10,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鶏肉のレモン炒めの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "mapo_harusame",
+      "name": "麻婆春雨",
+      "type": "中華",
+      "time": 20,
+      "hot": true,
+      "kcal": 470,
+      "protein": 23,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "春雨",
+          65,
+          "g",
+          "主食"
+        ],
+        [
+          "豚ひき肉",
+          100,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "長ねぎ",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "豆板醤",
+          10,
+          "g",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "麻婆春雨の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "garlic_pork",
+      "name": "にんにく香る豚ニラ炒め",
+      "type": "中華",
+      "time": 15,
+      "hot": false,
+      "kcal": 430,
+      "protein": 32,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "豚こま肉",
+          140,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "ニラ",
+          1,
+          "束",
+          "野菜"
+        ],
+        [
+          "もやし",
+          150,
+          "g",
+          "野菜"
+        ],
+        [
+          "にんにく",
+          2,
+          "片",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "にんにく香る豚ニラ炒めの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "shumai",
+      "name": "簡単シュウマイ",
+      "type": "中華",
+      "time": 30,
+      "hot": false,
+      "kcal": 400,
+      "protein": 32,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "豚ひき肉",
+          150,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "シュウマイの皮",
+          8,
+          "枚",
+          "主食"
+        ],
+        [
+          "玉ねぎ",
+          0.3,
+          "個",
+          "野菜"
+        ],
+        [
+          "しょうが",
+          8,
+          "g",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "食材を下処理し、必要に応じて薄切りにする。",
+        "蒸し器またはふた付きフライパンで蒸す。",
+        "肉・魚には十分火を通し、調味料を添える。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "簡単シュウマイの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "spicy_chicken",
+      "name": "よだれ鶏",
+      "type": "中華",
+      "time": 25,
+      "hot": true,
+      "kcal": 360,
+      "protein": 40,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          170,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "きゅうり",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "ラー油",
+          10,
+          "ml",
+          "調味料"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "食材を下処理し、必要に応じて薄切りにする。",
+        "蒸し器またはふた付きフライパンで蒸す。",
+        "肉・魚には十分火を通し、調味料を添える。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "よだれ鶏の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "pork_egg",
+      "name": "豚肉と卵のオイスター炒め",
+      "type": "中華",
+      "time": 18,
+      "hot": false,
+      "kcal": 520,
+      "protein": 34,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "豚こま肉",
+          120,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "卵",
+          2,
+          "個",
+          "乳製品"
+        ],
+        [
+          "小松菜",
+          100,
+          "g",
+          "野菜"
+        ],
+        [
+          "オイスターソース",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "材料を切り、調味料を混ぜておく。",
+        "中火で肉や魚を先に炒めて十分に加熱する。",
+        "野菜を加えて手早く炒め、調味料で仕上げる。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "豚肉と卵のオイスター炒めの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chicken_rice",
+      "name": "海南鶏飯風チキンライス",
+      "type": "中華",
+      "time": 35,
+      "hot": false,
+      "kcal": 650,
+      "protein": 42,
+      "storage": "ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。",
+      "ingredients": [
+        [
+          "鶏もも肉",
+          180,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "米",
+          100,
+          "g",
+          "主食"
+        ],
+        [
+          "しょうが",
+          10,
+          "g",
+          "野菜"
+        ],
+        [
+          "きゅうり",
+          0.5,
+          "本",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "米を炊飯し、ほかの食材を食べやすく切る。",
+        "主な食材を調味料とともに十分に加熱する。",
+        "ごはんと合わせて盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "海南鶏飯風チキンライスの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "beef_tofu",
+      "name": "牛肉と厚揚げの甘辛煮",
+      "type": "和食",
+      "time": 25,
+      "hot": false,
+      "kcal": 450,
+      "protein": 35,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "牛こま肉",
+          120,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "厚揚げ",
+          150,
+          "g",
+          "豆腐"
+        ],
+        [
+          "長ねぎ",
+          0.5,
+          "本",
+          "野菜"
+        ],
+        [
+          "しょうゆ",
+          15,
+          "ml",
+          "調味料"
+        ]
+      ],
+      "steps": [
+        "主な食材（牛こま肉など）を食べやすい大きさに切る。",
+        "鍋で必要な食材を軽く炒め、少量の水と調味料を加える。",
+        "ふたをして中まで十分に火が通るまで煮る。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "牛肉と厚揚げの甘辛煮の盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    },
+    {
+      "id": "chicken_miso",
+      "name": "鶏むね肉の味噌マヨ焼き",
+      "type": "和食",
+      "time": 22,
+      "hot": false,
+      "kcal": 380,
+      "protein": 40,
+      "storage": "十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。",
+      "ingredients": [
+        [
+          "鶏むね肉",
+          170,
+          "g",
+          "肉・魚"
+        ],
+        [
+          "みそ",
+          15,
+          "g",
+          "調味料"
+        ],
+        [
+          "マヨネーズ",
+          15,
+          "g",
+          "調味料"
+        ],
+        [
+          "キャベツ",
+          100,
+          "g",
+          "野菜"
+        ]
+      ],
+      "steps": [
+        "食材（鶏むね肉など）に下味を付ける。",
+        "フライパンまたはグリルで焼く。",
+        "肉・魚は中心まで十分に火を通し、野菜と盛り付ける。"
+      ],
+      "baseServings": 1,
+      "nutrition": {
+        "status": "provisional",
+        "source": null,
+        "edition": null,
+        "foodCalculations": [],
+        "fat": null,
+        "carbohydrate": null,
+        "saltEquivalent": null
+      },
+      "image": {
+        "status": "pending",
+        "src": null,
+        "srcSmall": null,
+        "alt": "鶏むね肉の味噌マヨ焼きの盛り付けイメージ",
+        "source": null,
+        "rights": null,
+        "reviewedAt": null
+      }
+    }
+  ]
+}
