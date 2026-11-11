@@ -280,20 +280,22 @@ function greedyPlan(anchor, c) {
 }
 
 /**
- * Replaces only the dish of one day; other days stay as they are.
- * The anchor's own day cannot be swapped here (change it in Step 2).
- * Swapping the second day of a make-ahead dish splits it into two cookings.
+ * Alternatives for one day, best first, each with the resulting plan.
+ * Only that day changes. The anchor's own day cannot be swapped here
+ * (change it in Step 2). Swapping the second day of a make-ahead dish splits
+ * it into two cookings. Returns { ok, options: [{ recipe, cooks }], message }.
  */
-export function swapDay(cooks, dayIndex, ctx, seed = 1) {
+export function swapCandidates(cooks, dayIndex, ctx, limit = 6) {
   const days = expandDays(cooks);
   const day = days[dayIndex];
-  if (!day) return { ok: false, message: "その日の献立が見つかりません。" };
+  if (!day) return { ok: false, options: [], message: "その日の献立が見つかりません。" };
   if (day.cookIndex === 0 && !day.fromMakeAhead)
     return {
       ok: false,
-      message: "最初に選んだ料理は固定しています。変更する場合は「2. 食べたい料理」で選び直してください。",
+      options: [],
+      message: "最初に選んだ料理は固定しています。変更する場合は、上の「食べたい料理」で選び直してください。",
     };
-  let base = cooks.map((c) => ({ ...c }));
+  const base = cooks.map((c) => ({ ...c }));
   let target = day.cookIndex;
   if (day.fromMakeAhead) {
     base[target].servings -= 1;
@@ -301,22 +303,29 @@ export function swapDay(cooks, dayIndex, ctx, seed = 1) {
     target += 1;
   }
   const current = cooks[day.cookIndex].recipeId;
-  const pool = candidatePool(ctx).filter((r) => r.id !== current);
   const scored = [];
-  for (const r of pool) {
+  for (const r of candidatePool(ctx)) {
+    if (r.id === current) continue;
     const next = base.map((c) => ({ ...c }));
     next[target].recipeId = r.id;
     if (feasibility(next, ctx).length) continue;
-    scored.push({ cooks: next, score: scorePlan(next, ctx) });
+    scored.push({ recipe: r, cooks: next, score: scorePlan(next, ctx) });
   }
   if (!scored.length)
     return {
       ok: false,
+      options: [],
       message: "条件内で交換できる別の料理がありません。条件を見直すか、献立全体を作り直してください。",
     };
   scored.sort((a, b) => a.score - b.score);
-  const top = scored.slice(0, 3);
-  const pick = top[Math.floor(seededRandom(seed)() * top.length)];
+  return { ok: true, options: scored.slice(0, limit) };
+}
+
+/** Picks one of the three best alternatives for a day (used by tests / quick swap). */
+export function swapDay(cooks, dayIndex, ctx, seed = 1) {
+  const result = swapCandidates(cooks, dayIndex, ctx, 3);
+  if (!result.ok) return { ok: false, message: result.message };
+  const pick = result.options[Math.floor(seededRandom(seed)() * result.options.length)];
   return { ok: true, cooks: pick.cooks };
 }
 

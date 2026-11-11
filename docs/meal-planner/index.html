@@ -52,8 +52,6 @@
       </section>
       <nav class="tabs" aria-label="画面切り替え">
         <button class="tab active" data-tab="usekiri">🧺 使い切り計画</button
-        ><button class="tab" data-tab="plan">🍽 おまかせ献立</button
-        ><button class="tab" data-tab="shop">🛒 買い物</button
         ><button class="tab" data-tab="recipes">📖 レシピ</button>
       </nav>
       <details class="notice">
@@ -72,8 +70,8 @@
             </div>
             <span class="muted small">1人分・夕食の主菜</span>
           </div>
-          <ol class="uk-steps">
-            <li>
+          <div class="uk-steps">
+            <div class="uk-step">
               <h3>1. 条件</h3>
               <div class="settings uk-conditions">
                 <label
@@ -111,20 +109,17 @@
                   </select></label
                 >
               </div>
-            </li>
-            <li>
-              <h3>2. 食べたい料理</h3>
-              <p id="ukAnchor" class="uk-anchor">まだ選んでいません。</p>
-              <input
-                id="ukDishSearch"
-                class="search"
-                type="search"
-                placeholder="料理名・食材で探す（例：鶏 照り焼き）"
-                aria-label="食べたい料理を検索"
-              />
-              <div id="ukDishList" class="uk-dish-list"></div>
-            </li>
-            <li>
+            </div>
+            <div class="uk-step">
+              <h3>2. 食べたい料理を写真から選ぶ</h3>
+              <p class="small muted">写真はAI生成の盛り付けイメージです。写真がまだない料理は準備中の表示になります。</p>
+              <div id="ukAnchor" class="uk-anchor" hidden></div>
+              <div id="ukDishGrid" class="uk-dish-grid"></div>
+              <button id="ukMoreDishes" class="btn ghost uk-more" type="button" hidden>
+                もっと見る
+              </button>
+            </div>
+            <div class="uk-step">
               <h3>3. 自宅にある食材（名前だけでOK）</h3>
               <div class="uk-pantry-add">
                 <input
@@ -140,12 +135,13 @@
               <p class="small muted">
                 量は入力しなくて大丈夫です。量がわからないため「家にあるから買わなくてよい」とは判断せず、必要な量を買い物リストで確認してもらいます。
               </p>
-            </li>
-          </ol>
+            </div>
+          </div>
           <div class="actions uk-main-actions">
-            <button id="ukMakePlan" class="btn" type="button">仮の献立をつくる</button
+            <button id="ukMakePlan" class="btn" type="button" disabled>仮の献立をつくる</button
             ><button id="ukAi" class="btn ghost" type="button">AIに新しい料理案をきく</button>
           </div>
+          <p id="ukMakeHint" class="small muted">先に、食べたい料理の写真を1つ選んでください。</p>
           <p id="ukMessage" class="info" role="status" aria-live="polite"></p>
           <p id="ukAiMessage" class="small muted" role="status" aria-live="polite"></p>
           <ul id="ukAiRejected" class="small muted"></ul>
@@ -182,89 +178,6 @@
         <div class="card" id="ukLeftCard">
           <h2>7. 残る食材の確認</h2>
           <div id="ukLeftovers"></div>
-        </div>
-      </section>
-      <section id="page-plan" class="hidden">
-        <div class="card">
-          <div class="sectionhead">
-            <div>
-              <p class="eyebrow">PLAN YOUR TABLE</p>
-              <h2>献立をつくる</h2>
-            </div>
-            <span class="muted small">今日からの夕食</span>
-          </div>
-          <div class="settings">
-            <label
-              >日数<select id="days">
-                <option value="3">3日間</option>
-                <option value="7" selected>7日間</option>
-              </select></label
-            ><label
-              >人数<select id="servings">
-                <option value="1" selected>1人</option>
-                <option value="2">2人</option>
-                <option value="3">3人</option>
-                <option value="4">4人</option>
-              </select></label
-            ><label
-              >ジャンル<select id="cuisine">
-                <option value="all">おまかせ</option>
-                <option value="和食">和食</option>
-                <option value="中華">中華</option>
-                <option value="洋食">洋食</option>
-              </select></label
-            ><label
-              >辛さ<select id="spicy">
-                <option value="all">指定なし</option>
-                <option value="mild">辛くない料理</option>
-                <option value="hot">辛い料理を優先</option>
-              </select></label
-            ><label
-              >カロリー / 1食<select id="calorie">
-                <option value="all">指定なし</option>
-                <option value="low">400kcal未満</option>
-                <option value="middle">400〜599kcal</option>
-                <option value="high">600kcal以上</option>
-              </select></label
-            ><label
-              >たんぱく質 / 1食<select id="protein">
-                <option value="all">指定なし</option>
-                <option value="low">25g未満</option>
-                <option value="middle">25〜34g</option>
-                <option value="high">35g以上</option>
-              </select></label
-            ><button class="btn" id="generate">献立を提案</button>
-          </div>
-          <p id="filterMessage" class="info" role="status">
-            カロリー・たんぱく質は1人分の暫定的な概算値です。主食や副菜の追加分は含まない場合があります。
-          </p>
-          <p class="muted small">
-            変更した献立と買い物チェックはこの端末のブラウザに保存されます。
-          </p>
-        </div>
-        <div class="card">
-          <div class="sectionhead">
-            <h2>今週の夕食</h2>
-            <button id="clearPlan" class="btn ghost">献立を初期化</button>
-          </div>
-          <div class="stats" id="planStats"></div>
-          <div id="planGrid" class="grid"></div>
-        </div>
-      </section>
-      <section id="page-shop" class="hidden">
-        <div class="card">
-          <div class="sectionhead">
-            <h2>買い物リスト</h2>
-            <div class="actions">
-              <button id="copyShop" class="btn secondary">リストをコピー</button
-              ><button id="resetChecks" class="btn ghost">チェック解除</button>
-            </div>
-          </div>
-          <p class="muted small">
-            同じ食材は合算します。調味料も含まれます。すでに家にある食材はチェックして整理できます。
-          </p>
-          <div id="shopStats" class="stats"></div>
-          <div id="shopping"></div>
         </div>
       </section>
       <section id="page-recipes" class="hidden">

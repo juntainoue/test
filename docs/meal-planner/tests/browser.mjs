@@ -54,11 +54,15 @@ const check = (value, message) => {
   assert.ok(value, message);
   checks++;
 };
-// The use-up planner is the first tab; the older plan lives under "おまかせ献立".
+// The app opens on the use-up planner; dish photos appear once data loads.
 const openPlanTab = async (page) => {
-  await page.locator("#planGrid .meal").first().waitFor({ state: "attached" });
-  await page.click("[data-tab=plan]");
-  await page.locator("#planGrid .meal").first().waitFor();
+  await page.locator(".uk-dish-card").first().waitFor();
+};
+const pickDish = async (page, name) => {
+  const card = page.locator("#ukDishGrid .uk-dish-card", { hasText: name });
+  if (!(await card.count()) && (await page.locator("#ukMoreDishes").isVisible()))
+    await page.click("#ukMoreDishes");
+  await card.first().click();
 };
 try {
   const context = await browser.newContext({
@@ -70,154 +74,8 @@ try {
   await page.goto(url);
   await openPlanTab(page);
   check(
-    (await page.locator("#planGrid .meal").count()) === 7,
-    "initial seven days",
-  );
-  const original = await page.locator("#planGrid h3").allTextContents();
-  await page
-    .locator("#planGrid .meal")
-    .first()
-    .getByRole("button", { name: "別の料理に" })
-    .click();
-  check(
-    (await page.locator("#planGrid h3").first().textContent()) !== original[0],
-    "swap changes day",
-  );
-  for (const calorie of ["all", "low", "middle", "high"])
-    for (const protein of ["all", "low", "middle", "high"]) {
-      const previous = await page.locator("#planGrid h3").allTextContents();
-      await page.selectOption("#calorie", calorie);
-      await page.selectOption("#protein", protein);
-      await page.click("#generate");
-      const match = catalog.filter(
-        (r) =>
-          (calorie === "all" ||
-            (calorie === "low"
-              ? r.kcal < 400
-              : calorie === "middle"
-                ? r.kcal >= 400 && r.kcal < 600
-                : r.kcal >= 600)) &&
-          (protein === "all" ||
-            (protein === "low"
-              ? r.protein < 25
-              : protein === "middle"
-                ? r.protein >= 25 && r.protein < 35
-                : r.protein >= 35)),
-      );
-      const names = await page.locator("#planGrid h3").allTextContents();
-      if (match.length) {
-        check(
-          names.length === 7 &&
-            names.every((n) => match.some((r) => r.name === n)),
-          `UI filters ${calorie}/${protein}`,
-        );
-      } else {
-        check(
-          (await page.locator("#filterMessage").textContent()).includes(
-            "一致する料理がありません",
-          ),
-          "no match visible",
-        );
-        assert.deepEqual(names, previous);
-        checks++;
-      }
-    }
-  await page.selectOption("#calorie", "all");
-  await page.selectOption("#protein", "all");
-  await page.selectOption("#cuisine", "中華");
-  await page.selectOption("#spicy", "mild");
-  await page.click("#generate");
-  check(
-    (await page.locator("#planGrid h3").allTextContents()).every(
-      (n) => byName.get(n).type === "中華" && !byName.get(n).hot,
-    ),
-    "cuisine and mild",
-  );
-  await page.selectOption("#cuisine", "all");
-  await page.selectOption("#spicy", "all");
-  await page.selectOption("#days", "3");
-  await page.click("#generate");
-  check((await page.locator("#planGrid .meal").count()) === 3, "three days");
-  for (const servings of ["1", "2", "3", "4"]) {
-    await page.selectOption("#servings", servings);
-    const names = await page.locator("#planGrid h3").allTextContents();
-    const first = byName.get(names[0]);
-    await page
-      .locator("#planGrid .meal")
-      .first()
-      .getByRole("button", { name: "レシピを見る" })
-      .click();
-    check(
-      (await page.locator("#detailServings").textContent()) === servings,
-      "detail servings",
-    );
-    const [name, amount, unit] = first.ingredients[0];
-    check(
-      (
-        await page.locator("#detailIngredients li").first().textContent()
-      ).includes(
-        `${name}： ${(Math.round(amount * Number(servings) * 100) / 100).toLocaleString("ja-JP", { maximumFractionDigits: 2 })}${unit}`,
-      ),
-      "scaled detail ingredients",
-    );
-    const steps = await page.locator("#detailSteps li").allTextContents();
-    check(
-      steps.length === first.steps.length &&
-        steps.every((t, i) => t === formatStep(first.steps[i], Number(servings))),
-      "scaled detail steps",
-    );
-    check(
-      (await page.locator("#detailCheck").textContent()).includes(
-        "試作による検証は未実施",
-      ),
-      "recipe check status shown",
-    );
-    await page.click("#closeDetail");
-    await page.click("[data-tab=shop]");
-    const expected = new Map();
-    for (const n of names)
-      for (const [name, a, u] of byName.get(n).ingredients) {
-        const k = name + "|" + u;
-        expected.set(k, (expected.get(k) || 0) + a * Number(servings));
-      }
-    const rows = await page.locator(".shopping-row").all();
-    check(rows.length === expected.size, "combined shopping count");
-    for (const row of rows) {
-      const item = await row.locator(".item").textContent();
-      const quantity = await row.locator(".qty").textContent();
-      check(
-        [...expected].some(
-          ([k, a]) =>
-            k.split("|")[0] === item &&
-            quantity ===
-              (Math.round(a * 100) / 100).toLocaleString("ja-JP", {
-                maximumFractionDigits: 2,
-              }) +
-                k.split("|")[1],
-        ),
-        "combined quantity",
-      );
-    }
-    await page.click("[data-tab=plan]");
-  }
-  await page.click("[data-tab=shop]");
-  await page.locator(".shopping-row input").first().check();
-  await page.reload();
-  await openPlanTab(page);
-  await page.click("[data-tab=shop]");
-  check(
-    await page.locator(".shopping-row input").first().isChecked(),
-    "persist shopping",
-  );
-  await page.click("#copyShop");
-  check(
-    (await page.evaluate(() => navigator.clipboard.readText())).includes("【"),
-    "copy shopping list",
-  );
-  await page.click("#resetChecks");
-  check(
-    (await page.locator(".shopping-row.done").count()) === 0,
-    "reset checks",
+    (await page.locator("[data-tab]").count()) === 2,
+    "only planner and recipe tabs remain",
   );
   await page.click("[data-tab=recipes]");
   check(
@@ -281,10 +139,6 @@ try {
     path: resolve(root, "test-results/mobile.png"),
     fullPage: false,
   });
-  await page.click("[data-tab=plan]");
-  page.once("dialog", (dialog) => dialog.accept());
-  await page.click("#clearPlan");
-  check((await page.locator("#planGrid .meal").count()) === 0, "clear plan");
   // Browse filters are independent of meal-plan settings and favorites survive reload.
   await page.click("[data-tab=recipes]");
   await page.click("#resetRecipeFilters");
@@ -335,7 +189,6 @@ try {
     "remove favorite updates filtered results",
   );
   await page.click("#resetRecipeFilters");
-  const planBefore = await page.locator("#planGrid h3").allTextContents();
   await page.selectOption("#recipeCuisine", "和食");
   await page.selectOption("#recipeTime", "20");
   const filtered = await page.locator("#recipeGrid h3").allTextContents();
@@ -360,11 +213,6 @@ try {
     times.every((time, i) => i === 0 || times[i - 1] <= time),
     "catalog time sort",
   );
-  assert.deepEqual(
-    await page.locator("#planGrid h3").allTextContents(),
-    planBefore,
-  );
-  checks++;
   await page.click("#resetRecipeFilters");
   check(
     (await page.locator("#recipeGrid .recipe").count()) === 60,
@@ -397,13 +245,21 @@ try {
     await page.click("[data-tab=usekiri]");
     const v1Before = await page.evaluate(() => localStorage.getItem("gohan-keikaku-v1"));
     check(await page.locator("#ukPlanCard").isHidden(), "planner: no plan before start");
-    await page.click("#ukMakePlan");
     check(
-      (await page.locator("#ukMessage").textContent()).includes("食べたい料理"),
-      "planner: a wanted dish is required first",
+      (await page.locator("#ukMakePlan").isDisabled()) &&
+        (await page.locator("#ukMakeHint").isVisible()),
+      "planner: plan button waits for a dish photo to be chosen",
     );
-    await page.fill("#ukDishSearch", "照り焼き");
-    await page.locator("#ukDishList button", { hasText: "鶏の照り焼き" }).click();
+    check(
+      (await page.locator("#ukDishGrid .uk-dish-card img").count()) >= 12,
+      "planner: dishes are shown as photo cards",
+    );
+    await pickDish(page, "鶏の照り焼き");
+    check(
+      !(await page.locator("#ukMakePlan").isDisabled()) &&
+        (await page.locator('#ukDishGrid .uk-dish-card[aria-pressed="true"]').textContent()).includes("鶏の照り焼き"),
+      "planner: chosen photo is marked and the button is enabled",
+    );
     check(
       (await page.locator("#ukAnchor").textContent()).includes("鶏の照り焼き"),
       "planner: wanted dish selected",
@@ -487,6 +343,11 @@ try {
     const beforeSwap = await dayNames();
     const neededBefore = await page.locator('.uk-item[data-key="鶏もも肉|g"] .uk-item-name span').textContent();
     await page.locator("#ukPlan .uk-day").nth(1).getByRole("button", { name: "この日だけ交換" }).click();
+    check(
+      (await page.locator("#ukPlan .uk-swap .uk-dish-card img").count()) >= 2,
+      "planner: swap shows photo choices",
+    );
+    await page.locator("#ukPlan .uk-swap .uk-dish-card").first().click();
     const afterSwap = await dayNames();
     check(
       afterSwap[1] !== beforeSwap[1] && afterSwap.filter((_, i) => i !== 1).join() === beforeSwap.filter((_, i) => i !== 1).join(),
@@ -499,10 +360,9 @@ try {
         (await page.locator('.uk-item[data-key="鶏もも肉|g"] .uk-item-name span').textContent()) !== neededBefore,
         "planner: swap recalculates quantities",
       );
-    await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "この日だけ交換" }).click();
     check(
-      (await page.locator("#ukMessage").textContent()).includes("固定"),
-      "planner: chosen dish is fixed when swapping",
+      (await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "この日だけ交換" }).count()) === 0,
+      "planner: chosen dish is fixed (no swap button on day 1)",
     );
     await page.click("#ukRegenerate");
     check((await dayNames())[0] === "鶏の照り焼き", "planner: regenerate keeps chosen dish");
@@ -558,6 +418,14 @@ try {
       if (text.includes("2日分まとめて作る")) {
         const name = await days7.nth(i).locator("strong").textContent();
         check(canMakeAhead(byName.get(name)), `planner: make-ahead allowed for ${name}`);
+        await days7.nth(i).getByRole("button", { name: "レシピ" }).click();
+        const steps = await page.locator("#detailSteps li").allTextContents();
+        check(
+          (await page.locator("#detailServings").textContent()) === "2" &&
+            steps.every((t, k) => t === formatStep(byName.get(name).steps[k], 2)),
+          "planner: make-ahead recipe shows 2 servings with scaled water",
+        );
+        await page.click("#closeDetail");
         check(
           (await days7.nth(i + 1).textContent()).includes("前日の作り置き"),
           "planner: next day eats the made-ahead dish",
@@ -640,8 +508,7 @@ try {
       (await page.locator("#ukAiRejected").textContent()).includes("生焼けチキン"),
       "planner: unsafe AI recipe rejected with reason",
     );
-    await page.fill("#ukDishSearch", "レモン蒸し");
-    await page.locator("#ukDishList button", { hasText: "レモン蒸し" }).click();
+    await pickDish(page, "レモン蒸し");
     await page.click("#ukMakePlan");
     await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "レシピ" }).click();
     check(
@@ -661,53 +528,33 @@ try {
     await page.unroute("**/data/ai-config.json");
     await page.unroute("**/mock-ai");
   }
-  // Corrupt local storage recovers; existing v1 plans and IDs remain usable.
-  await page.evaluate(() => localStorage.setItem("gohan-keikaku-v1", "{bad"));
-  await page.reload();
-  await openPlanTab(page);
-  check(
-    (await page.locator("#planGrid .meal").count()) === 7,
-    "corrupt storage recovery",
-  );
-  await page.evaluate(() =>
+  // Damaged planner data recovers; the old v1 plan data is kept untouched.
+  await page.evaluate(() => {
+    localStorage.setItem("gohan-keikaku-usekiri-v1", "{bad");
     localStorage.setItem(
       "gohan-keikaku-v1",
-      JSON.stringify({
-        days: 3,
-        servings: 2,
-        plan: ["mapo", "ginger", "chicken"],
-        checked: { "豆腐|g": true },
-        cuisine: "all",
-        spicy: "all",
-        calorie: "all",
-        protein: "all",
-      }),
-    ),
-  );
+      JSON.stringify({ days: 3, servings: 2, plan: ["mapo", "ginger", "chicken"], checked: {} }),
+    );
+  });
   await page.reload();
   await openPlanTab(page);
-  assert.deepEqual(await page.locator("#planGrid h3").allTextContents(), [
-    "四川風麻婆豆腐",
-    "豚の生姜焼き",
-    "鶏の照り焼き",
-  ]);
-  checks++;
   check(
-    (await page.locator("#servings").inputValue()) === "2",
-    "v1 settings retained",
+    (await page.locator("#ukPlan .uk-day").count()) === 0 &&
+      (await page.locator("#ukMakePlan").isDisabled()),
+    "damaged planner data starts fresh",
+  );
+  check(
+    await page.evaluate(
+      () => JSON.parse(localStorage.getItem("gohan-keikaku-v1")).plan[0] === "mapo",
+    ),
+    "old v1 plan data is not deleted",
   );
   await page.route("**/data/recipes.json", (route) =>
     route.fulfill({ status: 503, body: "unavailable" }),
   );
   await page.reload();
   await page.waitForFunction(
-    () => document.querySelector("#generate").disabled,
-  );
-  check(
-    (await page.locator("#filterMessage").textContent()).includes(
-      "読み込めませんでした",
-    ),
-    "catalog failure visible",
+    () => document.querySelector("#ukMakePlan").disabled && document.querySelector("#recipeSearch").disabled,
   );
   check(
     (await page.locator("#ukMessage").textContent()).includes(
