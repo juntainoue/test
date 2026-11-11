@@ -120,3 +120,40 @@ test("representative 20 photos have a rights record and fit image budgets", () =
     }
   }
 });
+
+test("catalog browsing combines words, cuisine, time and favorites without mutating recipes", async () => {
+  const { searchRecipes } = await import("../js/catalog.js");
+  const before = data.recipes.map((r) => r.id);
+  const result = searchRecipes(
+    data.recipes,
+    {
+      query: "鶏　玉ねぎ",
+      cuisine: "和食",
+      maxTime: "20",
+      favoritesOnly: true,
+    },
+    new Set(["oyako", "ginger", "chicken"]),
+  );
+  assert.deepEqual(
+    result.map((r) => r.id),
+    ["oyako"],
+  );
+  assert.deepEqual(searchRecipes(data.recipes, { query: "not-a-recipe" }), []);
+  assert.equal(
+    searchRecipes(data.recipes, { favoritesOnly: true }, new Set()).length,
+    0,
+  );
+  for (const sort of ["time", "protein"]) {
+    const sorted = searchRecipes(data.recipes, { sort });
+    for (let i = 1; i < sorted.length; i++)
+      assert.ok(
+        sort === "time"
+          ? sorted[i - 1].time <= sorted[i].time
+          : sorted[i - 1].protein >= sorted[i].protein,
+      );
+  }
+  assert.deepEqual(
+    data.recipes.map((r) => r.id),
+    before,
+  );
+});

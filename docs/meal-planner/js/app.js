@@ -1,4 +1,4 @@
-import { filterRecipes, validateCatalog } from "./catalog.js";
+import { filterRecipes, validateCatalog, searchRecipes } from "./catalog.js";
 import { dishImage } from "./images.js";
 
 async function start() {
@@ -10,6 +10,15 @@ async function start() {
   const byId = new Map(recipes.map((r) => [r.id, r]));
   const key = "gohan-keikaku-v1";
   const $ = (id) => document.getElementById(id);
+  const favoritesKey = "gohan-keikaku-favorites-v1";
+  let favorites = new Set();
+  try {
+    const stored = JSON.parse(localStorage.getItem(favoritesKey));
+    if (Array.isArray(stored))
+      favorites = new Set(stored.filter((id) => byId.has(id)));
+  } catch {
+    /* A damaged favorites list must not block meal plans. */
+  }
   let state = {
     days: 7,
     servings: 1,
@@ -267,15 +276,51 @@ async function start() {
     }
   }
   function renderRecipes() {
-    let q = $("recipeSearch").value.trim().toLocaleLowerCase("ja");
-    let root = $("recipeGrid");
+    const root = $("recipeGrid");
+    const matches = searchRecipes(
+      recipes,
+      {
+        query: $("recipeSearch").value,
+        cuisine: $("recipeCuisine").value,
+        maxTime: $("recipeTime").value,
+        sort: $("recipeSort").value,
+        favoritesOnly: $("favoritesOnly").checked,
+      },
+      favorites,
+    );
     root.replaceChildren();
-    for (const r of recipes.filter((r) =>
-      (r.name + " " + r.type + " " + r.ingredients.map((x) => x[0]).join(" "))
-        .toLocaleLowerCase("ja")
-        .includes(q),
-    )) {
-      let box = el("article", undefined, "recipe");
+    $("recipeResults").textContent =
+      `${matches.length}品のレシピ${$("favoritesOnly").checked ? " · お気に入り" : ""}`;
+    for (const r of matches) {
+      const box = el("article", undefined, "recipe");
+      const favorite = makeBtn(
+        favorites.has(r.id) ? "♥ 保存済み" : "♡ お気に入り",
+        () => {
+          if (favorites.has(r.id)) favorites.delete(r.id);
+          else favorites.add(r.id);
+          try {
+            localStorage.setItem(favoritesKey, JSON.stringify([...favorites]));
+            $("favoriteMessage").textContent =
+              "お気に入りはこのブラウザに保存されます。";
+          } catch {
+            $("favoriteMessage").textContent =
+              "このブラウザに保存できませんでした。今回の画面内でのみ保持されます。";
+          }
+          renderRecipes();
+        },
+        "favorite-button",
+      );
+      favorite.setAttribute("aria-pressed", String(favorites.has(r.id)));
+      favorite.setAttribute(
+        "aria-label",
+        r.name +
+          (favorites.has(r.id) ? "をお気に入りから解除" : "をお気に入りに保存"),
+      );
+      const actions = el("div", undefined, "recipe-actions");
+      actions.append(
+        makeBtn("材料と作り方", () => detail(r), "secondary"),
+        favorite,
+      );
       box.append(
         dishImage(r),
         el(
@@ -293,12 +338,20 @@ async function start() {
             .join("・"),
           "muted small",
         ),
-        makeBtn("材料と作り方", () => detail(r), "secondary"),
+        actions,
       );
       root.append(box);
     }
-    if (!root.children.length)
-      root.append(el("div", "該当するレシピがありません。", "empty"));
+    if (!matches.length)
+      root.append(
+        el(
+          "div",
+          $("favoritesOnly").checked && !favorites.size
+            ? "お気に入りはまだありません。料理カードの「♡ お気に入り」から保存できます。"
+            : "該当するレシピがありません。検索語や条件を変えてみてください。",
+          "empty",
+        ),
+      );
   }
   function detail(r) {
     $("detailImage").replaceChildren(dishImage(r));
@@ -329,6 +382,9 @@ async function start() {
     renderRecipes();
   }
   function selectTab(tab) {
+    document
+      .querySelector(".tabs")
+      .scrollIntoView({ block: "start", behavior: "instant" });
     for (const v of ["plan", "shop", "recipes"])
       $("page-" + v).classList.toggle("hidden", v !== tab);
     document.querySelectorAll("[data-tab]").forEach((b) => {
@@ -400,6 +456,24 @@ async function start() {
     }
   });
   $("recipeSearch").addEventListener("input", renderRecipes);
+  for (const id of [
+    "recipeCuisine",
+    "recipeTime",
+    "recipeSort",
+    "favoritesOnly",
+  ])
+    $(id).addEventListener("change", renderRecipes);
+  $("resetRecipeFilters").addEventListener("click", () => {
+    $("recipeSearch").value = "";
+    $("recipeCuisine").value = "all";
+    $("recipeTime").value = "all";
+    $("recipeSort").value = "default";
+    $("favoritesOnly").checked = false;
+    renderRecipes();
+  });
+  document
+    .querySelector(".hero-link")
+    .addEventListener("click", () => selectTab("plan"));
   $("resetChecks").addEventListener("click", () => {
     state.checked = {};
     save();

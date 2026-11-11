@@ -89,3 +89,42 @@ export function isLocalImage(path) {
     /^assets\/images\/[a-z0-9_-]+(?:-320)?\.webp$/.test(path)
   );
 }
+
+/** Independent catalog browsing; does not modify meal-plan conditions. */
+export function searchRecipes(
+  recipes,
+  {
+    query = "",
+    cuisine = "all",
+    maxTime = "all",
+    sort = "default",
+    favoritesOnly = false,
+  },
+  favorites = new Set(),
+) {
+  const words = query
+    .normalize("NFKC")
+    .toLocaleLowerCase("ja")
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean);
+  const matches = recipes.filter((recipe) => {
+    const text = [
+      recipe.name,
+      recipe.type,
+      ...recipe.ingredients.map((i) => i[0]),
+    ]
+      .join(" ")
+      .normalize("NFKC")
+      .toLocaleLowerCase("ja");
+    return (
+      words.every((word) => text.includes(word)) &&
+      (cuisine === "all" || recipe.type === cuisine) &&
+      (maxTime === "all" || recipe.time <= Number(maxTime)) &&
+      (!favoritesOnly || favorites.has(recipe.id))
+    );
+  });
+  if (sort === "time") matches.sort((a, b) => a.time - b.time);
+  if (sort === "protein") matches.sort((a, b) => b.protein - a.protein);
+  return matches;
+}
