@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ABC・0カウント分析ツール</title>
+<style>
+:root{font-family:system-ui,-apple-system,"Yu Gothic",Meiryo,sans-serif;color:#192535;background:#f5f7fb}
+*{box-sizing:border-box}body{max-width:1100px;margin:32px auto;padding:0 16px}h1{margin:0 0 8px}p{line-height:1.6}.muted{color:#607086}.card{background:white;border:1px solid #dce3ee;border-radius:14px;padding:20px;margin:16px 0;box-shadow:0 2px 7px #172b4d08}button,.file{display:inline-block;padding:10px 16px;margin:5px 8px 5px 0;border:0;border-radius:9px;background:#205ec9;color:white;cursor:pointer;font:inherit}button.secondary{background:#e8effb;color:#1c4b91}input[type=file]{max-width:100%}textarea{width:100%;min-height:125px;border:1px solid #cbd6e6;border-radius:8px;padding:10px;font:13px ui-monospace,monospace}select{padding:9px;border:1px solid #cbd6e6;border-radius:7px;max-width:100%}.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}.stat{padding:15px;background:#eef4ff;border-radius:10px}.stat strong{display:block;font-size:29px}table{border-collapse:collapse;width:100%;font-size:14px}th,td{padding:10px;border-bottom:1px solid #e5eaf3;text-align:left}th{background:#f1f4f9}th[scope=col]{white-space:nowrap}.scroll{overflow:auto}.error{color:#a42323}.note{font-size:13px}
+</style></head><body><h1>ABC・0カウント分析</h1><p class="muted">ブラウザだけで動作する試作品です。CSVデータはサーバーへ送信しません。</p>
+<section class="card"><h2>1. データを読み込む</h2><p>必須列：<b>店舗,JAN,商品名,売上,在庫</b>（この順番）。在庫が0の行を0カウントとします。JANは文字列扱いです。</p><input id="file" type="file" accept=".csv,text/csv"><button id="sample" class="secondary">架空データを表示</button><textarea id="csv" spellcheck="false" aria-label="CSVデータ"></textarea><button id="analyze">集計する</button><p id="message" role="status"></p></section>
+<section class="card"><h2>2. 集計結果</h2><div id="stats" class="stats"></div><p><label for="store">店舗別表示：</label> <select id="store"><option value="">全店舗</option></select></p><div class="scroll"><table><thead><tr><th scope="col">JAN</th><th scope="col">商品名</th><th scope="col">ABC</th><th scope="col">売上合計</th><th scope="col">0カウント店舗数</th><th scope="col">対象店舗の0カウント</th></tr></thead><tbody id="body"></tbody></table></div><button id="export" class="secondary" disabled>結果をCSV保存</button></section>
+<p class="note muted">ABC区分は全店舗のJAN別売上を降順に並べ、累計売上構成比が75%以下をA、95%以下をB、残りをCとします。閾値をまたぐ商品は上位区分に含めます。※サンプルであり、正式な社内基準との照合が必要です。</p>
+<script>
+"use strict";
+const sample=`店舗,JAN,商品名,売上,在庫
+架空店A,000001,おにぎり鮭,12000,0
+架空店B,000001,おにぎり鮭,14000,2
+架空店C,000001,おにぎり鮭,10000,0
+架空店A,000002,牛乳,8000,1
+架空店B,000002,牛乳,9000,0
+架空店C,000002,牛乳,8000,1
+架空店A,000003,サラダ,4000,0
+架空店B,000003,サラダ,5000,0
+架空店C,000003,サラダ,3000,3
+架空店A,000004,パン,3000,1
+架空店B,000004,パン,3000,1
+架空店C,000004,パン,3000,0
+架空店A,000005,プリン,1000,0
+架空店B,000005,プリン,2000,1
+架空店C,000005,プリン,1000,1`;
+const $=id=>document.getElementById(id);let results=[],stores=[];
+function parseCsv(raw){let rows=[],row=[],field="",quoted=false;raw=raw.replace(/^\uFEFF/,"");for(let i=0;i<raw.length;i++){let c=raw[i];if(quoted){if(c==='"'&&raw[i+1]==='"'){field+='"';i++}else if(c==='"')quoted=false;else field+=c}else if(c==='"')quoted=true;else if(c===','){row.push(field);field=""}else if(c==='\n'){row.push(field.replace(/\r$/,""));if(row.some(x=>x.trim()))rows.push(row);row=[];field=""}else field+=c}if(quoted)throw Error("CSVの引用符が閉じられていません");row.push(field.replace(/\r$/,""));if(row.some(x=>x.trim()))rows.push(row);return rows}
+function escapeCsv(x){let s=String(x);return /[",\r\n]/.test(s)?'"'+s.replace(/"/g,'""')+'"':s}
+function analyze(){try{const rows=parseCsv($("csv").value);if(rows.length<2)throw Error("ヘッダーとデータ行が必要です");let head=rows.shift().map(x=>x.trim());const req=["店舗","JAN","商品名","売上","在庫"];if(req.some((x,i)=>head[i]!==x))throw Error("列は 店舗,JAN,商品名,売上,在庫 の順で指定してください");let products=new Map(),uniqueStores=new Set(),pairs=new Set();rows.forEach((r,i)=>{if(r.length!==5)throw Error((i+2)+"行目：列数が5ではありません");let [store,jan,name,sales,stock]=r.map(x=>x.trim());const amount=Number(sales),inventory=Number(stock);if(!store||!jan||!name||sales===""||stock===""||!Number.isFinite(amount)||amount<0||!Number.isFinite(inventory)||inventory<0)throw Error((i+2)+"行目：入力値を確認してください");let pair=store+"\u0000"+jan;if(pairs.has(pair))throw Error((i+2)+"行目：同一店舗とJANの組み合わせが重複しています");pairs.add(pair);uniqueStores.add(store);let p=products.get(jan)||{jan,name,sales:0,zero:new Set(),byStore:new Map()};if(p.name!==name)throw Error((i+2)+"行目：同じJANに複数の商品名があります");p.sales+=amount;p.byStore.set(store,inventory===0);if(inventory===0)p.zero.add(store);products.set(jan,p)});results=[...products.values()].sort((a,b)=>b.sales-a.sales||a.jan.localeCompare(b.jan));const sum=results.reduce((a,p)=>a+p.sales,0);let cumulative=0;results.forEach(p=>{const before=sum?cumulative/sum:1;p.abc=before<.75?"A":before<.95?"B":"C";cumulative+=p.sales});stores=[...uniqueStores].sort((a,b)=>a.localeCompare(b,"ja"));$("store").replaceChildren(new Option("全店舗",""),...stores.map(s=>new Option(s,s)));$("export").disabled=false;$("message").textContent=rows.length+"行を集計しました";$("message").className="";render()}catch(e){results=[];$("export").disabled=true;$("stats").replaceChildren();$("body").replaceChildren();$("message").textContent=e.message;$("message").className="error"}}
+function render(){const selected=$("store").value;let relevant=selected?results.filter(p=>p.byStore.has(selected)):results;let zeroCount=selected?relevant.filter(p=>p.byStore.get(selected)).length:relevant.reduce((s,p)=>s+p.zero.size,0);$("stats").replaceChildren(...[["対象商品数",relevant.length],["0カウント数",zeroCount],["A商品0カウント",selected?relevant.filter(p=>p.abc==="A"&&p.byStore.get(selected)).length:relevant.filter(p=>p.abc==="A").reduce((s,p)=>s+p.zero.size,0)]].map(([label,value])=>{let d=document.createElement("div");d.className="stat";let small=document.createElement("span");small.textContent=label;let strong=document.createElement("strong");strong.textContent=value;d.append(small,strong);return d}));$("body").replaceChildren(...relevant.map(p=>{const tr=document.createElement("tr");[p.jan,p.name,p.abc,p.sales.toLocaleString("ja-JP"),p.zero.size,selected?(p.byStore.get(selected)?"あり":"なし"):"—"].forEach(v=>{let td=document.createElement("td");td.textContent=v;tr.append(td)});return tr}))}
+$("sample").onclick=()=>{$("csv").value=sample;analyze()};$("analyze").onclick=analyze;$("store").onchange=render;$("file").onchange=async e=>{const file=e.target.files[0];if(file){$("csv").value=await file.text();analyze()}};
+$("export").onclick=()=>{const selected=$("store").value;const rows=[["JAN","商品名","ABC","売上合計","0カウント店舗数","対象店舗の0カウント"],...results.filter(p=>!selected||p.byStore.has(selected)).map(p=>[p.jan,p.name,p.abc,p.sales,p.zero.size,selected?(p.byStore.get(selected)?"あり":"なし"):""])];const blob=new Blob(["\uFEFF"+rows.map(r=>r.map(escapeCsv).join(",")).join("\r\n")],{type:"text/csv;charset=utf-8"});let a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="abc_zero_count.csv";a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};
+$("csv").value=sample;analyze();
+</script></body></html>
