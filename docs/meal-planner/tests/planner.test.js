@@ -4,6 +4,8 @@ import { readFileSync } from "node:fs";
 import {
   PACK_UNKNOWN,
   buildLedger,
+  exactPurchase,
+  packOptions,
   ingredientKey,
   matchIngredientName,
   purchaseTotal,
@@ -381,4 +383,18 @@ test("swap choices for photo picking: ranked, feasible, only that day changes", 
     assert.ok(!before.includes(o.recipe.id), "no repeats when repeating is off");
   }
   assert.equal(swapCandidates(plan.cooks, 0, ctx).ok, false, "day 1 is fixed");
+});
+
+test("one-tap pack choices: exact need first, sensible sizes, whole items rounded up", () => {
+  const meat = packOptions({ name: "むきえび", unit: "g", category: "肉・魚", needed: 170 });
+  assert.deepEqual(meat[0], { amount: 170, exact: true });
+  assert.ok(meat.length <= 5 && meat.slice(1).every((o) => o.amount >= 85 && o.amount <= 680));
+  const ginger = packOptions({ name: "しょうが", unit: "g", category: "野菜", needed: 10 });
+  assert.ok(ginger.every((o) => o.amount <= 40), "no 100g+ chips for 10g of ginger");
+  assert.equal(exactPurchase({ unit: "本", needed: 1.25 }), 2);
+  assert.equal(exactPurchase({ unit: "個", needed: 4 }), 4);
+  assert.equal(exactPurchase({ unit: "g", needed: 172.5 }), 172.5);
+  const leek = packOptions({ name: "長ねぎ", unit: "本", category: "野菜", needed: 1.25 });
+  assert.equal(leek[0].amount, 2);
+  assert.ok(leek.every((o) => Number.isInteger(o.amount)));
 });

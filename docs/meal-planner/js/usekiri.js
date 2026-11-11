@@ -3,8 +3,10 @@
  * existing plan (gohan-keikaku-v1) and favorites are never touched.
  */
 import {
+  COUNT_UNITS,
   PACK_UNKNOWN,
-  UNITS,
+  exactPurchase,
+  packOptions,
   buildLedger,
   matchIngredientName,
   nameKey,
@@ -403,7 +405,7 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
 
   // ---- Step 5: shopping list and pack sizes ----
   const STATUS = {
-    none: () => "購入量を入力してください",
+    none: () => "買う量をタップしてください",
     unknown: () => "パックの量が不明のため、残りは計算していません",
     mismatch: (i) => `単位が違うため計算できません（${i.unit}で入力してください）`,
     invalid: () => "購入量の数値を確認してください",
@@ -413,7 +415,7 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     "home-unknown": () => "自宅にある（量は未確認）。足りるか選んでください",
     "home-enough": () => "自宅分を使う（量が未入力のため残りは計算しません）",
     "home-plus-buy": (i) => `自宅分＋${fmt(i.purchase.total)}${i.unit}を購入（自宅分の量が未入力のため残りは計算しません）`,
-    "home-buy-none": () => "買い足す量を入力してください",
+    "home-buy-none": () => "買い足す量をタップしてください",
     "home-buy-unknown": () => "パックの量が不明です",
     "home-buy-mismatch": (i) => `単位が違うため計算できません（${i.unit}で入力してください）`,
     "home-buy-invalid": () => "購入量の数値を確認してください",
@@ -430,115 +432,149 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     if (item.status === "leftover") return item.perishable ? "warn" : "neutral";
     return "warn";
   }
+  const openExtras = new Set();
+  /** Purchase picker: one tap on a size; other amounts and "unknown" are optional. */
   function purchaseInputs(item) {
-    const p = state.purchases[item.key] ?? {};
+    const p = state.purchases[item.key];
+    const total = item.purchase.status === "ok" ? item.purchase.total : null;
     const wrap = el("div", undefined, "uk-pack");
-    const amount = el("input");
-    amount.type = "number";
-    amount.min = "0";
-    amount.step = "any";
-    amount.inputMode = "decimal";
-    amount.value = p.amount ?? "";
-    amount.setAttribute("aria-label", `${item.name}の1パックの量`);
-    const unit = el("select");
-    for (const u of [item.unit, ...UNITS.filter((x) => x !== item.unit), PACK_UNKNOWN]) {
-      const o = el("option", u);
-      o.value = u;
-      unit.append(o);
-    }
-    unit.value = p.unit ?? item.unit;
-    unit.setAttribute("aria-label", `${item.name}の単位`);
-    const count = el("input");
-    count.type = "number";
-    count.min = "1";
-    count.step = "1";
-    count.value = p.count ?? 1;
-    count.setAttribute("aria-label", `${item.name}のパック数`);
-    const update = () => {
-      state.purchases[item.key] = {
-        amount: amount.value,
-        unit: unit.value,
-        count: count.value,
-        name: item.name,
-        category: item.category,
-      };
-      if (amount.value === "" && unit.value !== PACK_UNKNOWN) delete state.purchases[item.key];
-      amount.disabled = unit.value === PACK_UNKNOWN;
+    const setPurchase = (purchase) => {
+      if (purchase) state.purchases[item.key] = { ...purchase, name: item.name, category: item.category };
+      else delete state.purchases[item.key];
       save();
-      // Update this row and the leftover summary only, so keyboard focus stays.
-      const fresh = ledger().find((x) => x.key === item.key);
-      const row = wrap.closest(".uk-item");
-      if (fresh && row) {
-        row.className = "uk-item " + statusClass(fresh);
-        row.querySelector(".uk-status").textContent = statusText(fresh);
-      }
+      renderShop();
       renderLeftovers();
     };
-    amount.addEventListener("change", update);
-    unit.addEventListener("change", update);
-    count.addEventListener("change", update);
-    amount.disabled = unit.value === PACK_UNKNOWN;
-    wrap.append(amount, unit, el("span", "×", "small muted"), count, el("span", "パック", "small muted"));
+    const options = packOptions(item);
+    let matched = false;
+    for (const o of options) {
+      const active = total !== null && total === o.amount && !matched;
+      if (active) matched = true;
+      const chip = makeBtn(
+        o.exact ? `ちょうど ${fmt(o.amount)}${item.unit}` : `${fmt(o.amount)}${item.unit}`,
+        () => setPurchase(active ? null : { amount: o.amount, unit: item.unit, count: 1 }),
+        "uk-chip" + (active ? " active" : "") + (o.exact ? " exact" : ""),
+      );
+      chip.setAttribute("aria-pressed", String(active));
+      wrap.append(chip);
+    }
+    const unknownActive = p?.unit === PACK_UNKNOWN;
+    const unknown = makeBtn(
+      "量がわからない",
+      () => setPurchase(unknownActive ? null : { amount: "", unit: PACK_UNKNOWN, count: 1 }),
+      "uk-chip" + (unknownActive ? " active" : ""),
+    );
+    unknown.setAttribute("aria-pressed", String(unknownActive));
+    // Any other amount (e.g. two packs): typed once, in the recipe's unit.
+    const other = el("label", undefined, "uk-other");
+    const input = el("input");
+    input.type = "number";
+    input.min = "0";
+    input.step = "any";
+    input.inputMode = "decimal";
+    input.placeholder = "その他";
+    input.setAttribute("aria-label", `${item.name}の買う量（${item.unit}）`);
+    if (p && !unknownActive && !matched && p.amount !== "") {
+      input.value = total ?? p.amount;
+      input.classList.add("active");
+    }
+    input.addEventListener("change", () => {
+      const v = Number(input.value);
+      setPurchase(input.value === "" ? null : { amount: Number.isFinite(v) ? v : input.value, unit: item.unit, count: 1 });
+    });
+    other.append(input, el("span", item.unit, "small muted"));
+    // "量がわからない" and typed amounts are tucked behind one button.
+    const extraOpen = unknownActive || input.classList.contains("active") || openExtras.has(item.key);
+    if (extraOpen) wrap.append(unknown, other);
+    else
+      wrap.append(
+        makeBtn("ほかの量", () => {
+          openExtras.add(item.key);
+          renderShop();
+        }, "uk-chip ghost-chip"),
+      );
     return wrap;
+  }
+  function fillCountItems() {
+    for (const item of ledger())
+      if (item.kind === "buy" && COUNT_UNITS.has(item.unit) && item.needed > 0 && !state.purchases[item.key])
+        state.purchases[item.key] = { amount: exactPurchase(item), unit: item.unit, count: 1, name: item.name, category: item.category };
+    save();
+    renderShop();
+    renderLeftovers();
+  }
+  function itemName(item) {
+    const name = el("div", undefined, "uk-item-name");
+    name.append(el("strong", item.name));
+    const uses = item.uses.map((u) => `${byId.get(u.recipeId).name} ${fmt(u.amount)}${item.unit}`).join("＋");
+    name.append(
+      el(
+        "span",
+        item.needed > 0 ? `必要 ${fmt(item.needed)}${item.unit}（${uses}）` : "今の献立では使いません（購入済みの分）",
+        "small muted",
+      ),
+    );
+    return name;
   }
   function renderShop() {
     const root = $("ukShop");
     root.replaceChildren();
     if (!state.cooks.length) return;
     const L = ledger();
-    const groups = [
-      ["buy", "買う食材（傷みやすいものは使い切りを目指します）"],
-      ["pantry", "自宅にある食材（量は未確認）"],
-      ["staple", "調味料・主食（使い切りは求めません）"],
-    ];
-    for (const [kind, title] of groups) {
-      const items = L.filter((i) => i.kind === kind);
-      if (!items.length) continue;
+    const buy = L.filter((i) => i.kind === "buy");
+    if (buy.length) {
       const section = el("section", undefined, "uk-shop-group");
-      section.append(el("h3", title));
-      for (const item of items) {
+      const head = el("div", undefined, "uk-shop-head");
+      head.append(el("h3", "買う食材：買う量をタップ"));
+      const countable = buy.filter((i) => COUNT_UNITS.has(i.unit) && i.needed > 0 && !state.purchases[i.key]);
+      if (countable.length)
+        head.append(makeBtn(`個数で買う${countable.length}品を必要な数にする`, fillCountItems, "secondary uk-small"));
+      section.append(head);
+      // Rows that still need a choice come first.
+      const order = (i) => (i.status === "none" ? 0 : 1);
+      for (const item of [...buy].sort((a, b) => order(a) - order(b))) {
         const row = el("div", undefined, "uk-item " + statusClass(item));
         row.dataset.key = item.key;
-        const name = el("div", undefined, "uk-item-name");
-        name.append(el("strong", item.name));
-        const uses = item.uses
-          .map((u) => `${byId.get(u.recipeId).name} ${fmt(u.amount)}${item.unit}`)
-          .join("＋");
-        name.append(
-          el(
-            "span",
-            item.needed > 0
-              ? `必要 ${fmt(item.needed)}${item.unit}（${uses}）`
-              : "今の献立では使いません（購入済みの分）",
-            "small muted",
-          ),
-        );
-        row.append(name);
-        if (kind === "pantry") {
-          const mode = el("select");
-          for (const [v, label] of [
-            ["unknown", "足りるか未確認"],
-            ["enough", "自宅分で足りる"],
-            ["buy", "足りないので買い足す"],
-          ]) {
-            const o = el("option", label);
-            o.value = v;
-            mode.append(o);
-          }
-          mode.value = item.pantryMode;
-          mode.setAttribute("aria-label", `${item.name}が自宅分で足りるか`);
-          mode.addEventListener("change", () => {
-            state.pantryChoice[item.key] = { mode: mode.value };
-            if (mode.value !== "buy") delete state.purchases[item.key];
+        row.append(itemName(item), purchaseInputs(item), el("span", statusText(item), "uk-status"));
+        section.append(row);
+      }
+      root.append(section);
+    }
+    const pantry = L.filter((i) => i.kind === "pantry");
+    if (pantry.length) {
+      const section = el("section", undefined, "uk-shop-group");
+      section.append(el("h3", "自宅にある食材：足りるか選ぶ（量は聞きません）"));
+      for (const item of pantry) {
+        const row = el("div", undefined, "uk-item " + statusClass(item));
+        row.dataset.key = item.key;
+        const modes = el("div", undefined, "uk-pack");
+        for (const [v, label] of [["enough", "家の分で足りる"], ["buy", "足りないので買う"]]) {
+          const active = item.pantryMode === v;
+          const chip = makeBtn(label, () => {
+            if (active) delete state.pantryChoice[item.key];
+            else state.pantryChoice[item.key] = { mode: v };
+            if (v !== "buy" || active) delete state.purchases[item.key];
             save();
-            renderAll();
-          });
-          row.append(mode);
-          if (item.pantryMode === "buy") row.append(purchaseInputs(item));
-        } else row.append(purchaseInputs(item));
+            renderShop();
+            renderLeftovers();
+          }, "uk-chip" + (active ? " active" : ""));
+          chip.setAttribute("aria-pressed", String(active));
+          modes.append(chip);
+        }
+        row.append(itemName(item), modes);
+        if (item.pantryMode === "buy") row.append(purchaseInputs(item));
         row.append(el("span", statusText(item), "uk-status"));
         section.append(row);
       }
+      root.append(section);
+    }
+    const staple = L.filter((i) => i.kind === "staple" && i.needed > 0);
+    if (staple.length) {
+      const section = el("section", undefined, "uk-shop-group");
+      section.append(
+        el("h3", "調味料・主食：家になければ買う（入力は不要・使い切りは求めません）"),
+        el("p", staple.map((i) => `${i.name} ${fmt(i.needed)}${i.unit}`).join("、"), "small uk-staples"),
+      );
       root.append(section);
     }
   }
