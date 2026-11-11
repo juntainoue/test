@@ -4,6 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <meta name="color-scheme" content="light" />
+    <meta name="theme-color" content="#1d5140" />
+    <meta
+      name="description"
+      content="毎日の夕食を、もっと気軽に。60品のレシピから献立を選び、人数に合わせた買い物リストまでまとめる、ごはん計画。"
+    />
     <title>ごはん計画 | 献立と買い物</title>
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -18,19 +23,52 @@
       </div>
     </header>
     <main class="main wrap">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="hero-copy">
+          <p class="eyebrow">毎日の「何つくろう？」に。</p>
+          <h2 id="heroTitle">おいしい一週間を、<br />気軽にはじめよう。</h2>
+          <p class="hero-description">
+            食べたい料理を選んで、買い物までひとまとめ。<br />今日のごはんに、小さなゆとりを。
+          </p>
+          <a class="btn hero-link" href="#page-plan"
+            >献立をつくる <span aria-hidden="true">↗</span></a
+          >
+          <p class="hero-note">登録レシピ60品 · 3日 / 7日 · 1〜4人分</p>
+        </div>
+        <div class="hero-visual">
+          <img
+            src="./assets/images/chicken.webp"
+            width="640"
+            height="640"
+            alt="鶏の照り焼きの盛り付けイメージ（AI生成）"
+            fetchpriority="high"
+          />
+          <div class="hero-label">
+            <span>今日の食卓のヒント</span><strong>鶏の照り焼き</strong
+            ><span>約25分 · 和食</span>
+          </div>
+          <span class="hero-image-note">AI生成の盛り付けイメージ</span>
+        </div>
+      </section>
       <nav class="tabs" aria-label="画面切り替え">
         <button class="tab active" data-tab="plan">🍽 献立</button
         ><button class="tab" data-tab="shop">🛒 買い物</button
         ><button class="tab" data-tab="recipes">📖 レシピ</button>
       </nav>
-      <div class="notice">
-        このアプリは現在、<span id="catalogCount">60</span
-        >種類の登録済みレシピから献立を提案する仕組みです。生成AIによる新規レシピ生成ではありません。入力内容はこのブラウザの保存領域にのみ保管され、サーバーへの送信機能はありません。
-      </div>
+      <details class="notice">
+        <summary>このアプリについて · 栄養値は検証前の概算です</summary>
+        <p>
+          このアプリは現在、<span id="catalogCount">60</span
+          >種類の登録済みレシピから献立を提案する仕組みです。生成AIによる新規レシピ生成ではありません。入力内容はこのブラウザの保存領域にのみ保管され、サーバーへの送信機能はありません。
+        </p>
+      </details>
       <section id="page-plan">
         <div class="card">
           <div class="sectionhead">
-            <h2>献立をつくる</h2>
+            <div>
+              <p class="eyebrow">PLAN YOUR TABLE</p>
+              <h2>献立をつくる</h2>
+            </div>
             <span class="muted small">今日からの夕食</span>
           </div>
           <div class="settings">
@@ -123,6 +161,45 @@
             <span id="recipeCount">60</span
             >種類から検索できます。追加レシピの手順は簡易版です。材料・手順・保存目安を確認できます。
           </p>
+          <div class="recipe-filters">
+            <label
+              >ジャンル<select id="recipeCuisine">
+                <option value="all">すべてのジャンル</option>
+                <option>和食</option>
+                <option>洋食</option>
+                <option>中華</option>
+              </select></label
+            >
+            <label
+              >調理時間<select id="recipeTime">
+                <option value="all">時間の指定なし</option>
+                <option value="15">15分以内</option>
+                <option value="20">20分以内</option>
+                <option value="30">30分以内</option>
+              </select></label
+            >
+            <label
+              >並び順<select id="recipeSort">
+                <option value="default">登録順</option>
+                <option value="time">調理時間が短い順</option>
+                <option value="protein">たんぱく質が多い順（暫定）</option>
+              </select></label
+            >
+            <label class="favorite-filter"
+              ><input id="favoritesOnly" type="checkbox" />
+              お気に入りだけ</label
+            >
+            <button id="resetRecipeFilters" class="btn ghost">
+              条件をクリア
+            </button>
+          </div>
+          <p
+            id="recipeResults"
+            class="results-count"
+            role="status"
+            aria-live="polite"
+          ></p>
+          <p id="favoriteMessage" class="small muted" role="status"></p>
           <div id="recipeGrid" class="recipes"></div>
         </div>
       </section>

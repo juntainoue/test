@@ -278,6 +278,96 @@ try {
   page.once("dialog", (dialog) => dialog.accept());
   await page.click("#clearPlan");
   check((await page.locator("#planGrid .meal").count()) === 0, "clear plan");
+  // Browse filters are independent of meal-plan settings and favorites survive reload.
+  await page.click("[data-tab=recipes]");
+  await page.click("#resetRecipeFilters");
+  await page.check("#favoritesOnly");
+  check(
+    (await page.locator("#recipeGrid .empty").textContent()).includes(
+      "お気に入りはまだありません",
+    ),
+    "empty favorites guidance",
+  );
+  await page.uncheck("#favoritesOnly");
+  await page.fill("#recipeSearch", "麻婆豆腐");
+  await page
+    .getByRole("button", {
+      name: "四川風麻婆豆腐をお気に入りに保存",
+      exact: true,
+    })
+    .click();
+  check(
+    (await page
+      .getByRole("button", {
+        name: "四川風麻婆豆腐をお気に入りから解除",
+        exact: true,
+      })
+      .getAttribute("aria-pressed")) === "true",
+    "favorite button accessible state",
+  );
+  await page.reload();
+  await page.locator("#planGrid .meal").first().waitFor();
+  await page.click("[data-tab=recipes]");
+  await page.check("#favoritesOnly");
+  check(
+    (await page.locator("#recipeGrid .recipe").count()) === 1,
+    "favorite persists",
+  );
+  check(
+    (await page.locator("#recipeGrid h3").textContent()) === "四川風麻婆豆腐",
+    "correct favorite restored",
+  );
+  await page
+    .getByRole("button", {
+      name: "四川風麻婆豆腐をお気に入りから解除",
+      exact: true,
+    })
+    .click();
+  check(
+    (await page.locator("#recipeGrid .recipe").count()) === 0,
+    "remove favorite updates filtered results",
+  );
+  await page.click("#resetRecipeFilters");
+  const planBefore = await page.locator("#planGrid h3").allTextContents();
+  await page.selectOption("#recipeCuisine", "和食");
+  await page.selectOption("#recipeTime", "20");
+  const filtered = await page.locator("#recipeGrid h3").allTextContents();
+  check(
+    filtered.length > 0 &&
+      filtered.every(
+        (n) => byName.get(n).type === "和食" && byName.get(n).time <= 20,
+      ),
+    "catalog cuisine and time",
+  );
+  check(
+    (await page.locator("#recipeResults").textContent()).includes(
+      String(filtered.length),
+    ),
+    "search result count",
+  );
+  await page.selectOption("#recipeSort", "time");
+  const times = (await page.locator("#recipeGrid h3").allTextContents()).map(
+    (n) => byName.get(n).time,
+  );
+  check(
+    times.every((time, i) => i === 0 || times[i - 1] <= time),
+    "catalog time sort",
+  );
+  assert.deepEqual(
+    await page.locator("#planGrid h3").allTextContents(),
+    planBefore,
+  );
+  checks++;
+  await page.click("#resetRecipeFilters");
+  check(
+    (await page.locator("#recipeGrid .recipe").count()) === 60,
+    "clear all catalog filters",
+  );
+  await page.locator(".hero-link").click();
+  check(
+    await page.locator("#page-plan").isVisible(),
+    "hero link returns to plan",
+  );
   // Broken images fall back once; no recurring error loop.
   await page.route("**/assets/images/*.webp", (route) => route.abort());
   await page.reload();
