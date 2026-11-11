@@ -202,9 +202,6 @@ async function start() {
     $("favoritesOnly").checked = false;
     renderRecipes();
   });
-  document
-    .querySelector(".hero-link")
-    .addEventListener("click", () => selectTab("usekiri"));
   $("closeDetail").addEventListener("click", () => $("detail").close());
   document
     .querySelectorAll("[data-tab]")

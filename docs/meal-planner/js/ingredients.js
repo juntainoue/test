@@ -205,3 +205,39 @@ export function shoppingLines(ledger) {
     (i) => i.needed > 0 && !(i.kind === "pantry" && i.pantryMode === "enough"),
   );
 }
+
+/** Units counted as whole items in a shop (you cannot buy 0.05 of a leek). */
+export const COUNT_UNITS = new Set(["個", "本", "片", "束", "切", "枚", "玉", "丁", "缶", "袋"]);
+
+// Common sizes shown as one-tap choices. These are only suggestions the user
+// picks from; nothing is assumed until the user taps one.
+const COMMON_SIZES = {
+  "肉・魚|g": [100, 150, 200, 250, 300, 400, 500],
+  "野菜|g": [100, 150, 200, 300, 500],
+  "豆腐|g": [150, 200, 300, 350, 400],
+  "乳製品|g": [50, 100, 200],
+  "ml": [200, 500, 1000],
+};
+
+/** The amount to buy when buying "just what is needed". Count units round up. */
+export function exactPurchase(item) {
+  return COUNT_UNITS.has(item.unit) ? Math.ceil(item.needed - 1e-9) : round(item.needed);
+}
+
+/**
+ * One-tap purchase choices for a shopping row, in the item's own unit.
+ * First the exact need, then up to 4 common sizes closest to the need.
+ */
+export function packOptions(item, limit = 4) {
+  const exact = exactPurchase(item);
+  const sizes = COUNT_UNITS.has(item.unit)
+    ? [1, 2, 3, 4, 6, 10]
+    : (COMMON_SIZES[`${item.category}|${item.unit}`] ?? COMMON_SIZES[item.unit] ?? [100, 200, 300, 500]);
+  // Only sizes in a sensible range around the need (no 300g chips for 10g of ginger).
+  const near = sizes
+    .filter((s) => s !== exact && s >= item.needed * 0.5 && s <= Math.max(item.needed * 4, 2))
+    .sort((a, b) => Math.abs(a - item.needed) - Math.abs(b - item.needed))
+    .slice(0, limit)
+    .sort((a, b) => a - b);
+  return [{ amount: exact, exact: true }, ...near.map((amount) => ({ amount, exact: false }))];
+}

@@ -1275,3 +1275,68 @@ body {
   padding: 6px 14px;
   font-size: 13px;
 }
+
+/* ---- タップで選ぶ買い物リスト ---- */
+.uk-item {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.uk-shop-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.uk-shop-head h3 {
+  margin: 18px 0 8px;
+}
+.uk-pack {
+  gap: 6px;
+}
+.uk-chip {
+  min-height: 38px;
+  padding: 6px 12px;
+  font-size: 14px;
+  background: #fff;
+  color: #225445;
+  border: 1px solid #bdd2c7;
+}
+.uk-chip.exact {
+  border-style: dashed;
+}
+.uk-chip.active,
+.uk-chip[aria-pressed="true"] {
+  background: var(--green);
+  border-color: var(--green);
+  border-style: solid;
+  color: #fff;
+}
+.uk-other {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.uk-other input[type="number"] {
+  width: 84px;
+  min-width: 0;
+  padding: 7px 8px;
+}
+.uk-other input.active {
+  border-color: var(--green);
+  box-shadow: 0 0 0 2px #1d514033;
+}
+.uk-staples {
+  line-height: 1.9;
+  margin: 0;
+}
+.uk-title {
+  font-size: 22px;
+  margin: 0 0 4px;
+}
+.uk-chip.ghost-chip {
+  color: #57684f;
+  border-style: dotted;
+}

@@ -218,11 +218,9 @@ try {
     (await page.locator("#recipeGrid .recipe").count()) === 60,
     "clear all catalog filters",
   );
-  await page.locator(".hero-link").click();
-  check(
-    await page.locator("#page-usekiri").isVisible(),
-    "hero link opens the use-up planner",
-  );
+  check((await page.locator(".hero").count()) === 0, "no large top banner; the dish photos come first");
+  await page.click("[data-tab=usekiri]");
+  check(await page.locator("#page-usekiri").isVisible(), "planner tab opens");
   // Broken images fall back once; no recurring error loop.
   await page.route("**/assets/images/*.webp", (route) => route.abort());
   await page.reload();
@@ -288,24 +286,33 @@ try {
     check((await cabbage.count()) === 1, "planner: home ingredient used in plan");
     check(
       (await cabbage.locator(".uk-status").textContent()).includes("未確認") &&
-        (await cabbage.locator('input[type="number"]').count()) === 0,
+        (await cabbage.locator('[aria-pressed="true"]').count()) === 0,
       "planner: home stock not assumed sufficient",
     );
-    await cabbage.locator("select").selectOption("buy");
-    await cabbage.locator('input[type="number"]').first().fill("200");
-    await cabbage.locator('input[type="number"]').first().dispatchEvent("change");
+    await cabbage.getByRole("button", { name: "足りないので買う" }).click();
+    await cabbage.locator(".uk-chip.exact").click();
     check(
       (await cabbage.locator(".uk-status").textContent()).includes("残りは計算しません"),
       "planner: home + extra purchase has no computed leftover",
     );
-    // Pack sizes: shortage / leftover / exact / mismatch / unknown.
+    // Pack sizes by tapping: shortage / leftover / exact / unknown; other amounts typed once.
     const chicken = page.locator('.uk-item[data-key="鶏もも肉|g"]');
-    const setPack = async (amount, unit = "g") => {
-      await chicken.locator("select").selectOption(unit);
-      await chicken.locator('input[type="number"]').first().fill(String(amount));
-      await chicken.locator('input[type="number"]').first().dispatchEvent("change");
+    const showExtras = async () => {
+      const more = chicken.getByRole("button", { name: "ほかの量" });
+      if (await more.count()) await more.click();
+    };
+    const setPack = async (amount) => {
+      await showExtras();
+      const input = chicken.locator(".uk-other input");
+      await input.fill(String(amount));
+      await input.dispatchEvent("change");
       return chicken.locator(".uk-status").textContent();
     };
+    check(
+      (await chicken.locator(".uk-chip").count()) >= 2 &&
+        (await chicken.locator('select, input[type="number"]').count()) === 0,
+      "planner: pack sizes are one-tap choices (no input fields shown)",
+    );
     const needed = Number(
       (await chicken.locator(".uk-item-name span").textContent()).match(/必要 ([\d,.]+)g/)[1].replace(/,/g, ""),
     );
@@ -319,9 +326,22 @@ try {
       (await page.locator("#ukLeftovers").textContent()).includes(`鶏もも肉：残り40g`),
       "planner: leftover in summary with amount",
     );
-    check((await setPack(needed)).includes("使い切り（残り0g）"), "planner: exact use");
-    check((await setPack(1, "個")).includes("単位が違う"), "planner: unit mismatch not converted");
-    await chicken.locator("select").selectOption("パック（量不明）");
+    await chicken.locator(".uk-chip.exact").click();
+    check(
+      (await chicken.locator(".uk-status").textContent()).includes("使い切り（残り0g）") &&
+        (await chicken.locator('.uk-chip.exact[aria-pressed="true"]').count()) === 1,
+      "planner: one tap on the exact amount",
+    );
+    const chip300 = chicken.getByRole("button", { name: "300g", exact: true });
+    if (await chip300.count()) {
+      await chip300.click();
+      check(
+        (await chicken.locator(".uk-status").textContent()).includes(needed > 300 ? "不足" : needed < 300 ? "残り" : "使い切り"),
+        "planner: tapping a pack size recalculates",
+      );
+    }
+    await showExtras();
+    await chicken.getByRole("button", { name: "量がわからない" }).click();
     check(
       (await chicken.locator(".uk-status").textContent()).includes("量が不明") &&
         (await page.locator("#ukLeftovers").textContent()).includes("残りを計算できていない"),
@@ -387,7 +407,9 @@ try {
     await page.locator("#ukPlan .uk-day").first().waitFor();
     check((await dayNames()).join() === planNow.join(), "planner: plan persists after reload");
     check(
-      (await page.locator('.uk-item[data-key="鶏もも肉|g"] input[type="number"]').first().inputValue()) === "300",
+      await page.evaluate(
+        () => JSON.parse(localStorage.getItem("gohan-keikaku-usekiri-v1")).purchases["鶏もも肉|g"].amount == 300,
+      ),
       "planner: pack size persists",
     );
     check(
