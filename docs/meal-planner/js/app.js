@@ -1,5 +1,6 @@
 import { filterRecipes, validateCatalog } from "./catalog.js";
 import { dishImage } from "./images.js";
+import { formatStep } from "./catalog.js";
 
 async function start() {
   const response = await fetch(
@@ -319,7 +320,13 @@ async function start() {
         el("li", name + "： " + qty(n * state.servings, u)),
       ),
     );
-    $("detailSteps").replaceChildren(...r.steps.map((x) => el("li", x)));
+    $("detailSteps").replaceChildren(
+      ...r.steps.map((x) => el("li", formatStep(x, state.servings))),
+    );
+    $("detailCheck").textContent =
+      r.recipeCheck?.status === "desk-reviewed" && !r.recipeCheck.cookTested
+        ? "手順は分量・加熱の記載を机上で確認済みです（試作による検証は未実施）。"
+        : "手順は簡易版です。";
     $("detailStorage").textContent = r.storage;
     $("detail").showModal();
   }

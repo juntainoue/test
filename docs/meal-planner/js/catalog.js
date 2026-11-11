@@ -19,6 +19,26 @@ export function filterRecipes(recipes, settings) {
   );
 }
 
+/** Review states for steps; "desk-reviewed" means not yet cook-tested. */
+export const RECIPE_CHECK_STATUSES = ["draft", "desk-reviewed"];
+
+/** Quantity tokens in steps, e.g. "水{{150|ml}}", are per baseServings. */
+const STEP_TOKEN = /\{\{(\d+(?:\.\d+)?)\|([^{}|]+)\}\}/g;
+
+function validStepTokens(step) {
+  return !/[{}]/.test(step.replace(STEP_TOKEN, ""));
+}
+
+/** Renders a step with its quantity tokens scaled to the selected servings. */
+export function formatStep(step, servings = 1) {
+  return step.replace(STEP_TOKEN, (_, amount, unit) => {
+    const scaled = Math.round(Number(amount) * servings * 100) / 100;
+    return (
+      scaled.toLocaleString("ja-JP", { maximumFractionDigits: 2 }) + unit
+    );
+  });
+}
+
 /** Fail clearly on corrupt/unsupported catalogs; do not overwrite saved plans. */
 export function validateCatalog(data) {
   if (
@@ -64,6 +84,14 @@ export function validateCatalog(data) {
       !recipe.steps.every((step) => typeof step === "string" && step.trim())
     )
       throw new Error(`Invalid steps: ${recipe.id}`);
+    if (recipe.steps.some((step) => !validStepTokens(step)))
+      throw new Error(`Invalid step quantity: ${recipe.id}`);
+    if (
+      recipe.recipeCheck !== undefined &&
+      (!RECIPE_CHECK_STATUSES.includes(recipe.recipeCheck?.status) ||
+        typeof recipe.recipeCheck.cookTested !== "boolean")
+    )
+      throw new Error(`Invalid recipe check: ${recipe.id}`);
     if (recipe.nutrition?.status !== "provisional")
       throw new Error(
         "Verified nutrition requires a future validated calculation schema",

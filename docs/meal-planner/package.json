@@ -3,7 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test tests/catalog.test.js",
+    "test": "node --test tests/catalog.test.js tests/recipes.test.js",
     "test:browser": "node tests/browser.mjs"
   },
   "devDependencies": {
