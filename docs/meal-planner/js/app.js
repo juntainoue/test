@@ -1,6 +1,7 @@
 import { filterRecipes, validateCatalog, searchRecipes } from "./catalog.js";
 import { dishImage } from "./images.js";
 import { formatStep } from "./catalog.js";
+import { mountUsekiri } from "./usekiri.js";
 
 async function start() {
   const response = await fetch(
@@ -354,32 +355,37 @@ async function start() {
         ),
       );
   }
-  function detail(r) {
+  function detail(r, servings = state.servings) {
     $("detailImage").replaceChildren(dishImage(r));
     $("detailTitle").textContent = r.name;
     $("detailMeta").textContent =
       r.type +
       " / 約" +
       r.time +
-      "分 / 約" +
-      r.kcal +
-      "kcal・たんぱく質 約" +
-      r.protein +
-      "g（1人分・未検証の暫定概算）" +
+      "分 / " +
+      (r.nutrition?.status === "uncalculated" || r.kcal == null
+        ? "栄養値は未計算"
+        : "約" +
+          r.kcal +
+          "kcal・たんぱく質 約" +
+          r.protein +
+          "g（1人分・未検証の暫定概算）") +
       (r.hot ? " / 辛口" : "");
-    $("detailServings").textContent = state.servings;
+    $("detailServings").textContent = servings;
     $("detailIngredients").replaceChildren(
       ...r.ingredients.map(([name, n, u]) =>
-        el("li", name + "： " + qty(n * state.servings, u)),
+        el("li", name + "： " + qty(n * servings, u)),
       ),
     );
     $("detailSteps").replaceChildren(
-      ...r.steps.map((x) => el("li", formatStep(x, state.servings))),
+      ...r.steps.map((x) => el("li", formatStep(x, servings))),
     );
     $("detailCheck").textContent =
-      r.recipeCheck?.status === "desk-reviewed" && !r.recipeCheck.cookTested
-        ? "手順は分量・加熱の記載を机上で確認済みです（試作による検証は未実施）。"
-        : "手順は簡易版です。";
+      r.source === "ai"
+        ? "AIが提案したレシピです。自動チェック（材料と手順の一致、数量、加熱確認の記載）のみ通過しており、人による確認・試作は未実施です。"
+        : r.recipeCheck?.status === "desk-reviewed" && !r.recipeCheck.cookTested
+          ? "手順は分量・加熱の記載を机上で確認済みです（試作による検証は未実施）。"
+          : "手順は簡易版です。";
     $("detailStorage").textContent = r.storage;
     $("detail").showModal();
   }
@@ -392,7 +398,7 @@ async function start() {
     document
       .querySelector(".tabs")
       .scrollIntoView({ block: "start", behavior: "instant" });
-    for (const v of ["plan", "shop", "recipes"])
+    for (const v of ["usekiri", "plan", "shop", "recipes"])
       $("page-" + v).classList.toggle("hidden", v !== tab);
     document.querySelectorAll("[data-tab]").forEach((b) => {
       let active = b.dataset.tab === tab;
@@ -480,7 +486,7 @@ async function start() {
   });
   document
     .querySelector(".hero-link")
-    .addEventListener("click", () => selectTab("plan"));
+    .addEventListener("click", () => selectTab("usekiri"));
   $("resetChecks").addEventListener("click", () => {
     state.checked = {};
     save();
@@ -507,11 +513,21 @@ async function start() {
   syncSettings();
   if (!state.plan.length) generate();
   else renderAll();
+  mountUsekiri({
+    recipes,
+    getFavorites: () => favorites,
+    detail,
+    el,
+    makeBtn,
+    qty,
+    dateLabel,
+  });
 }
 start().catch((error) => {
   console.error(error);
-  document.getElementById("filterMessage").textContent =
-    "レシピを読み込めませんでした。通信状況を確認して再読み込みしてください。保存済みデータは維持されています。";
+  for (const id of ["filterMessage", "ukMessage"])
+    document.getElementById(id).textContent =
+      "レシピを読み込めませんでした。通信状況を確認して再読み込みしてください。保存済みデータは維持されています。";
   document
     .querySelectorAll("button,select,input")
     .forEach((control) => (control.disabled = true));
