@@ -1,138 +1,156 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>ごはん計画 | 献立と買い物</title>
-<style>
-:root{font-family:system-ui,-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#20312b;background:#f8f8f3}*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit}button{cursor:pointer}.top{background:#164e40;color:#fff;padding:22px 20px}.wrap{max-width:1100px;margin:auto}.brand{display:flex;gap:12px;align-items:center}.logo{font-size:31px}.top h1{font-size:24px;margin:0}.top p{margin:4px 0 0;color:#d4eee4;font-size:13px}.tabs{display:flex;gap:8px;overflow:auto;padding:14px 0}.tab{border:1px solid #bdd2c7;background:white;color:#225445;border-radius:999px;padding:10px 16px;white-space:nowrap}.tab.active{background:#215e4d;color:white}.main{padding:0 16px 36px}.card{background:#fff;border:1px solid #e3e9e1;border-radius:17px;padding:18px;margin-bottom:16px;box-shadow:0 2px 9px #112a1810}.sectionhead{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.sectionhead h2{margin:0 0 12px;font-size:20px}.muted{color:#63766c}.small{font-size:13px}.settings{display:flex;align-items:end;gap:12px;flex-wrap:wrap}.settings label{display:flex;flex-direction:column;gap:5px;font-size:13px;color:#4e6759}select,input[type=search],input[type=number]{background:white;border:1px solid #cad9cd;border-radius:10px;padding:10px;color:#243e30;min-width:100px}.btn{background:#215f4b;color:white;border:0;border-radius:11px;padding:11px 16px;font-weight:650}.btn.secondary{background:#e8f3ec;color:#20583f}.btn.ghost{background:white;border:1px solid #b8cebf;color:#225a44}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:12px}.meal{border:1px solid #e0e9e1;border-radius:13px;padding:14px;background:#fff}.meal h3{font-size:17px;margin:6px 0}.dish-image{display:block;width:100%;height:152px;object-fit:cover;border-radius:11px;background:#edf1eb;margin-bottom:10px}.recipe .dish-image{height:145px}.nutrition{display:flex;gap:7px;flex-wrap:wrap;margin:6px 0 9px}.nutri{background:#eef5ed;color:#235844;border-radius:8px;padding:5px 8px;font-size:13px;font-weight:650}.diet-note{font-size:12px;color:#7b6050;line-height:1.5}.info{font-size:13px;background:#ecf4ec;padding:9px 12px;border-radius:9px;margin:12px 0}.date{font-size:12px;color:#597163;font-weight:600}.tags{font-size:12px;color:#657a6c}.meal .btn{font-size:13px;padding:8px 10px}.actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:10px}.pill{display:inline-block;background:#eef6ed;color:#33644b;border-radius:20px;padding:3px 9px;font-size:12px;margin:3px 5px 3px 0}.stats{display:flex;gap:12px;flex-wrap:wrap;margin:0 0 14px}.stat{background:#eff6ed;border-radius:12px;padding:10px 14px;font-size:13px}.stat strong{display:block;font-size:21px}.shopping-group{margin:15px 0}.shopping-group h3{border-bottom:1px solid #e0e8df;padding-bottom:8px}.shopping-row{display:flex;align-items:center;gap:10px;padding:10px 4px;border-bottom:1px solid #f0f1ec}.shopping-row input{width:19px;height:19px;accent-color:#26704b}.shopping-row .item{flex:1}.shopping-row.done .item{text-decoration:line-through;color:#889a8e}.shopping-row .qty{color:#587465;font-weight:600}.recipes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}.recipe{border:1px solid #e4ebdf;border-radius:13px;padding:14px}.recipe h3{margin:5px 0}.recipe p{margin:7px 0}.search{width:100%;max-width:340px}.hidden{display:none!important}dialog{width:min(620px,94vw);border:0;border-radius:18px;padding:0;box-shadow:0 20px 80px #142b2145}dialog::backdrop{background:#15282099}.dialog-body{padding:22px;max-height:85vh;overflow:auto}.dialog-body h2{margin-top:4px}.dialog-body ol{padding-left:25px;line-height:1.7}.dialog-body li{margin:8px 0}.footer{font-size:12px;color:#6e8076;padding:10px 0 35px}.empty{padding:25px;text-align:center;color:#657b6e}.notice{background:#fff7df;border:1px solid #eddea9;border-radius:11px;padding:12px;margin-bottom:16px;font-size:13px;line-height:1.6}@media(max-width:600px){.top{padding:18px}.top h1{font-size:21px}.card{padding:14px}.main{padding:0 12px}.settings{align-items:stretch}.settings label{flex:1}.settings select{width:100%}}
-</style></head>
-<body><header class="top"><div class="wrap brand"><span class="logo">🍳</span><div><h1>ごはん計画</h1><p>献立を決めて、買うものをまとめる。毎日の食事をシンプルに。</p></div></div></header>
-<main class="main wrap">
-<nav class="tabs" aria-label="画面切り替え"><button class="tab active" data-tab="plan">🍽 献立</button><button class="tab" data-tab="shop">🛒 買い物</button><button class="tab" data-tab="recipes">📖 レシピ</button></nav>
-<div class="notice">このアプリは現在、60種類の登録済みレシピから献立を提案する仕組みです。生成AIによる新規レシピ生成ではありません。入力内容はこのブラウザの保存領域にのみ保管され、サーバーへの送信機能はありません。</div>
-<section id="page-plan">
-<div class="card"><div class="sectionhead"><h2>献立をつくる</h2><span class="muted small">今日からの夕食</span></div>
-<div class="settings"><label>日数<select id="days"><option value="3">3日間</option><option value="7" selected>7日間</option></select></label><label>人数<select id="servings"><option value="1" selected>1人</option><option value="2">2人</option><option value="3">3人</option><option value="4">4人</option></select></label><label>ジャンル<select id="cuisine"><option value="all">おまかせ</option><option value="和食">和食</option><option value="中華">中華</option><option value="洋食">洋食</option></select></label><label>辛さ<select id="spicy"><option value="all">指定なし</option><option value="mild">辛くない料理</option><option value="hot">辛い料理を優先</option></select></label><label>カロリー / 1食<select id="calorie"><option value="all">指定なし</option><option value="low">400kcal未満</option><option value="middle">400〜599kcal</option><option value="high">600kcal以上</option></select></label><label>たんぱく質 / 1食<select id="protein"><option value="all">指定なし</option><option value="low">25g未満</option><option value="middle">25〜34g</option><option value="high">35g以上</option></select></label><button class="btn" id="generate">献立を提案</button></div><p id="filterMessage" class="info" role="status">カロリー・たんぱく質は1人分の暫定的な概算値です。主食や副菜の追加分は含まない場合があります。</p><p class="muted small">変更した献立と買い物チェックはこの端末のブラウザに保存されます。</p></div>
-<div class="card"><div class="sectionhead"><h2>今週の夕食</h2><button id="clearPlan" class="btn ghost">献立を初期化</button></div><div class="stats" id="planStats"></div><div id="planGrid" class="grid"></div></div>
-</section>
-<section id="page-shop" class="hidden"><div class="card"><div class="sectionhead"><h2>買い物リスト</h2><div class="actions"><button id="copyShop" class="btn secondary">リストをコピー</button><button id="resetChecks" class="btn ghost">チェック解除</button></div></div><p class="muted small">同じ食材は合算します。調味料も含まれます。すでに家にある食材はチェックして整理できます。</p><div id="shopStats" class="stats"></div><div id="shopping"></div></div></section>
-<section id="page-recipes" class="hidden"><div class="card"><div class="sectionhead"><h2>レシピを探す</h2><input id="recipeSearch" class="search" type="search" placeholder="料理名・食材で検索" aria-label="料理名や食材を検索"></div><p class="muted small">60種類から検索できます。追加レシピの手順は簡易版です。材料・手順・保存目安を確認できます。</p><div id="recipeGrid" class="recipes"></div></div></section>
-<footer class="footer">栄養値は検証前の概算で、食品成分表に基づく計算・栄養士監修は未実施です。実際の値は商品、調理、盛り付け量で変わります。料理画像はオリジナルのイラストで実物写真ではありません。<p>※食材量・調理時間・保存期間は家庭向けの目安です。アレルギー、食中毒予防、食材の状態を個別に確認してください。共有端末ではデータが見られる可能性があります。</p></footer>
-</main>
-<dialog id="detail"><div class="dialog-body"><div class="sectionhead"><h2 id="detailTitle"></h2><button id="closeDetail" class="btn ghost" aria-label="閉じる">閉じる</button></div><p id="detailMeta" class="muted"></p><h3>材料（<span id="detailServings"></span>人分）</h3><ul id="detailIngredients"></ul><h3>作り方</h3><ol id="detailSteps"></ol><h3>保存の目安</h3><p id="detailStorage"></p></div></dialog>
-<script>
-"use strict";
-const recipes=[
-{id:"mapo",kcal:350,protein:25,name:"四川風麻婆豆腐",type:"中華",time:25,hot:true,storage:"粗熱を素早く取り、清潔な容器で冷蔵。1～2日を目安に十分に再加熱。",ingredients:[["豆腐",150,"g","豆腐"],["豚ひき肉",75,"g","肉・魚"],["長ねぎ",0.25,"本","野菜"],["にんにく",1,"片","野菜"],["しょうが",5,"g","野菜"],["豆板醤",10,"g","調味料"],["甜麺醤",8,"g","調味料"],["花椒粉",2,"g","調味料"],["鶏がらスープの素",3,"g","調味料"],["片栗粉",5,"g","調味料"]],steps:["豆腐を角切りにして軽く下ゆでする。","ひき肉、にんにく、しょうがを炒め、豆板醤・甜麺醤を加える。","水と鶏がらスープの素を加え、豆腐を煮る。","水溶き片栗粉でとろみを付け、最後に花椒を加える。"]},
-{id:"ginger",kcal:430,protein:30,name:"豚の生姜焼き",type:"和食",time:20,hot:false,storage:"加熱後は速やかに冷蔵し、1～2日を目安に食べ切る。",ingredients:[["豚こま肉",130,"g","肉・魚"],["玉ねぎ",0.5,"個","野菜"],["しょうが",10,"g","野菜"],["しょうゆ",15,"ml","調味料"],["みりん",15,"ml","調味料"]],steps:["玉ねぎを薄切りにし、豚肉をほぐす。","豚肉と玉ねぎを炒める。","しょうゆ・みりん・すりおろししょうがを加え、全体に絡める。"]},
-{id:"chicken",kcal:410,protein:36,name:"鶏の照り焼き",type:"和食",time:25,hot:false,storage:"冷蔵1～2日を目安。中心まで十分に加熱する。",ingredients:[["鶏もも肉",180,"g","肉・魚"],["しょうゆ",15,"ml","調味料"],["みりん",15,"ml","調味料"],["砂糖",5,"g","調味料"],["レタス",50,"g","野菜"]],steps:["鶏肉の厚みを揃える。","皮目から焼き、裏返して中心まで火を通す。","調味料を煮絡め、レタスを添える。"]},
-{id:"pasta",kcal:590,protein:21,name:"きのこクリームパスタ",type:"洋食",time:20,hot:false,storage:"乳製品を含むため作りたて推奨。余ったら速やかに冷蔵して翌日中を目安に。",ingredients:[["パスタ",100,"g","主食"],["しめじ",80,"g","野菜"],["ベーコン",40,"g","肉・魚"],["牛乳",120,"ml","乳製品"],["バター",10,"g","乳製品"],["小麦粉",8,"g","調味料"]],steps:["パスタを表示どおりにゆでる。","しめじとベーコンをバターで炒める。","小麦粉を振り、牛乳を少しずつ加えてとろみを付ける。","パスタを和える。"]},
-{id:"salmon",kcal:320,protein:27,name:"鮭のホイル焼き",type:"和食",time:25,hot:false,storage:"魚は中心まで十分に加熱し、できるだけ当日中に食べる。",ingredients:[["生鮭",1,"切","肉・魚"],["えのき",50,"g","野菜"],["玉ねぎ",0.25,"個","野菜"],["バター",10,"g","乳製品"],["しょうゆ",8,"ml","調味料"]],steps:["ホイルに薄切り玉ねぎ、鮭、えのきをのせる。","バターとしょうゆをのせ、しっかり包む。","フライパンで蒸し焼きにし、鮭に十分火を通す。"]},
-{id:"curry",kcal:690,protein:30,name:"チキンカレー",type:"洋食",time:35,hot:false,storage:"常温放置を避け、小分けに急冷して冷蔵。1～2日以内に再加熱して食べる。",ingredients:[["鶏もも肉",130,"g","肉・魚"],["玉ねぎ",0.5,"個","野菜"],["にんじん",0.5,"本","野菜"],["じゃがいも",1,"個","野菜"],["カレールウ",25,"g","調味料"],["米",100,"g","主食"]],steps:["肉と野菜を一口大に切る。","炒めて水を加え、柔らかくなるまで煮る。","火を止めてルウを溶かし、再度弱火で煮込む。","ごはんと盛り付ける。"]},
-{id:"chili",kcal:390,protein:28,name:"豚キムチ炒め",type:"中華",time:15,hot:true,storage:"冷蔵1～2日を目安。豚肉に十分火を通す。",ingredients:[["豚こま肉",130,"g","肉・魚"],["キムチ",100,"g","野菜"],["ニラ",0.5,"束","野菜"],["ごま油",10,"ml","調味料"],["しょうゆ",5,"ml","調味料"]],steps:["豚肉を炒めて十分に火を通す。","キムチとニラを加えて炒める。","ごま油としょうゆで仕上げる。"]},
-{id:"hamburg",kcal:510,protein:33,name:"煮込みハンバーグ",type:"洋食",time:35,hot:false,storage:"中心まで十分に加熱。冷蔵1～2日を目安に再加熱。",ingredients:[["合いびき肉",160,"g","肉・魚"],["玉ねぎ",0.5,"個","野菜"],["卵",0.5,"個","乳製品"],["パン粉",15,"g","主食"],["トマト缶",120,"g","野菜"],["ケチャップ",15,"g","調味料"]],steps:["玉ねぎをみじん切りにし、ひき肉・卵・パン粉と混ぜる。","成形して両面を焼く。","トマト缶とケチャップを加えて煮込み、中心まで十分に火を通す。"]},
-{id:"oyako",kcal:620,protein:35,name:"親子丼",type:"和食",time:20,hot:false,storage:"卵を含むためできるだけ作りたてを食べる。",ingredients:[["鶏もも肉",120,"g","肉・魚"],["卵",2,"個","乳製品"],["玉ねぎ",0.5,"個","野菜"],["米",100,"g","主食"],["めんつゆ",35,"ml","調味料"]],steps:["玉ねぎと鶏肉をめんつゆと水で煮る。","鶏肉に十分火が通ったら溶き卵を入れる。","卵を好みの固さまで加熱してごはんにのせる。"]},
-{id:"pepper",kcal:360,protein:31,name:"青椒肉絲",type:"中華",time:20,hot:false,storage:"冷蔵1～2日を目安。肉は十分に加熱する。",ingredients:[["牛こま肉",120,"g","肉・魚"],["ピーマン",2,"個","野菜"],["たけのこ水煮",80,"g","野菜"],["オイスターソース",15,"ml","調味料"],["しょうゆ",8,"ml","調味料"],["片栗粉",5,"g","調味料"]],steps:["肉と野菜を細切りにする。","肉に片栗粉をまぶして炒める。","野菜を加えて炒め、調味料で仕上げる。"]},
-{id:"tomato",kcal:290,protein:20,name:"トマトと卵の中華炒め",type:"中華",time:15,hot:false,storage:"卵料理のため作りたて推奨。",ingredients:[["トマト",2,"個","野菜"],["卵",2,"個","乳製品"],["長ねぎ",0.25,"本","野菜"],["ごま油",10,"ml","調味料"],["鶏がらスープの素",3,"g","調味料"]],steps:["トマトをくし切り、卵を溶く。","卵をふんわり炒めて一度取り出す。","トマトを炒め、卵を戻して調味する。"]},
-{id:"stew",kcal:350,protein:29,name:"鶏と野菜のポトフ",type:"洋食",time:35,hot:false,storage:"小分けにして速やかに冷蔵し、1～2日を目安に十分に再加熱。",ingredients:[["鶏もも肉",140,"g","肉・魚"],["キャベツ",120,"g","野菜"],["にんじん",0.5,"本","野菜"],["じゃがいも",1,"個","野菜"],["コンソメ",5,"g","調味料"]],steps:["鶏肉と野菜を大きめに切る。","鍋に入れて水とコンソメを加える。","野菜が柔らかく、鶏肉に十分火が通るまで煮る。"]},
-{"id":"saba_miso","name":"さばの味噌煮","type":"和食","time":25,"hot":false,"kcal":390,"protein":27,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["さば",1,"切","肉・魚"],["みそ",20,"g","調味料"],["しょうが",10,"g","野菜"],["みりん",15,"ml","調味料"]],"steps":["主な食材（さばなど）を食べやすい大きさに切る。","鍋で必要な食材を軽く炒め、少量の水と調味料を加える。","ふたをして中まで十分に火が通るまで煮る。"]},
-{"id":"buri","name":"ぶりの照り焼き","type":"和食","time":20,"hot":false,"kcal":360,"protein":28,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["ぶり",1,"切","肉・魚"],["しょうゆ",15,"ml","調味料"],["みりん",15,"ml","調味料"]],"steps":["食材（ぶりなど）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"nikujaga","name":"肉じゃが","type":"和食","time":35,"hot":false,"kcal":430,"protein":23,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["牛こま肉",100,"g","肉・魚"],["じゃがいも",2,"個","野菜"],["玉ねぎ",0.5,"個","野菜"],["にんじん",0.5,"本","野菜"],["しょうゆ",15,"ml","調味料"],["みりん",15,"ml","調味料"]],"steps":["主な食材（牛こま肉など）を食べやすい大きさに切る。","鍋で必要な食材を軽く炒め、少量の水と調味料を加える。","ふたをして中まで十分に火が通るまで煮る。"]},
-{"id":"tonjiru","name":"具だくさん豚汁","type":"和食","time":30,"hot":false,"kcal":330,"protein":22,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["豚こま肉",90,"g","肉・魚"],["大根",100,"g","野菜"],["にんじん",0.5,"本","野菜"],["ごぼう",40,"g","野菜"],["豆腐",80,"g","豆腐"],["みそ",20,"g","調味料"]],"steps":["食材を食べやすい大きさに切る。","鍋で水と調味料を温め、食材を入れる。","中まで火が通り、野菜が柔らかくなるまで煮る。"]},
-{"id":"soboro","name":"鶏そぼろ丼","type":"和食","time":20,"hot":false,"kcal":590,"protein":34,"storage":"ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。","ingredients":[["鶏ひき肉",120,"g","肉・魚"],["卵",1,"個","乳製品"],["米",100,"g","主食"],["しょうゆ",15,"ml","調味料"],["砂糖",8,"g","調味料"]],"steps":["米を炊飯し、ほかの食材を食べやすく切る。","主な食材を調味料とともに十分に加熱する。","ごはんと合わせて盛り付ける。"]},
-{"id":"shogayaki_chicken","name":"鶏むね肉の生姜焼き","type":"和食","time":18,"hot":false,"kcal":310,"protein":39,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",160,"g","肉・魚"],["玉ねぎ",0.5,"個","野菜"],["しょうが",10,"g","野菜"],["しょうゆ",15,"ml","調味料"]],"steps":["食材（鶏むね肉など）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"tofu_steak","name":"豆腐ステーキきのこあん","type":"和食","time":20,"hot":false,"kcal":280,"protein":19,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["木綿豆腐",250,"g","豆腐"],["しめじ",100,"g","野菜"],["片栗粉",10,"g","調味料"],["しょうゆ",12,"ml","調味料"]],"steps":["食材（木綿豆腐など）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"sukiyaki","name":"牛肉と豆腐のすき煮","type":"和食","time":25,"hot":false,"kcal":490,"protein":32,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["牛こま肉",130,"g","肉・魚"],["豆腐",150,"g","豆腐"],["長ねぎ",0.5,"本","野菜"],["白菜",150,"g","野菜"],["しょうゆ",20,"ml","調味料"]],"steps":["主な食材（牛こま肉など）を食べやすい大きさに切る。","鍋で必要な食材を軽く炒め、少量の水と調味料を加える。","ふたをして中まで十分に火が通るまで煮る。"]},
-{"id":"tamagoyaki","name":"ほうれん草入り卵焼き","type":"和食","time":15,"hot":false,"kcal":250,"protein":18,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["卵",2,"個","乳製品"],["ほうれん草",80,"g","野菜"],["牛乳",20,"ml","乳製品"]],"steps":["食材（卵など）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"chikuzen","name":"筑前煮","type":"和食","time":40,"hot":false,"kcal":380,"protein":29,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏もも肉",130,"g","肉・魚"],["れんこん",80,"g","野菜"],["にんじん",0.5,"本","野菜"],["ごぼう",60,"g","野菜"],["しょうゆ",15,"ml","調味料"]],"steps":["主な食材（鶏もも肉など）を食べやすい大きさに切る。","鍋で必要な食材を軽く炒め、少量の水と調味料を加える。","ふたをして中まで十分に火が通るまで煮る。"]},
-{"id":"saba_shio","name":"さばの塩焼き","type":"和食","time":20,"hot":false,"kcal":340,"protein":25,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["さば",1,"切","肉・魚"],["大根",100,"g","野菜"],["塩",2,"g","調味料"]],"steps":["食材（さばなど）に下味を付ける。","フライパンまたはグリルで焼く。","肉・魚は中心まで十分に火を通し、野菜と盛り付ける。"]},
-{"id":"udon","name":"鶏ときのこの温うどん","type":"和食","time":20,"hot":false,"kcal":510,"protein":29,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["うどん",1,"玉","主食"],["鶏むね肉",100,"g","肉・魚"],["しめじ",80,"g","野菜"],["長ねぎ",0.3,"本","野菜"],["めんつゆ",35,"ml","調味料"]],"steps":["麺を袋の表示に従ってゆでる。","肉・野菜を必要に応じて十分に加熱し、調味料で味付けする。","麺と合わせて器に盛る。"]},
-{"id":"katsuo","name":"かつおのたたき香味だれ","type":"和食","time":15,"hot":false,"kcal":230,"protein":33,"storage":"生食用の食材を使用し、調理後は速やかに食べる。","ingredients":[["かつおたたき",150,"g","肉・魚"],["玉ねぎ",0.5,"個","野菜"],["大葉",3,"枚","野菜"],["ポン酢",25,"ml","調味料"]],"steps":["食材を衛生的に下処理し、野菜を切る。","調味料を混ぜて香味だれを作る。","盛り付けてすぐに食べる。"]},
-{"id":"nabe","name":"白菜と豚肉の重ね蒸し","type":"和食","time":25,"hot":false,"kcal":370,"protein":27,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["白菜",250,"g","野菜"],["豚バラ肉",110,"g","肉・魚"],["ポン酢",25,"ml","調味料"]],"steps":["食材を下処理し、必要に応じて薄切りにする。","蒸し器またはふた付きフライパンで蒸す。","肉・魚には十分火を通し、調味料を添える。"]},
-{"id":"tofu_hamburg","name":"豆腐入り鶏ハンバーグ","type":"和食","time":25,"hot":false,"kcal":290,"protein":31,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏ひき肉",120,"g","肉・魚"],["木綿豆腐",100,"g","豆腐"],["玉ねぎ",0.3,"個","野菜"],["片栗粉",8,"g","調味料"]],"steps":["食材（鶏ひき肉など）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"tuna_pasta","name":"ツナとトマトのパスタ","type":"洋食","time":20,"hot":false,"kcal":570,"protein":29,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["パスタ",100,"g","主食"],["ツナ缶",1,"缶","肉・魚"],["トマト缶",150,"g","野菜"],["にんにく",1,"片","野菜"]],"steps":["パスタを袋の表示に従ってゆでる。","具材を切って炒め、ソースを作る。","パスタと和えて仕上げる。"]},
-{"id":"bolognese","name":"ミートソーススパゲティ","type":"洋食","time":30,"hot":false,"kcal":670,"protein":35,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["パスタ",100,"g","主食"],["合いびき肉",120,"g","肉・魚"],["トマト缶",150,"g","野菜"],["玉ねぎ",0.5,"個","野菜"]],"steps":["パスタを袋の表示に従ってゆでる。","具材を切って炒め、ソースを作る。","パスタと和えて仕上げる。"]},
-{"id":"carbonara","name":"カルボナーラ","type":"洋食","time":20,"hot":false,"kcal":750,"protein":31,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["パスタ",100,"g","主食"],["卵",1,"個","乳製品"],["ベーコン",50,"g","肉・魚"],["粉チーズ",20,"g","乳製品"]],"steps":["パスタを袋の表示に従ってゆでる。","具材を切って炒め、ソースを作る。","パスタと和えて仕上げる。"]},
-{"id":"omelet","name":"きのこのチーズオムレツ","type":"洋食","time":15,"hot":false,"kcal":380,"protein":25,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["卵",2,"個","乳製品"],["しめじ",80,"g","野菜"],["チーズ",40,"g","乳製品"],["牛乳",30,"ml","乳製品"]],"steps":["食材（卵など）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"chicken_tomato","name":"鶏肉のトマト煮","type":"洋食","time":30,"hot":false,"kcal":370,"protein":37,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",160,"g","肉・魚"],["トマト缶",150,"g","野菜"],["玉ねぎ",0.5,"個","野菜"],["にんにく",1,"片","野菜"]],"steps":["主な食材（鶏むね肉など）を食べやすい大きさに切る。","鍋で必要な食材を軽く炒め、少量の水と調味料を加える。","ふたをして中まで十分に火が通るまで煮る。"]},
-{"id":"gratin","name":"鶏とブロッコリーのグラタン","type":"洋食","time":35,"hot":false,"kcal":610,"protein":42,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏もも肉",150,"g","肉・魚"],["ブロッコリー",100,"g","野菜"],["牛乳",180,"ml","乳製品"],["チーズ",50,"g","乳製品"],["小麦粉",15,"g","調味料"]],"steps":["主な食材を切り、肉は先に十分に加熱する。","耐熱容器に具材とソースを入れる。","オーブンで焼き色を付け、中心まで熱くする。"]},
-{"id":"salmon_muniere","name":"鮭のムニエル","type":"洋食","time":20,"hot":false,"kcal":390,"protein":31,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["生鮭",1,"切","肉・魚"],["バター",15,"g","乳製品"],["小麦粉",10,"g","調味料"],["レモン",0.25,"個","野菜"]],"steps":["食材（生鮭など）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"chicken_soup","name":"鶏むね肉と豆のスープ","type":"洋食","time":25,"hot":false,"kcal":330,"protein":36,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",130,"g","肉・魚"],["ミックスビーンズ",100,"g","野菜"],["キャベツ",100,"g","野菜"],["コンソメ",5,"g","調味料"]],"steps":["食材を食べやすい大きさに切る。","鍋で水と調味料を温め、食材を入れる。","中まで火が通り、野菜が柔らかくなるまで煮る。"]},
-{"id":"keema","name":"キーマカレー","type":"洋食","time":25,"hot":true,"kcal":680,"protein":31,"storage":"ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。","ingredients":[["鶏ひき肉",140,"g","肉・魚"],["玉ねぎ",0.5,"個","野菜"],["トマト",1,"個","野菜"],["カレー粉",12,"g","調味料"],["米",100,"g","主食"]],"steps":["米を炊飯し、ほかの食材を食べやすく切る。","主な食材を調味料とともに十分に加熱する。","ごはんと合わせて盛り付ける。"]},
-{"id":"chicken_herb","name":"チキンのハーブ焼き","type":"洋食","time":25,"hot":false,"kcal":380,"protein":40,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",180,"g","肉・魚"],["じゃがいも",1,"個","野菜"],["オリーブオイル",10,"ml","調味料"],["乾燥ハーブ",2,"g","調味料"]],"steps":["食材（鶏むね肉など）に下味を付ける。","フライパンまたはグリルで焼く。","肉・魚は中心まで十分に火を通し、野菜と盛り付ける。"]},
-{"id":"risotto","name":"きのことチーズのリゾット","type":"洋食","time":25,"hot":false,"kcal":530,"protein":20,"storage":"ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。","ingredients":[["米",100,"g","主食"],["しめじ",100,"g","野菜"],["チーズ",30,"g","乳製品"],["コンソメ",5,"g","調味料"]],"steps":["米を炊飯し、ほかの食材を食べやすく切る。","主な食材を調味料とともに十分に加熱する。","ごはんと合わせて盛り付ける。"]},
-{"id":"pork_piccata","name":"豚肉のピカタ","type":"洋食","time":20,"hot":false,"kcal":460,"protein":35,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["豚ロース肉",150,"g","肉・魚"],["卵",1,"個","乳製品"],["粉チーズ",15,"g","乳製品"],["小麦粉",10,"g","調味料"]],"steps":["食材（豚ロース肉など）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"shrimp_garlic","name":"えびのガーリックソテー","type":"洋食","time":15,"hot":false,"kcal":300,"protein":31,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["むきえび",180,"g","肉・魚"],["にんにく",2,"片","野菜"],["ブロッコリー",100,"g","野菜"],["オリーブオイル",10,"ml","調味料"]],"steps":["食材（むきえびなど）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"shakshuka","name":"トマトと卵の煮込み","type":"洋食","time":25,"hot":false,"kcal":330,"protein":19,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["卵",2,"個","乳製品"],["トマト缶",180,"g","野菜"],["玉ねぎ",0.5,"個","野菜"],["パプリカ",0.5,"個","野菜"]],"steps":["主な食材（卵など）を食べやすい大きさに切る。","鍋で必要な食材を軽く炒め、少量の水と調味料を加える。","ふたをして中まで十分に火が通るまで煮る。"]},
-{"id":"mapo_nasu","name":"麻婆なす","type":"中華","time":20,"hot":true,"kcal":420,"protein":25,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["なす",2,"本","野菜"],["豚ひき肉",100,"g","肉・魚"],["豆板醤",10,"g","調味料"],["みそ",10,"g","調味料"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"ebichili","name":"エビチリ","type":"中華","time":20,"hot":true,"kcal":350,"protein":30,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["むきえび",170,"g","肉・魚"],["長ねぎ",0.5,"本","野菜"],["ケチャップ",30,"g","調味料"],["豆板醤",8,"g","調味料"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"chicken_cashew","name":"鶏肉とカシューナッツ炒め","type":"中華","time":20,"hot":false,"kcal":520,"protein":37,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏もも肉",150,"g","肉・魚"],["カシューナッツ",35,"g","調味料"],["ピーマン",2,"個","野菜"],["オイスターソース",15,"ml","調味料"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"hoikoro","name":"回鍋肉","type":"中華","time":20,"hot":true,"kcal":480,"protein":28,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["豚バラ肉",130,"g","肉・魚"],["キャベツ",180,"g","野菜"],["ピーマン",1,"個","野菜"],["甜麺醤",15,"g","調味料"],["豆板醤",8,"g","調味料"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"banbanji","name":"棒棒鶏","type":"中華","time":25,"hot":false,"kcal":320,"protein":38,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",160,"g","肉・魚"],["きゅうり",1,"本","野菜"],["ごまだれ",30,"g","調味料"]],"steps":["食材を下処理し、必要に応じて薄切りにする。","蒸し器またはふた付きフライパンで蒸す。","肉・魚には十分火を通し、調味料を添える。"]},
-{"id":"gyoza","name":"焼き餃子","type":"中華","time":35,"hot":false,"kcal":540,"protein":26,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["餃子の皮",12,"枚","主食"],["豚ひき肉",120,"g","肉・魚"],["キャベツ",100,"g","野菜"],["ニラ",0.3,"束","野菜"]],"steps":["食材（餃子の皮など）を下処理して食べやすく切る。","フライパンで火の通りにくい食材から炒める。","調味料を加えて仕上げ、肉や魚は中心まで十分に加熱する。"]},
-{"id":"chahan","name":"えびと卵のチャーハン","type":"中華","time":18,"hot":false,"kcal":630,"protein":30,"storage":"ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。","ingredients":[["米",110,"g","主食"],["むきえび",100,"g","肉・魚"],["卵",2,"個","乳製品"],["長ねぎ",0.3,"本","野菜"]],"steps":["米を炊飯し、ほかの食材を食べやすく切る。","主な食材を調味料とともに十分に加熱する。","ごはんと合わせて盛り付ける。"]},
-{"id":"tantan","name":"豆乳担々麺","type":"中華","time":25,"hot":true,"kcal":710,"protein":35,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["中華麺",1,"玉","主食"],["豚ひき肉",100,"g","肉・魚"],["豆乳",180,"ml","乳製品"],["豆板醤",8,"g","調味料"],["練りごま",15,"g","調味料"]],"steps":["麺を袋の表示に従ってゆでる。","肉・野菜を必要に応じて十分に加熱し、調味料で味付けする。","麺と合わせて器に盛る。"]},
-{"id":"harusame","name":"鶏と春雨の中華スープ","type":"中華","time":20,"hot":false,"kcal":320,"protein":27,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",110,"g","肉・魚"],["春雨",35,"g","主食"],["白菜",120,"g","野菜"],["鶏がらスープの素",5,"g","調味料"]],"steps":["食材を食べやすい大きさに切る。","鍋で水と調味料を温め、食材を入れる。","中まで火が通り、野菜が柔らかくなるまで煮る。"]},
-{"id":"blackpepper","name":"牛肉の黒胡椒炒め","type":"中華","time":18,"hot":true,"kcal":410,"protein":34,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["牛こま肉",140,"g","肉・魚"],["玉ねぎ",0.5,"個","野菜"],["パプリカ",0.5,"個","野菜"],["黒胡椒",3,"g","調味料"],["オイスターソース",15,"ml","調味料"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"chicken_lemon","name":"鶏肉のレモン炒め","type":"中華","time":20,"hot":false,"kcal":340,"protein":39,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",170,"g","肉・魚"],["パプリカ",1,"個","野菜"],["レモン",0.5,"個","野菜"],["しょうゆ",10,"ml","調味料"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"mapo_harusame","name":"麻婆春雨","type":"中華","time":20,"hot":true,"kcal":470,"protein":23,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["春雨",65,"g","主食"],["豚ひき肉",100,"g","肉・魚"],["長ねぎ",0.5,"本","野菜"],["豆板醤",10,"g","調味料"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"garlic_pork","name":"にんにく香る豚ニラ炒め","type":"中華","time":15,"hot":false,"kcal":430,"protein":32,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["豚こま肉",140,"g","肉・魚"],["ニラ",1,"束","野菜"],["もやし",150,"g","野菜"],["にんにく",2,"片","野菜"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"shumai","name":"簡単シュウマイ","type":"中華","time":30,"hot":false,"kcal":400,"protein":32,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["豚ひき肉",150,"g","肉・魚"],["シュウマイの皮",8,"枚","主食"],["玉ねぎ",0.3,"個","野菜"],["しょうが",8,"g","野菜"]],"steps":["食材を下処理し、必要に応じて薄切りにする。","蒸し器またはふた付きフライパンで蒸す。","肉・魚には十分火を通し、調味料を添える。"]},
-{"id":"spicy_chicken","name":"よだれ鶏","type":"中華","time":25,"hot":true,"kcal":360,"protein":40,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",170,"g","肉・魚"],["きゅうり",0.5,"本","野菜"],["ラー油",10,"ml","調味料"],["しょうゆ",15,"ml","調味料"]],"steps":["食材を下処理し、必要に応じて薄切りにする。","蒸し器またはふた付きフライパンで蒸す。","肉・魚には十分火を通し、調味料を添える。"]},
-{"id":"pork_egg","name":"豚肉と卵のオイスター炒め","type":"中華","time":18,"hot":false,"kcal":520,"protein":34,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["豚こま肉",120,"g","肉・魚"],["卵",2,"個","乳製品"],["小松菜",100,"g","野菜"],["オイスターソース",15,"ml","調味料"]],"steps":["材料を切り、調味料を混ぜておく。","中火で肉や魚を先に炒めて十分に加熱する。","野菜を加えて手早く炒め、調味料で仕上げる。"]},
-{"id":"chicken_rice","name":"海南鶏飯風チキンライス","type":"中華","time":35,"hot":false,"kcal":650,"protein":42,"storage":"ごはん・具材の常温放置を避け、余ったら速やかに冷却して冷蔵。翌日までを目安に十分に再加熱。","ingredients":[["鶏もも肉",180,"g","肉・魚"],["米",100,"g","主食"],["しょうが",10,"g","野菜"],["きゅうり",0.5,"本","野菜"]],"steps":["米を炊飯し、ほかの食材を食べやすく切る。","主な食材を調味料とともに十分に加熱する。","ごはんと合わせて盛り付ける。"]},
-{"id":"beef_tofu","name":"牛肉と厚揚げの甘辛煮","type":"和食","time":25,"hot":false,"kcal":450,"protein":35,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["牛こま肉",120,"g","肉・魚"],["厚揚げ",150,"g","豆腐"],["長ねぎ",0.5,"本","野菜"],["しょうゆ",15,"ml","調味料"]],"steps":["主な食材（牛こま肉など）を食べやすい大きさに切る。","鍋で必要な食材を軽く炒め、少量の水と調味料を加える。","ふたをして中まで十分に火が通るまで煮る。"]},
-{"id":"chicken_miso","name":"鶏むね肉の味噌マヨ焼き","type":"和食","time":22,"hot":false,"kcal":380,"protein":40,"storage":"十分に加熱し、余りは小分けして速やかに冷蔵。1〜2日以内を目安に再加熱。","ingredients":[["鶏むね肉",170,"g","肉・魚"],["みそ",15,"g","調味料"],["マヨネーズ",15,"g","調味料"],["キャベツ",100,"g","野菜"]],"steps":["食材（鶏むね肉など）に下味を付ける。","フライパンまたはグリルで焼く。","肉・魚は中心まで十分に火を通し、野菜と盛り付ける。"]}
-];
-const byId=new Map(recipes.map(r=>[r.id,r]));const key="gohan-keikaku-v1";const $=id=>document.getElementById(id);
-let state={days:7,servings:1,cuisine:"all",spicy:"all",calorie:"all",protein:"all",plan:[],checked:{}};
-function save(){try{localStorage.setItem(key,JSON.stringify(state))}catch(e){console.warn("保存できませんでした",e)}}
-function load(){try{let s=JSON.parse(localStorage.getItem(key));if(s&&typeof s==="object"){state.days=[3,7].includes(s.days)?s.days:7;state.servings=[1,2,3,4].includes(s.servings)?s.servings:1;state.cuisine=["all","和食","中華","洋食"].includes(s.cuisine)?s.cuisine:"all";state.spicy=["all","mild","hot"].includes(s.spicy)?s.spicy:"all";state.calorie=["all","low","middle","high"].includes(s.calorie)?s.calorie:"all";state.protein=["all","low","middle","high"].includes(s.protein)?s.protein:"all";state.plan=Array.isArray(s.plan)?s.plan.filter(id=>byId.has(id)).slice(0,7):[];state.checked=s.checked&&typeof s.checked==="object"&&!Array.isArray(s.checked)?s.checked:{}}}catch(e){console.warn("保存データを読み込めませんでした",e)}}
-function el(tag,text,cls){let n=document.createElement(tag);if(text!==undefined)n.textContent=text;if(cls)n.className=cls;return n}
-function makeBtn(text,fn,cls){let b=el("button",text,"btn "+(cls||""));b.type="button";b.addEventListener("click",fn);return b}
-function dateLabel(i){const d=new Date();d.setHours(12,0,0,0);d.setDate(d.getDate()+i);return new Intl.DateTimeFormat("ja-JP",{month:"numeric",day:"numeric",weekday:"short"}).format(d)}
-function num(n){return Math.round(n*100)/100}
-function qty(n,u){return num(n).toLocaleString("ja-JP",{maximumFractionDigits:2})+u}
-function syncSettings(){$("days").value=state.days;$("servings").value=state.servings;$("cuisine").value=state.cuisine;$("spicy").value=state.spicy;$("calorie").value=state.calorie;$("protein").value=state.protein}
-function candidates(){let a=recipes.filter(r=>(state.cuisine==="all"||r.type===state.cuisine)&&(state.spicy!=="mild"||!r.hot));if(!a.length)a=recipes.slice();if(state.spicy==="hot")a.sort((x,y)=>Number(y.hot)-Number(x.hot));return a}
-
-const illustrations={
-mapo:["#8f3927","#d86a30","#e9b77d","豆腐・辛味"],
-ginger:["#ad5d2f","#df9c58","#78a857","豚肉・玉ねぎ"],
-chicken:["#99522e","#dba45a","#7f9d45","鶏肉の照り焼き"],
-pasta:["#d7ad63","#f4dca2","#7c9c60","パスタ・きのこ"],
-salmon:["#e27f5a","#f7b59d","#63986e","鮭・野菜"],
-curry:["#a76d2e","#dbab50","#6d9855","カレーライス"],
-chili:["#ad4435","#d77442","#58965c","キムチ炒め"],
-hamburg:["#75422c","#b66e47","#699b62","煮込みハンバーグ"],
-oyako:["#ce9c46","#f7d07a","#72a15b","鶏肉と卵"],
-pepper:["#40805c","#8fb96d","#bd8650","ピーマンと牛肉"],
-tomato:["#c8503e","#f1ba55","#79a66c","トマトと卵"],
-stew:["#d6b681","#efdbc1","#8ca965","野菜のポトフ"]
-};
-function dishArt(r){const [main,accent,green,caption]=illustrations[r.id]||(r.type==="中華"?["#b95332","#e5a45e","#78a55b",r.name]:r.type==="洋食"?["#b9894d","#edd19c","#89a876",r.name]:["#9c744d","#d6b785","#6fa26f",r.name]);const seed=r.id.length;const pieces=Array.from({length:11},(_,i)=>{const a=(i*137.5+seed*24)*Math.PI/180,dist=19+(i%3)*14,x=180+Math.cos(a)*dist,y=101+Math.sin(a)*dist*.55;return '<ellipse cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" rx="'+(11+i%3*3)+'" ry="'+(7+i%2*4)+'" transform="rotate('+(i*33)%170+' '+x.toFixed(1)+' '+y.toFixed(1)+')" fill="'+([main,accent,green][i%3])+'" opacity=".9"/>'}).join("");const svg='<svg xmlns="http://www.w3.org/2000/svg" width="360" height="210" viewBox="0 0 360 210"><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f1e8d8"/><stop offset="1" stop-color="#d7e5d4"/></linearGradient><radialGradient id="dish"><stop stop-color="'+accent+'"/><stop offset="1" stop-color="'+main+'"/></radialGradient></defs><rect width="360" height="210" fill="url(#bg)"/><ellipse cx="185" cy="116" rx="127" ry="80" fill="#6c665b" opacity=".12"/><ellipse cx="180" cy="106" rx="122" ry="79" fill="#fffaf0"/><ellipse cx="180" cy="106" rx="102" ry="65" fill="#e2e5db"/><ellipse cx="180" cy="105" rx="89" ry="54" fill="url(#dish)"/>'+pieces+'<path d="M137 100 Q175 72 224 106" fill="none" stroke="#fff7db" stroke-width="4" opacity=".5" stroke-linecap="round"/><rect y="176" width="360" height="34" fill="#174a39" opacity=".9"/><text x="180" y="198" font-size="15" font-family="sans-serif" fill="white" text-anchor="middle">'+caption+'</text></svg>';return 'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(svg)}
-function dishImage(r){const img=el("img");img.className="dish-image";img.alt=r.name+"のイメージイラスト";img.loading="lazy";img.src=dishArt(r);return img}
-function nutrientBadges(r){let row=el("div",undefined,"nutrition");row.append(el("span","約"+r.kcal+" kcal","nutri"),el("span","たんぱく質 約"+r.protein+" g","nutri"));return row}
-function rangeMatch(v,type,range){if(range==="all")return true;if(type==="calorie")return range==="low"?v<400:range==="middle"?v>=400&&v<600:v>=600;return range==="low"?v<25:range==="middle"?v>=25&&v<35:v>=35}
-function matchingRecipes(){return recipes.filter(r=>(state.cuisine==="all"||r.type===state.cuisine)&&(state.spicy!=="mild"||!r.hot)&&rangeMatch(r.kcal,"calorie",state.calorie)&&rangeMatch(r.protein,"protein",state.protein))}
-
-function generate(){let pool=matchingRecipes().slice();if(!pool.length){$("filterMessage").textContent="条件に一致する料理がありません。カロリー・たんぱく質・ジャンルの指定を緩めてください。";return false}$("filterMessage").textContent="条件に一致した"+pool.length+"種類から献立を提案しました。栄養値は1人分の暫定概算です。";for(let i=pool.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]]}if(state.spicy==="hot")pool.sort((a,b)=>Number(b.hot)-Number(a.hot));state.plan=Array.from({length:state.days},(_,i)=>pool[i%pool.length].id);state.checked={};save();renderAll();return true}
-function changeDay(index){let current=state.plan[index],pool=matchingRecipes().filter(r=>r.id!==current);if(!pool.length){$("filterMessage").textContent="条件内で交換できる別の料理がありません。条件を緩めてください。";return;}const unused=pool.filter(r=>!state.plan.includes(r.id));const chosen=(unused.length?unused:pool)[Math.floor(Math.random()*(unused.length?unused:pool).length)];state.plan[index]=chosen.id;state.checked={};save();renderAll()}
-function mealIngredients(){let grouped=new Map();state.plan.forEach(id=>{let r=byId.get(id);if(!r)return;r.ingredients.forEach(([name,amount,unit,category])=>{let key=name+"|"+unit;let v=grouped.get(key)||{name,unit,category,amount:0};v.amount+=amount*state.servings;grouped.set(key,v)})});return [...grouped.values()].sort((a,b)=>a.category.localeCompare(b.category,"ja")||a.name.localeCompare(b.name,"ja"))}
-function listKey(item){return item.name+"|"+item.unit}
-function renderPlan(){let root=$("planGrid");root.replaceChildren();state.plan.forEach((id,i)=>{const r=byId.get(id);if(!r)return;let box=el("article",undefined,"meal");box.append(dishImage(r),el("div",dateLabel(i),"date"),el("h3",r.name),el("p",r.type+" ・ 約"+r.time+"分"+(r.hot?" ・ 辛口":""),"tags"),nutrientBadges(r));let acts=el("div",undefined,"actions");acts.append(makeBtn("レシピを見る",()=>detail(r),"secondary"),makeBtn("別の料理に",()=>changeDay(i),"ghost"));box.append(acts);root.append(box)});$("planStats").replaceChildren(...[["献立",state.plan.length+"日"],["人数",state.servings+"人"],["買い物品目",mealIngredients().length+"品"]].map(([k,v])=>{let p=el("div",undefined,"stat");p.append(el("strong",v),el("span",k));return p}));if(!state.plan.length)root.append(el("div","献立を提案するとここに表示されます。","empty"))}
-function renderShop(){const items=mealIngredients(),grouped=new Map();for(const v of items){if(!grouped.has(v.category))grouped.set(v.category,[]);grouped.get(v.category).push(v)}let total=items.length,done=items.filter(x=>state.checked[listKey(x)]).length;$("shopStats").replaceChildren(...[["品目数",total+"品"],["チェック済み",done+"品"],["残り",total-done+"品"]].map(([k,v])=>{let p=el("div",undefined,"stat");p.append(el("strong",v),el("span",k));return p}));let root=$("shopping");root.replaceChildren();if(!items.length){root.append(el("div","先に献立を作成してください。","empty"));return}for(const [cat,arr] of grouped){let group=el("section",undefined,"shopping-group");group.append(el("h3",cat));for(const item of arr){let row=el("label",undefined,"shopping-row"+(state.checked[listKey(item)]?" done":""));let check=el("input");check.type="checkbox";check.checked=Boolean(state.checked[listKey(item)]);check.addEventListener("change",()=>{state.checked[listKey(item)]=check.checked;save();renderShop()});row.append(check,el("span",item.name,"item"),el("span",qty(item.amount,item.unit),"qty"));group.append(row)}root.append(group)}}
-function renderRecipes(){let q=$("recipeSearch").value.trim().toLocaleLowerCase("ja");let root=$("recipeGrid");root.replaceChildren();for(const r of recipes.filter(r=>(r.name+" "+r.type+" "+r.ingredients.map(x=>x[0]).join(" ")).toLocaleLowerCase("ja").includes(q))){let box=el("article",undefined,"recipe");box.append(dishImage(r),el("span",r.type+" ・ 約"+r.time+"分"+(r.hot?" ・ 辛口":""),"pill"),el("h3",r.name),nutrientBadges(r),el("p",r.ingredients.slice(0,4).map(x=>x[0]).join("・"),"muted small"),makeBtn("材料と作り方",()=>detail(r),"secondary"));root.append(box)}if(!root.children.length)root.append(el("div","該当するレシピがありません。","empty"))}
-function detail(r){$("detailTitle").textContent=r.name;$("detailMeta").textContent=r.type+" / 約"+r.time+"分 / 約"+r.kcal+"kcal・たんぱく質 約"+r.protein+"g（1人分・概算）"+(r.hot?" / 辛口":"");$("detailServings").textContent=state.servings;$("detailIngredients").replaceChildren(...r.ingredients.map(([name,n,u])=>el("li",name+"： "+qty(n*state.servings,u))));$("detailSteps").replaceChildren(...r.steps.map(x=>el("li",x)));$("detailStorage").textContent=r.storage;$("detail").showModal()}
-function renderAll(){renderPlan();renderShop();renderRecipes()}
-function selectTab(tab){for(const v of ["plan","shop","recipes"])$("page-"+v).classList.toggle("hidden",v!==tab);document.querySelectorAll("[data-tab]").forEach(b=>{let active=b.dataset.tab===tab;b.classList.toggle("active",active);b.setAttribute("aria-current",active?"page":"false")})}
-function shopText(){let groups=new Map();for(const v of mealIngredients()){if(!groups.has(v.category))groups.set(v.category,[]);groups.get(v.category).push(v)}return [...groups].map(([cat,arr])=>"【"+cat+"】\n"+arr.map(x=>(state.checked[listKey(x)]?"☑ ":"□ ")+x.name+" "+qty(x.amount,x.unit)).join("\n")).join("\n\n")}
-$("generate").addEventListener("click",()=>{state.days=Number($("days").value);state.servings=Number($("servings").value);state.cuisine=$("cuisine").value;state.spicy=$("spicy").value;state.calorie=$("calorie").value;state.protein=$("protein").value;generate()});
-$("servings").addEventListener("change",()=>{state.servings=Number($("servings").value);state.checked={};save();renderAll()});
-$("days").addEventListener("change",()=>{state.days=Number($("days").value);state.plan=state.plan.slice(0,state.days);if(state.plan.length<state.days)generate();else{state.checked={};save();renderAll()}});
-for(const id of ["cuisine","spicy","calorie","protein"])$(id).addEventListener("change",()=>{state[id]= $(id).value;save()});
-$("clearPlan").addEventListener("click",()=>{if(confirm("献立と買い物チェックを初期化しますか？")){state.plan=[];state.checked={};save();renderAll()}});
-$("recipeSearch").addEventListener("input",renderRecipes);
-$("resetChecks").addEventListener("click",()=>{state.checked={};save();renderShop()});
-$("copyShop").addEventListener("click",async()=>{try{await navigator.clipboard.writeText(shopText());$("copyShop").textContent="コピーしました";setTimeout(()=>$("copyShop").textContent="リストをコピー",1500)}catch{alert("コピーできませんでした。ブラウザの権限を確認してください。")}});
-$("closeDetail").addEventListener("click",()=>$("detail").close());
-document.querySelectorAll("[data-tab]").forEach(b=>b.addEventListener("click",()=>selectTab(b.dataset.tab)));
-load();syncSettings();if(!state.plan.length)generate();else renderAll();
-</script></body></html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <title>ごはん計画 | 献立と買い物</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="wrap brand">
+        <span class="logo">🍳</span>
+        <div>
+          <h1>ごはん計画</h1>
+          <p>献立を決めて、買うものをまとめる。毎日の食事をシンプルに。</p>
+        </div>
+      </div>
+    </header>
+    <main class="main wrap">
+      <nav class="tabs" aria-label="画面切り替え">
+        <button class="tab active" data-tab="plan">🍽 献立</button
+        ><button class="tab" data-tab="shop">🛒 買い物</button
+        ><button class="tab" data-tab="recipes">📖 レシピ</button>
+      </nav>
+      <div class="notice">
+        このアプリは現在、<span id="catalogCount">60</span
+        >種類の登録済みレシピから献立を提案する仕組みです。生成AIによる新規レシピ生成ではありません。入力内容はこのブラウザの保存領域にのみ保管され、サーバーへの送信機能はありません。
+      </div>
+      <section id="page-plan">
+        <div class="card">
+          <div class="sectionhead">
+            <h2>献立をつくる</h2>
+            <span class="muted small">今日からの夕食</span>
+          </div>
+          <div class="settings">
+            <label
+              >日数<select id="days">
+                <option value="3">3日間</option>
+                <option value="7" selected>7日間</option>
+              </select></label
+            ><label
+              >人数<select id="servings">
+                <option value="1" selected>1人</option>
+                <option value="2">2人</option>
+                <option value="3">3人</option>
+                <option value="4">4人</option>
+              </select></label
+            ><label
+              >ジャンル<select id="cuisine">
+                <option value="all">おまかせ</option>
+                <option value="和食">和食</option>
+                <option value="中華">中華</option>
+                <option value="洋食">洋食</option>
+              </select></label
+            ><label
+              >辛さ<select id="spicy">
+                <option value="all">指定なし</option>
+                <option value="mild">辛くない料理</option>
+                <option value="hot">辛い料理を優先</option>
+              </select></label
+            ><label
+              >カロリー / 1食<select id="calorie">
+                <option value="all">指定なし</option>
+                <option value="low">400kcal未満</option>
+                <option value="middle">400〜599kcal</option>
+                <option value="high">600kcal以上</option>
+              </select></label
+            ><label
+              >たんぱく質 / 1食<select id="protein">
+                <option value="all">指定なし</option>
+                <option value="low">25g未満</option>
+                <option value="middle">25〜34g</option>
+                <option value="high">35g以上</option>
+              </select></label
+            ><button class="btn" id="generate">献立を提案</button>
+          </div>
+          <p id="filterMessage" class="info" role="status">
+            カロリー・たんぱく質は1人分の暫定的な概算値です。主食や副菜の追加分は含まない場合があります。
+          </p>
+          <p class="muted small">
+            変更した献立と買い物チェックはこの端末のブラウザに保存されます。
+          </p>
+        </div>
+        <div class="card">
+          <div class="sectionhead">
+            <h2>今週の夕食</h2>
+            <button id="clearPlan" class="btn ghost">献立を初期化</button>
+          </div>
+          <div class="stats" id="planStats"></div>
+          <div id="planGrid" class="grid"></div>
+        </div>
+      </section>
+      <section id="page-shop" class="hidden">
+        <div class="card">
+          <div class="sectionhead">
+            <h2>買い物リスト</h2>
+            <div class="actions">
+              <button id="copyShop" class="btn secondary">リストをコピー</button
+              ><button id="resetChecks" class="btn ghost">チェック解除</button>
+            </div>
+          </div>
+          <p class="muted small">
+            同じ食材は合算します。調味料も含まれます。すでに家にある食材はチェックして整理できます。
+          </p>
+          <div id="shopStats" class="stats"></div>
+          <div id="shopping"></div>
+        </div>
+      </section>
+      <section id="page-recipes" class="hidden">
+        <div class="card">
+          <div class="sectionhead">
+            <h2>レシピを探す</h2>
+            <input
+              id="recipeSearch"
+              class="search"
+              type="search"
+              placeholder="料理名・食材で検索"
+              aria-label="料理名や食材を検索"
+            />
+          </div>
+          <p class="muted small">
+            <span id="recipeCount">60</span
+            >種類から検索できます。追加レシピの手順は簡易版です。材料・手順・保存目安を確認できます。
+          </p>
+          <div id="recipeGrid" class="recipes"></div>
+        </div>
+      </section>
+      <footer class="footer">
+        栄養値は検証前の概算で、食品成分表に基づく計算・栄養士監修は未実施です。実際の値は商品、調理、盛り付け量で変わります。料理画像はAI生成の盛り付けイメージです。画像未準備の料理にはプレースホルダーを表示します。
+        <p>
+          ※食材量・調理時間・保存期間は家庭向けの目安です。アレルギー、食中毒予防、食材の状態を個別に確認してください。共有端末ではデータが見られる可能性があります。
+        </p>
+      </footer>
+    </main>
+    <dialog id="detail">
+      <div class="dialog-body">
+        <div class="sectionhead">
+          <h2 id="detailTitle"></h2>
+          <button id="closeDetail" class="btn ghost" aria-label="閉じる">
+            閉じる
+          </button>
+        </div>
+        <div id="detailImage"></div>
+        <p id="detailMeta" class="muted"></p>
+        <h3>材料（<span id="detailServings"></span>人分）</h3>
+        <ul id="detailIngredients"></ul>
+        <h3>作り方</h3>
+        <ol id="detailSteps"></ol>
+        <h3>保存の目安</h3>
+        <p id="detailStorage"></p>
+      </div>
+    </dialog>
+    <script type="module" src="./js/app.js"></script>
+  </body>
+</html>
