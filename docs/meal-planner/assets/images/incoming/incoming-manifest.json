@@ -1,0 +1,1442 @@
+[
+  {
+    "recipeId": "tamagoyaki",
+    "name": "ほうれん草入り卵焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese rolled omelet (tamagoyaki) with chopped green spinach visible inside, cut into thick slices showing the yellow and green spiral. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-f16b0de6-efab-485d-9dfd-b7afbe989dc6.png",
+    "originalSha256": "e4cb563321c85891331bbf3a649ebeadd5d55d7f0db2c0105a3eda0543487978",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tamagoyaki.webp",
+        "bytes": 65904
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tamagoyaki-320.webp",
+        "bytes": 17924
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "注意（器の統一感）：汁椀が木目調で、共通指示の白・淡色の陶器および他画像の汁椀と統一されていない。主菜は卵焼きとして判別できる。"
+  },
+  {
+    "recipeId": "chikuzen",
+    "name": "筑前煮",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chikuzenni simmered dish: chicken thigh chunks, lotus root slices, carrot and burdock root pieces cut irregularly, glossy light soy glaze, in a white ceramic bowl. No green beans, no konjac in the main dish. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-ec09ae04-40e6-40fb-86de-881c61448d46.png",
+    "originalSha256": "4d9f1f027a58d379600edd8fd96868411beb5a5f64e3404780877e1820f8106e",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chikuzen.webp",
+        "bytes": 62300
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chikuzen-320.webp",
+        "bytes": 17336
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "saba_shio",
+    "name": "さばの塩焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese salt-grilled mackerel fillet with crisp blistered silver blue skin, a small mound of grated daikon radish beside it. No lemon in the main dish. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-fa14c198-1a66-4dcb-afb0-2eff1b834acc.png",
+    "originalSha256": "a6a1ff8205fad14bb5aca2ed04f51e44d395774f970123989cc018b8c446a0ab",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/saba_shio.webp",
+        "bytes": 70922
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/saba_shio-320.webp",
+        "bytes": 18634
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "udon",
+    "name": "鶏ときのこの温うどん",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese hot udon noodle soup in a white ceramic bowl: thick white udon in clear light brown dashi broth, sliced cooked chicken breast, shimeji mushrooms and sliced green onion. No egg, no tempura in the main dish. Side dishes around it: a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-7671f49a-9352-456d-b94c-9e30defbbcdc.png",
+    "originalSha256": "2c4c25e89873d2833a566044054f519e6c4bd8127ecf462e83246f8cecc356d9",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/udon.webp",
+        "bytes": 50786
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/udon-320.webp",
+        "bytes": 16406
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "katsuo",
+    "name": "かつおのたたき香味だれ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese seared bonito tataki: slices with seared grey edges and deep red centers, topped with thin sliced onion, shredded green shiso leaves and grated ginger, light ponzu sauce. No garlic chips in the main dish. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-ce798139-a3e8-4f43-8d47-b8e55bd4b80b.png",
+    "originalSha256": "98d50bb3ce492800c1bf7f1e066e53a02bf8f7f3415df313ee75de0806657d32",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/katsuo.webp",
+        "bytes": 73856
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/katsuo-320.webp",
+        "bytes": 20844
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "nabe",
+    "name": "白菜と豚肉の重ね蒸し",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese steamed layers of napa cabbage and thin pork belly slices in a shallow pan or white dish, soft translucent cabbage, cooked pale pork, small dish of ponzu beside it. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-0a5a78a0-0624-4b93-971b-fd3005bc1149.png",
+    "originalSha256": "1f4f8bf39176e4fb27463085d85250ef2130c1af9efbbbe2e2b8f73a95b871d5",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/nabe.webp",
+        "bytes": 66564
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/nabe-320.webp",
+        "bytes": 19628
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "tofu_hamburg",
+    "name": "豆腐入り鶏ハンバーグ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chicken and tofu hamburg steak: two pale golden oval patties with glossy soy glaze. No tomato sauce in the main dish. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-64f21a2d-d5dd-48ad-8029-cf431e565a9a.png",
+    "originalSha256": "4881be8f5e7ff8783fc6f42e1295ef6c3378b822d99a93a5f032428ab6ca2dce",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tofu_hamburg.webp",
+        "bytes": 69304
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tofu_hamburg-320.webp",
+        "bytes": 17228
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "注意（器の統一感）：汁椀が木目調で、共通指示の白・淡色の陶器および他画像の汁椀と統一されていない。主菜はハンバーグとして判別できる。"
+  },
+  {
+    "recipeId": "tuna_pasta",
+    "name": "ツナとトマトのパスタ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Spaghetti with tuna and tomato sauce: red tomato sauce with flakes of canned tuna and a little garlic, twirled on a white plate. No basil leaves, no cheese in the main dish. Side dishes around it: a small green salad with cherry tomatoes and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-d264c753-cfbc-496e-9a05-4bcefc1e5dd6.png",
+    "originalSha256": "c6e2bdc9dea39cf3eeb210a093ca425cf5ea4e8c4b32770dc9b9674cad3d2682",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tuna_pasta.webp",
+        "bytes": 62840
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tuna_pasta-320.webp",
+        "bytes": 18012
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "bolognese",
+    "name": "ミートソーススパゲティ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Spaghetti with Japanese-style meat sauce: thick red-brown ground meat and tomato sauce with onion on top of spaghetti. No cheese in the main dish. Side dishes around it: a small green salad with cherry tomatoes and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-87557c1b-5d80-4db5-bb65-53d95008758a.png",
+    "originalSha256": "7c68b7a759a57ab5bf8ccadd98ea380cc1ae6026e9473ce0e71935912db8c267",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/bolognese.webp",
+        "bytes": 62632
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/bolognese-320.webp",
+        "bytes": 18238
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "carbonara",
+    "name": "カルボナーラ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Spaghetti carbonara: creamy pale yellow egg and grated cheese sauce, crisp bacon pieces, coarse black pepper. No cream puddle, no parsley in the main dish. Side dishes around it: a small green salad with cherry tomatoes and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-33e678cb-9e28-44de-bf06-cc601c6f217f.png",
+    "originalSha256": "f5bf24424a857ee0206fd5375622c9d8d831c3d2f5b14a1ea173336cff26ac5b",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/carbonara.webp",
+        "bytes": 66182
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/carbonara-320.webp",
+        "bytes": 18986
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "omelet",
+    "name": "きのこのチーズオムレツ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Folded yellow omelet with melted cheese and shimeji mushrooms visible at the opening. No ketchup in the main dish. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-ca456b23-70aa-4f02-a3a1-00f9ed615f1d.png",
+    "originalSha256": "9008dd895948f0466dca8cbf419888e752baa88b5299f3fc204367e8af714c2b",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/omelet.webp",
+        "bytes": 58352
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/omelet-320.webp",
+        "bytes": 16846
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chicken_tomato",
+    "name": "鶏肉のトマト煮",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chicken breast pieces simmered in chunky red tomato sauce with soft onions and garlic, in a white shallow bowl. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-3f13d4b9-c874-4307-a09a-d6ce7650ca3f.png",
+    "originalSha256": "88f1eb03eec845bcb032a0124f59df92ee99848023068b043f1db857c939579d",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_tomato.webp",
+        "bytes": 67168
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_tomato-320.webp",
+        "bytes": 18262
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "gratin",
+    "name": "鶏とブロッコリーのグラタン",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chicken and broccoli gratin in a white oval baking dish: golden browned melted cheese on top, creamy white sauce, green broccoli florets and chicken pieces visible. No macaroni in the main dish. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-14e74cf2-7b1b-4bd5-a9b6-799fb5cf2d4e.png",
+    "originalSha256": "4398591ff661566234620de80def36659d86df2e20c9575933e9be445613c2e4",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/gratin.webp",
+        "bytes": 66158
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/gratin-320.webp",
+        "bytes": 18782
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "salmon_muniere",
+    "name": "鮭のムニエル",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Salmon meuniere: one pan-fried salmon fillet with golden floured crust and brown butter, a lemon wedge on the side. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-cd8302c0-cb79-4f8a-b1cf-099c1bff5854.png",
+    "originalSha256": "7841749ccb34f4687a467ef2332758ee9657fe5ba09e7f652ad865159a3725e6",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/salmon_muniere.webp",
+        "bytes": 68404
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/salmon_muniere-320.webp",
+        "bytes": 18328
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chicken_soup",
+    "name": "鶏むね肉と豆のスープ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chicken breast and bean soup in a white ceramic bowl: clear golden consomme broth, diced chicken, mixed beans (kidney, chickpeas, green peas) and cabbage pieces. Side dishes around it: a small green salad with cherry tomatoes and a small bread roll. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-310a74ac-360b-4fe9-9f70-7930902c89b4.png",
+    "originalSha256": "61e4da388244a3fb073ecbaa320137601fcceba3ef0dc080f3f58601b2be519c",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_soup.webp",
+        "bytes": 67228
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_soup-320.webp",
+        "bytes": 18750
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "keema",
+    "name": "キーマカレー",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese keema curry: dry minced chicken curry with diced onion and tomato beside white rice on the same white plate. No egg, no raisins in the main dish. Side dishes around it: a small green salad with cherry tomatoes and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-5762f110-8fbd-4126-ab1f-c0c1923981a5.png",
+    "originalSha256": "b628000c534afefd0c1358edc1592ebb98018a3aad2f04f1f452d2992aa59d3a",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/keema.webp",
+        "bytes": 67142
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/keema-320.webp",
+        "bytes": 19510
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chicken_herb",
+    "name": "チキンのハーブ焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Herb roasted chicken breast, sliced, golden seared surface with dried herbs, with round slices of pan-fried skin-on potato. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-9d28b7cc-b26b-4179-8516-2433642e51f5.png",
+    "originalSha256": "cc8f4e9d5622d7cb7ad37cd52d3bf281d98d9e41cbd5764051c499c629ad82e3",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_herb.webp",
+        "bytes": 81104
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_herb-320.webp",
+        "bytes": 22400
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "risotto",
+    "name": "きのことチーズのリゾット",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Mushroom and cheese risotto in a white shallow bowl: creamy rice with shimeji mushrooms and melted cheese. No parsley, no meat in the main dish. Side dishes around it: a small green salad with cherry tomatoes and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-b9fd845e-35ca-4583-8b1c-2ed3d43a0be3.png",
+    "originalSha256": "8306ba5164caf2fdabbf33190cec43ff8d84a883a4d9e23154bcb0500a149e26",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/risotto.webp",
+        "bytes": 52928
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/risotto-320.webp",
+        "bytes": 15664
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "pork_piccata",
+    "name": "豚肉のピカタ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Pork piccata: pork loin slices coated in a golden cheese-and-egg crust, pan-fried. No sauce in the main dish. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-c9680c48-a459-4add-8bbc-974935d2d6b9.png",
+    "originalSha256": "acad0b5a94a177c8ec48f83098236b4fc298451492d173c9635dd3796de431b0",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pork_piccata.webp",
+        "bytes": 75316
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pork_piccata-320.webp",
+        "bytes": 20658
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "要確認（小サイズでの料理判別に自信なし）：卵衣で豚肉の断面が見えず、卵料理のようにも見える。主材料の肉を視認する確認項目に懸念がある。"
+  },
+  {
+    "recipeId": "shrimp_garlic",
+    "name": "えびのガーリックソテー",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Garlic sauteed peeled shrimp with green broccoli florets and golden garlic slices, glossy olive oil. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-6cd430f2-56c5-443b-94ee-54909f95bdad.png",
+    "originalSha256": "c517a4c5a0628b5667f5e50b1603527ab0c2ebb6f8c642b752bde0472d5a14d8",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/shrimp_garlic.webp",
+        "bytes": 69800
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/shrimp_garlic-320.webp",
+        "bytes": 19950
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "shakshuka",
+    "name": "トマトと卵の煮込み",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Two eggs poached in chunky red tomato sauce with soft onions and red bell pepper strips, in a small white skillet-shaped dish; egg whites fully set. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-46423476-14be-43f7-b3cc-34f5d6ae85f6.png",
+    "originalSha256": "1214be3b7333987a728b7903b895aeb0850c7112f6cc0abdfdc72b0b871d5cda",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/shakshuka.webp",
+        "bytes": 72768
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/shakshuka-320.webp",
+        "bytes": 20242
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "要確認（料理判別に自信なし）：卵黄が見えず、白い卵がチーズのようにも見える。トマトと卵の料理として判別できるか確認してほしい。"
+  },
+  {
+    "recipeId": "mapo_nasu",
+    "name": "麻婆なす",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese mapo eggplant: soft purple-skinned eggplant pieces with ground pork in glossy reddish brown spicy sauce. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-9c10d29e-4776-45cd-8f0b-a3fa8ebdcd59.png",
+    "originalSha256": "995faf0a37ffe1d351aa2e6bc1dcab5b240de067ea1d84e50fe32f3cc314942d",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/mapo_nasu.webp",
+        "bytes": 82412
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/mapo_nasu-320.webp",
+        "bytes": 23450
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "ebichili",
+    "name": "エビチリ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese chili shrimp (ebi chili): plump shrimp coated in glossy orange-red sweet chili sauce with chopped green onion. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-de66d050-ff3c-4a6f-9daa-1ffe7366d01d.png",
+    "originalSha256": "9d95cc6737ad65e517938be990419824ac9b89cfa176f03dec500d7e323182c0",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/ebichili.webp",
+        "bytes": 69582
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/ebichili-320.webp",
+        "bytes": 20006
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chicken_cashew",
+    "name": "鶏肉とカシューナッツ炒め",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese stir fried chicken thigh pieces with whole cashew nuts and green bell pepper squares in light glossy brown sauce. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-850df60a-c0fa-41d8-9384-d288186fa2fb.png",
+    "originalSha256": "5b93b61277f641989316151b89f5c8960cd590773707b326a11907c0bbb22b7d",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_cashew.webp",
+        "bytes": 70348
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_cashew-320.webp",
+        "bytes": 20512
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "要確認（指示と具材）：主菜に指示にない玉ねぎ状の具材が見える。鶏肉・カシューナッツ・ピーマンは判別できるが、追加具材の採否を確認してほしい。"
+  },
+  {
+    "recipeId": "hoikoro",
+    "name": "回鍋肉",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese twice-cooked pork (hoikoro): pork belly slices with large cabbage pieces and green bell pepper in glossy dark miso-colored sauce. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-c8870af7-6b4a-4a83-97d2-7a52261801f7.png",
+    "originalSha256": "80691c59447fae302b68f7942e4724ff27573b39489a6d72bfa371b25bc48bac",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/hoikoro.webp",
+        "bytes": 72414
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/hoikoro-320.webp",
+        "bytes": 20538
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "banbanji",
+    "name": "棒棒鶏",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese bang bang chicken: shredded steamed chicken breast over julienned cucumber, topped with creamy beige sesame sauce. No tomato in the main dish. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of bean sprout and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-9a0a0d66-a981-4dac-bee2-97e540b06e41.png",
+    "originalSha256": "2a9cebfb998da2db0dcd04458134f3f64c422fb3203ef28ee7a6ecb434b98cb4",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/banbanji.webp",
+        "bytes": 73972
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/banbanji-320.webp",
+        "bytes": 21692
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "gyoza",
+    "name": "焼き餃子",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese pan-fried gyoza dumplings: a row of dumplings with crisp golden brown bottoms facing up, on a white plate. No dipping sauce bowl with chili oil in the main dish. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-d53ca90c-1d5f-4220-bf78-908952f529c0.png",
+    "originalSha256": "8b472b18e191341df9bb18eb6f440d6bb0c119b56d23868f71cdc431f66b6465",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/gyoza.webp",
+        "bytes": 69756
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/gyoza-320.webp",
+        "bytes": 19120
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chahan",
+    "name": "えびと卵のチャーハン",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese fried rice with small shrimp, scrambled egg and chopped green onion, loosely mounded on a white plate. No peas, no carrots in the main dish. Side dishes around it: a small cup of egg drop soup with green onion and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-4167cb11-77a9-4e05-888d-d3f8ce31cf32.png",
+    "originalSha256": "822586c4275a2fa4926efeb2f2abe6b3143495a271ae42b83891997e47175c68",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chahan.webp",
+        "bytes": 60274
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chahan-320.webp",
+        "bytes": 17712
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "tantan",
+    "name": "豆乳担々麺",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Soy milk tantanmen ramen in a white bowl: creamy pale orange sesame soy milk broth, ramen noodles, spicy ground pork on top, a little chili oil. No bok choy, no egg in the main dish. Side dishes around it: a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small. CRITICAL COMPOSITION: exactly TWO vessels on the entire tray: one large tantanmen ramen bowl in the front center and one tiny cucumber-carrot salad dish behind it. Absolutely NO rice, NO rice bowl, NO bread, NO extra soup cup. The ramen already supplies both starch and soup. No scallion garnish on the ramen; only noodles, creamy broth, ground pork and a little chili oil.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-f70f03b2-890b-43a5-a645-289cf59ab5cd.png",
+    "originalSha256": "b7c6999a66b00ddb43077f2147810ffc03a15a1eff66d579d76276547933c380",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tantan.webp",
+        "bytes": 59328
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tantan-320.webp",
+        "bytes": 16860
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "harusame",
+    "name": "鶏と春雨の中華スープ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese chicken and glass noodle soup in a white bowl: clear broth, translucent glass noodles, shredded chicken breast and napa cabbage. No egg in the main dish. Side dishes around it: a small bowl of white rice and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-d7223698-4b4e-4b8c-abaf-868423edeea1.png",
+    "originalSha256": "30a2719067c3e7ab149abd382c3c01a7076cf5c9f3ca6ecb165e6c5ec1a7129e",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/harusame.webp",
+        "bytes": 66560
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/harusame-320.webp",
+        "bytes": 17866
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "blackpepper",
+    "name": "牛肉の黒胡椒炒め",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese black pepper beef stir fry: thin beef slices with onion wedges and red and yellow bell pepper strips, visible coarse black pepper. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-13d4e9f6-96ef-4cc2-9412-e6a8d4f412dc.png",
+    "originalSha256": "80d62d99b553155ccd36e65def3fdcbf29bfa4de2518e846ae4dfcbf01974150",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/blackpepper.webp",
+        "bytes": 78268
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/blackpepper-320.webp",
+        "bytes": 22348
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chicken_lemon",
+    "name": "鶏肉のレモン炒め",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese lemon chicken stir fry: chicken breast pieces in light glossy lemon sauce with red and yellow bell pepper, thin lemon slice. No deep-fried batter in the main dish. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-ef43f4f0-f3a4-4e65-bc01-299b65a83896.png",
+    "originalSha256": "2cd57e4c31cd7085324bd1c47caec655dea1795670f4f1cc788c9f4d268fedb9",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_lemon.webp",
+        "bytes": 55956
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_lemon-320.webp",
+        "bytes": 16518
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "mapo_harusame",
+    "name": "麻婆春雨",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese mapo glass noodles (mabo harusame): translucent glass noodles with ground pork and chopped green onion in reddish brown savory sauce. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-98406a3f-9a98-4e81-a6a6-4fa2d1b19e54.png",
+    "originalSha256": "fc26a2d16414b5e91afe905ff912a6dd63c8f715434b8911cde80e12900e50a8",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/mapo_harusame.webp",
+        "bytes": 79416
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/mapo_harusame-320.webp",
+        "bytes": 21474
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "garlic_pork",
+    "name": "にんにく香る豚ニラ炒め",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Stir fried pork with garlic chives (nira) and bean sprouts, thin pork slices, garlic slices, glossy light sauce. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-b6b909c7-7ccb-40a6-971f-4869e6d24141.png",
+    "originalSha256": "8552f5532e7e8e48b7b5c4b5be3e2659676796f251d3c056927bd78918373c7a",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/garlic_pork.webp",
+        "bytes": 72212
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/garlic_pork-320.webp",
+        "bytes": 20270
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "shumai",
+    "name": "簡単シュウマイ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese homemade pork shumai dumplings: eight open-top steamed dumplings with visible pork filling, on a white plate. No green peas on top, no bamboo steamer basket text in the main dish. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-2fb64ab1-a4eb-4d8e-a453-e3d0ac2756d8.png",
+    "originalSha256": "dc6923790d731799e43116674060b100b84cdfd5a8df33ee22bfb16a0476fa86",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/shumai.webp",
+        "bytes": 58138
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/shumai-320.webp",
+        "bytes": 18220
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "spicy_chicken",
+    "name": "よだれ鶏",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese mouthwatering chicken (yodare-dori): sliced steamed chicken breast over cucumber strips, drizzled with red chili oil and dark soy sauce. No peanuts, no cilantro in the main dish. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of bean sprout and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-7513dd24-7bd9-4350-9af0-127916d7397b.png",
+    "originalSha256": "348ffcd67ba7c6e1ed3abd0bf2bc9b979dda9e55551475ee92645ec6f5767cba",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/spicy_chicken.webp",
+        "bytes": 71412
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/spicy_chicken-320.webp",
+        "bytes": 20740
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "pork_egg",
+    "name": "豚肉と卵のオイスター炒め",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese oyster sauce stir fry of thin pork slices, fluffy scrambled egg and green komatsuna greens. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-7d5c9b54-6b34-4897-a66b-ffd5d3cfd09e.png",
+    "originalSha256": "b031cd28f1249c2838f28372c8a354b0df14f928128008b4fab6a9dc235745e9",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pork_egg.webp",
+        "bytes": 74618
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pork_egg-320.webp",
+        "bytes": 21568
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chicken_rice",
+    "name": "海南鶏飯風チキンライス",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Hainanese-style chicken rice: sliced poached chicken thigh with glossy skin on top of pale yellowish chicken-broth rice, cucumber slices on the side, small dish of ginger soy sauce. Side dishes around it: a small cup of egg drop soup with green onion and a small dish of bean sprout and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-f8b1f9d5-b51b-43bc-9b1d-10a3c41ee8bd.png",
+    "originalSha256": "40d3652ab5bf8acb7e3bdf1477bf45abd7987d6a0a43c77ee09c75c9ee594309",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_rice.webp",
+        "bytes": 59280
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_rice-320.webp",
+        "bytes": 17356
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "beef_tofu",
+    "name": "牛肉と厚揚げの甘辛煮",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese simmered beef and atsuage (thick fried tofu) in sweet soy sauce: golden brown tofu blocks, thin beef slices and diagonal cut long onion, in a white bowl. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-72981bd2-9fe8-4f67-a6de-d45fcf68c92b.png",
+    "originalSha256": "6fbcc6c9150015e81d0d1568ed7a1e974003dc409d553655dc0aaacbfec1ce6f",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/beef_tofu.webp",
+        "bytes": 70468
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/beef_tofu-320.webp",
+        "bytes": 19418
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chicken_miso",
+    "name": "鶏むね肉の味噌マヨ焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chicken breast slices baked with miso mayonnaise topping, golden browned on top, with a mound of shredded raw cabbage beside. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-e54dbbb5-95b1-4c3d-bf69-dc352d1f519e.png",
+    "originalSha256": "1131fb76fdc0b241be8890ecc48ae7d699e08383d28eb25c8915c37fb6998a86",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_miso.webp",
+        "bytes": 80884
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_miso-320.webp",
+        "bytes": 21264
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "mapo",
+    "name": "四川風麻婆豆腐",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Sichuan mapo tofu with ground pork, chili bean sauce and scallions Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-73aa4402-d04a-4318-9e49-1eb115aa9b67.png",
+    "originalSha256": "734c700bf9cb47d2ded447f9e4b51d83e119189f7ae359994544a19ee6219675",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/mapo.webp",
+        "bytes": 80574
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/mapo-320.webp",
+        "bytes": 23220
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "ginger",
+    "name": "豚の生姜焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese pork ginger stir fry, thin irregular pork slices with translucent sliced onions in glossy soy ginger sauce. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-207ba246-73e6-413a-b3a8-8752e74f9ef6.png",
+    "originalSha256": "e54d192ae715c564bafc2fb499e787e1b1b3cd123d592fb0558feb19739b8a6d",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/ginger.webp",
+        "bytes": 61940
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/ginger-320.webp",
+        "bytes": 18154
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chicken",
+    "name": "鶏の照り焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chicken teriyaki, sliced cooked skin-on chicken thigh with glossy caramel soy glaze, a few lettuce leaves at the side. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-e5287959-421b-4149-a266-4d4fa4391e90.png",
+    "originalSha256": "a3c03f02003114c3b182127ccbd3baa6fd6ed93254ac32a244d900a68092db45",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken.webp",
+        "bytes": 72616
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken-320.webp",
+        "bytes": 19402
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "pasta",
+    "name": "きのこクリームパスタ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese creamy shimeji mushroom and bacon spaghetti, pale milk cream sauce, visible shimeji mushrooms and small bacon pieces. Side dishes around it: a small green salad with cherry tomatoes and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small. No separate rice bowl or rice plate. The pasta is the only starch dish.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-6ea11ae3-c5e0-456f-a148-f41a9b516541.png",
+    "originalSha256": "bcc8ea67aa74460646f81f9368cca62124fc15a0a8a54b46d41ac543eb1fa8c2",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pasta.webp",
+        "bytes": 60788
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pasta-320.webp",
+        "bytes": 18212
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "salmon",
+    "name": "鮭のホイル焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese salmon baked in an opened foil parcel, one cooked salmon fillet over thin sliced onions with enoki mushrooms and a little melted butter. Foil sits on the white plate. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-68a27e00-f425-47f2-85bf-d63d109961ba.png",
+    "originalSha256": "1160d0a0a7e289167b7664e71f55ff58212b5202b6c8c3473e0a61ac245b5209",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/salmon.webp",
+        "bytes": 70680
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/salmon-320.webp",
+        "bytes": 20514
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "curry",
+    "name": "チキンカレー",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chicken curry rice, thick brown mild curry with chicken, potato chunks, carrots and onions beside white rice on same white plate. Side dishes around it: a small green salad with cherry tomatoes and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small. No separate rice bowl or rice plate; white rice appears only beside the curry on the main plate.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-bd6bd478-6721-4f47-af38-d5fa05dcd5fd.png",
+    "originalSha256": "842659f5644a17608cb0c0484dbd7dd3c1b22c0164efdca88f097fb6c459972a",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/curry.webp",
+        "bytes": 55406
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/curry-320.webp",
+        "bytes": 16820
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "chili",
+    "name": "豚キムチ炒め",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese pork kimchi stir fry, thin pork slices and napa cabbage kimchi with green garlic chives. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-e8cfb096-a925-4eb1-881a-52c96a510cff.png",
+    "originalSha256": "0a8b225baf2236835c07aefa4acca69be3daf8a4f6d260109733c6f82d0784fd",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chili.webp",
+        "bytes": 71934
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chili-320.webp",
+        "bytes": 20496
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "hamburg",
+    "name": "煮込みハンバーグ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese simmered hamburg steak: one oval ground beef/pork patty simmered in red chunky tomato sauce with softened onions. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-a84054e1-2274-461e-b780-8deee9d88f4b.png",
+    "originalSha256": "7abbfa38e538ef5a2aec31e14214881f9b376410757b0693c69956d20a0853b4",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/hamburg.webp",
+        "bytes": 66246
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/hamburg-320.webp",
+        "bytes": 18026
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "oyako",
+    "name": "親子丼",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese oyakodon rice bowl: cooked chicken thigh pieces and translucent onion bound in softly set but cooked yellow egg, over white rice. Side dishes around it: a bowl of miso soup and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small. No separate rice bowl; the rice is only inside the main oyakodon bowl.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-5201cc47-d350-495a-829e-a782550e6c36.png",
+    "originalSha256": "662da21349f90bbe35afc19b86e14263bb4c941198599aa4fac88b6621b36fa4",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/oyako.webp",
+        "bytes": 70882
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/oyako-320.webp",
+        "bytes": 20328
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "pepper",
+    "name": "青椒肉絲",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese qingjiao rousi, stir fried thin strips of beef, green bell pepper and pale bamboo shoots with light glossy brown sauce. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-0443af6f-5f17-4080-b72e-016bf02862fd.png",
+    "originalSha256": "75a876aea9fdfbc25ee2fd84c176cf4aa0f49c704236e3b3e03d82e82673282f",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pepper.webp",
+        "bytes": 68460
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pepper-320.webp",
+        "bytes": 20146
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "tomato",
+    "name": "トマトと卵の中華炒め",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese stir fried tomato and egg, large juicy red tomato wedges, fluffy cooked yellow scrambled egg, a little chopped scallion. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-a9051100-9461-40bf-8a3e-17596569a195.png",
+    "originalSha256": "d0cd7451f9e85c274c97f44d3006c91423514ceb3a8fdd9e5f0daa44099eb42b",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tomato.webp",
+        "bytes": 65178
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tomato-320.webp",
+        "bytes": 19158
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "stew",
+    "name": "鶏と野菜のポトフ",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chicken and vegetable pot-au-feu, clear pale broth with cooked chicken thigh chunks, cabbage, carrots and potatoes. No sausage in the main dish. Side dishes around it: a small green salad with cherry tomatoes and a small bread roll. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small. Only the main pot-au-feu soup bowl, a small green salad and a small bread roll on its tiny plate. No rice and no extra soup cup.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-cb80b4e3-f5c7-4b45-81dd-89b0b3eb9348.png",
+    "originalSha256": "294bed597be19e62a8290c91a059d49295925ce9e1896981dd71275949070bfb",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/stew.webp",
+        "bytes": 59112
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/stew-320.webp",
+        "bytes": 16008
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "saba_miso",
+    "name": "さばの味噌煮",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese saba misoni, two mackerel fillet pieces with recognizable silver blue patterned skin, simmered in thick light brown miso sauce with ginger slivers. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-a52f8e6f-8b79-4583-be1b-05eec2d4bb5b.png",
+    "originalSha256": "c9bc245db1e3b7e7cc1850f004948c3ab2a073ab461c5c50e73680360135419e",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/saba_miso.webp",
+        "bytes": 73206
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/saba_miso-320.webp",
+        "bytes": 20018
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "buri",
+    "name": "ぶりの照り焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese buri teriyaki: one thick cooked yellowtail fish fillet, recognizable grey edge skin, glazed with glossy amber soy mirin sauce. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-e0aa55fa-b61e-402e-b11d-7a257554d122.png",
+    "originalSha256": "50cc0c0091a96ae7c18c2c8d47ec567fd7a4dd0f6e3cf7c7888fb2c808130bb2",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/buri.webp",
+        "bytes": 65522
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/buri-320.webp",
+        "bytes": 17926
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "nikujaga",
+    "name": "肉じゃが",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese nikujaga, thin beef slices, large potato pieces, carrots and translucent onions in a small amount of light soy broth. No green beans in the main dish. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-75d0e974-d54e-44b9-8137-50a0f51cddde.png",
+    "originalSha256": "5c7617ac15ace511a8fc415c73a69a26aa82eedc6531882b72e793dd6766a3ef",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/nikujaga.webp",
+        "bytes": 67764
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/nikujaga-320.webp",
+        "bytes": 18272
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "tonjiru",
+    "name": "具だくさん豚汁",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese tonjiru miso soup in ivory ceramic bowl, thin pork pieces, daikon radish, carrot half moons, burdock and tofu cubes in cloudy tan miso broth. Side dishes around it: a small bowl of white rice and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small. Only the main tonjiru soup bowl, white rice bowl, and small spinach/pickle dish. No extra miso soup or other soup cup.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-f47fc7d8-6ad9-42d1-8026-327d64763ee3.png",
+    "originalSha256": "275c7d755965a61781ea3e1b699ae21742e0f1d5dd72a37d75d6ccaee7f068d4",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tonjiru.webp",
+        "bytes": 58300
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tonjiru-320.webp",
+        "bytes": 16598
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "soboro",
+    "name": "鶏そぼろ丼",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chicken soboro don: white rice bowl topped with two distinct halves of finely crumbled cooked soy chicken mince and fluffy yellow scrambled egg. Side dishes around it: a bowl of miso soup and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small. No separate rice bowl; the rice is only inside the main soboro rice bowl. CRITICAL MAIN DISH DETAIL: the rice bowl topping has exactly TWO plain halves: golden yellow fully cooked scrambled egg on one half and light brown cooked ground chicken crumbles on the other half. Absolutely NO red pickled ginger (beni shoga), NO red garnish, NO green garnish, NO scallions, NO peas, NO seaweed, NO raw egg, NO sauces on top. Keep toppings plain, with only chicken and egg visible above the rice.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-d4412643-c65f-44ce-a8e0-e5fb9da68b66.png",
+    "originalSha256": "380e4e7a0f92f2a781b8b9b4ce5cebf5bc52bec33b4db9094266c778b60747e4",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/soboro.webp",
+        "bytes": 71486
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/soboro-320.webp",
+        "bytes": 20588
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "shogayaki_chicken",
+    "name": "鶏むね肉の生姜焼き",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chicken breast ginger stir fry, lean skinless chicken breast slices with sliced onions in glossy light brown soy ginger sauce. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-cb926ba8-11c3-46bc-90ca-19f45f7d8a0f.png",
+    "originalSha256": "ec60239637a7b974a461ef2208159a346368fe3c7d5bcefb99edcff2e3de1cc8",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/shogayaki_chicken.webp",
+        "bytes": 67826
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/shogayaki_chicken-320.webp",
+        "bytes": 19870
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "tofu_steak",
+    "name": "豆腐ステーキきのこあん",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese tofu steak with mushroom sauce: two golden pan-seared rectangular firm tofu slabs under glossy light soy gravy with shimeji mushrooms. No meat in the main dish. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-2c8a9180-0d20-42eb-8f73-861ed57180be.png",
+    "originalSha256": "64188cc8922c631d021d875151a36d7a0f604f54d74f799233cafb505ea18373",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tofu_steak.webp",
+        "bytes": 69730
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tofu_steak-320.webp",
+        "bytes": 18654
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "sukiyaki",
+    "name": "牛肉と豆腐のすき煮",
+    "prompt": "Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese beef and tofu suki-ni, thin cooked beef slices, white tofu blocks, diagonal cut long onion and softened napa cabbage, shallow brown soy broth in white ceramic bowl. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. Deliver a single square image at least 1024 by 1024 pixels. Keep every edge of the entire tray inside the frame with a narrow tabletop margin. The main dish should occupy approximately half the tray and remain recognizable in a small recipe thumbnail. Show meat, fish and eggs fully cooked, except the intentionally red center of bonito tataki. No extra side dishes beyond those listed. No raw egg or runny egg yolk. Every visible ingredient or garnish on the main plate must be named in the main dish instructions. Do not add salad garnish, shiso leaves, cherry tomatoes or decorative herbs to the main plate unless explicitly requested in that dish description. Follow only the listed side dishes, keeping their portions small.",
+    "createdAt": "2026-11-11",
+    "originalFile": "exec-a1fe17ad-a4b9-4134-8934-a507a9ba3404.png",
+    "originalSha256": "432010a24f32f8afa3169d4b2d5ffb9b78bee44beca3d2783c139ba0ad3ba299",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/sukiyaki.webp",
+        "bytes": 71276
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/sukiyaki-320.webp",
+        "bytes": 19328
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  }
+]
