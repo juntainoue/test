@@ -1,3 +1,5 @@
+> **2026-11-14 更新**: 全60品を、副菜を添えてお盆に載せた定食風の写真（ChatGPTの画像生成で新規作成）に切り替えました。制作の指示文と手順は [docs/IMAGE_HANDOFF_CHATGPT.md](docs/IMAGE_HANDOFF_CHATGPT.md)、生成条件・元画像の識別情報・確認結果は `data/image-manifest.json`（schemaVersion 2）に記録しています。以前の白い皿1枚の写真20品は `retired` に記録し、ファイルはGitの履歴に残っています。副菜は飾りで、レシピ・買い物リスト・栄養値に含みません（画面にも表示）。作り直し推奨の4品は台帳の `review.result` が `accepted-redo-suggested` です。
+
 # 料理画像の管理・制作
 
 ## 制作方針

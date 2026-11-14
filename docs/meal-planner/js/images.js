@@ -28,11 +28,15 @@ export function dishImage(recipe) {
     isLocalImage(metadata.src) &&
     isLocalImage(metadata.srcSmall)
   ) {
-    image.alt = metadata.alt + "（AI生成）";
+    image.alt =
+      metadata.alt + (metadata.sideDishes ? "（AI生成。副菜は献立に含みません）" : "（AI生成）");
     image.sizes = "(max-width: 600px) 90vw, (max-width: 900px) 43vw, 320px";
     image.srcset = `${new URL("../" + metadata.srcSmall, import.meta.url).href} 320w, ${new URL("../" + metadata.src, import.meta.url).href} 640w`;
     image.src = new URL("../" + metadata.src, import.meta.url).href;
-    caption.textContent = "AI生成の盛り付けイメージ";
+    // Tray photos show decorative side dishes that are not part of the recipe.
+    caption.textContent = metadata.sideDishes
+      ? "AI生成の盛り付けイメージ（副菜は献立に含みません）"
+      : "AI生成の盛り付けイメージ";
     image.addEventListener("error", placeholder, { once: true });
   } else placeholder();
   figure.append(image, caption);
