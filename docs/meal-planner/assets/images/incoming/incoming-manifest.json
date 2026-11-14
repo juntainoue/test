@@ -1,0 +1,98 @@
+[
+  {
+    "recipeId": "chicken_cashew",
+    "name": "鶏肉とカシューナッツ炒め",
+    "prompt": "Recreate the supplied original AI-generated image, keeping the same consistent tray-meal presentation while making the correction specified below. Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Chinese stir fried chicken thigh pieces with whole cashew nuts and green bell pepper squares in light glossy brown sauce. Side dishes around it: a small bowl of white rice, a small cup of egg drop soup with green onion, and a small dish of cucumber and carrot salad. CRITICAL: On the main plate use ONLY three visible ingredients: fully cooked chicken thigh chunks, whole cashew nuts and green bell pepper squares in a light glossy brown sauce. Absolutely NO onion, NO onion wedges, NO translucent white vegetable pieces, NO scallions, NO red pepper, NO carrot, NO extra vegetables or garnish on the main plate. Keep the listed side dishes separate from the main plate. Deliver a single square image at least 1024 by 1024 pixels. Keep the whole tray within the frame with a visible tabletop margin on every side. Main dish clearly recognizable at thumbnail size. Only the listed side dishes, small enough to keep the main dish dominant. No text, no logos, no hands.",
+    "createdAt": "2026-11-14",
+    "originalFile": "exec-9088eb09-23c9-4332-9403-21ac93c4fba6.png",
+    "originalSha256": "fae33d7b5fc7ad68b5f12530ab33649c69d4db3215d19795a917501072c54203",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_cashew.webp",
+        "bytes": 70566
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/chicken_cashew-320.webp",
+        "bytes": 20856
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "tamagoyaki",
+    "name": "ほうれん草入り卵焼き",
+    "prompt": "Recreate the supplied original AI-generated image, keeping the same consistent tray-meal presentation while making the correction specified below. Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese rolled omelet (tamagoyaki) with chopped green spinach visible inside, cut into thick slices showing the yellow and green spiral. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. CRITICAL: Every bowl, including the miso soup bowl, must be WHITE CERAMIC. Use a plain smooth matte white porcelain miso soup bowl, white on both inside and outside, without wood grain. NO wooden bowl, NO brown bowl, NO lacquer bowl. The only wooden object is the tray. On the main plate show only sliced spinach rolled omelet, no tomato or shiso garnish. Deliver a single square image at least 1024 by 1024 pixels. Keep the whole tray within the frame with a visible tabletop margin on every side. Main dish clearly recognizable at thumbnail size. Only the listed side dishes, small enough to keep the main dish dominant. No text, no logos, no hands.",
+    "createdAt": "2026-11-14",
+    "originalFile": "exec-1eb64399-5c3a-4a75-b5ba-d5d18c6f52aa.png",
+    "originalSha256": "25d63ce29fed600f304282f3ce43b7a7872b4bbec63f77d2e40e203e0f24b30d",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tamagoyaki.webp",
+        "bytes": 64030
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tamagoyaki-320.webp",
+        "bytes": 18202
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "tofu_hamburg",
+    "name": "豆腐入り鶏ハンバーグ",
+    "prompt": "Recreate the supplied original AI-generated image, keeping the same consistent tray-meal presentation while making the correction specified below. Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Japanese chicken and tofu hamburg steak: two pale golden oval patties with glossy soy glaze. No tomato sauce in the main dish. Side dishes around it: a small bowl of white rice, a bowl of miso soup, and a small dish of blanched green spinach (ohitashi) with a few slices of yellow pickled daikon. CRITICAL: Every bowl, including the miso soup bowl, must be WHITE CERAMIC. Use a plain smooth matte white porcelain miso soup bowl, white on both inside and outside, without wood grain. NO wooden bowl, NO brown bowl, NO lacquer bowl. The only wooden object is the tray. Show two golden oval chicken-and-tofu patties with soy glaze, no tomato sauce, no extra garnish on the main plate. Deliver a single square image at least 1024 by 1024 pixels. Keep the whole tray within the frame with a visible tabletop margin on every side. Main dish clearly recognizable at thumbnail size. Only the listed side dishes, small enough to keep the main dish dominant. No text, no logos, no hands.",
+    "createdAt": "2026-11-14",
+    "originalFile": "exec-6fb6522b-c239-47f3-a35a-d940561da936.png",
+    "originalSha256": "7cbecab88b7e2943616e00d1acb6a6f864bab5e4baca5ad0f6e7f85ec7312920",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tofu_hamburg.webp",
+        "bytes": 56804
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/tofu_hamburg-320.webp",
+        "bytes": 16116
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  },
+  {
+    "recipeId": "pork_piccata",
+    "name": "豚肉のピカタ",
+    "prompt": "Recreate the supplied original AI-generated image, keeping the same consistent tray-meal presentation while making the correction specified below. Square 1:1 photorealistic food photograph for a recipe app. A Japanese-style set meal for one person arranged on a light natural wood tray, placed on a warm ivory tabletop. Soft natural window light from the upper left, 45-degree overhead angle, the whole tray visible. The main dish is on the largest plate or bowl in the front center and is clearly the focus; side dishes are smaller and simple. Fresh, colorful and appetizing, with natural greens, reds and yellows. White and light-colored ceramic tableware. No text, no letters, no logos, no watermark, no people or hands, no product packaging. Main dish: Pork piccata: pork loin slices coated in a golden cheese-and-egg crust, pan-fried. No sauce in the main dish. Side dishes around it: a small plate of white rice, a small green salad with cherry tomatoes, and a small cup of clear golden consomme soup. CRITICAL: Make the pork filling unmistakable. Show two pork loin piccata cutlets coated in golden cheese-and-egg crust, and cut one cutlet cleanly in half. Move and slightly tilt one cut half toward the camera so the cross-section faces the viewer: a thick opaque pale beige fully cooked pork loin interior surrounded by a distinct thin golden egg-and-cheese crust. This is a pork cutlet in egg coating, NOT an omelet or scrambled eggs. No raw pink pork, no ketchup, no sauce, no parsley or decorative garnish on the main plate. Deliver a single square image at least 1024 by 1024 pixels. Keep the whole tray within the frame with a visible tabletop margin on every side. Main dish clearly recognizable at thumbnail size. Only the listed side dishes, small enough to keep the main dish dominant. No text, no logos, no hands.",
+    "createdAt": "2026-11-14",
+    "originalFile": "exec-8a72f26c-d0c0-4bb3-a7cb-5772c30ef778.png",
+    "originalSha256": "bae6f0c4045b1e7bfebc2951df8ba42c4d6dea3d64213e579aa22ae0ae6ec3ef",
+    "originalSize": {
+      "width": 1254,
+      "height": 1254
+    },
+    "files": [
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pork_piccata.webp",
+        "bytes": 74900
+      },
+      {
+        "path": "docs/meal-planner/assets/images/incoming/pork_piccata-320.webp",
+        "bytes": 20310
+      }
+    ],
+    "generator": "OpenAI image_gen (ChatGPT)",
+    "check": "ok"
+  }
+]
