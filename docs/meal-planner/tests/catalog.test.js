@@ -98,18 +98,21 @@ test("reject duplicate IDs, incomplete recipes, unreviewed images and remote pat
   }
 });
 
-test("representative 20 photos have a rights record and fit image budgets", () => {
+test("all 60 photos have a rights record, a review and fit image budgets", () => {
   const manifest = JSON.parse(
     readFileSync(new URL("../data/image-manifest.json", import.meta.url)),
   );
   const ready = data.recipes.filter((r) => r.image.status === "ready");
-  assert.equal(ready.length, 20);
-  assert.equal(manifest.images.length, 20);
+  assert.equal(ready.length, 60);
+  assert.equal(manifest.images.length, 60);
   assert.match(manifest.rights.url, /^https:\/\/openai.com\/policies\//);
   for (const recipe of ready) {
     const entry = manifest.images.find((i) => i.recipeId === recipe.id);
     assert.ok(entry?.originalSha256);
     assert.ok(entry.review.checkedAt);
+    assert.ok(entry.prompt && entry.createdAt);
+    assert.ok(["accepted", "accepted-redo-suggested"].includes(entry.review.result));
+    assert.equal(recipe.image.sideDishes, true, "tray photos are marked as showing side dishes");
     assert.equal(entry.assets.length, 2);
     for (const asset of entry.assets) {
       const bytes = readFileSync(new URL("../" + asset.src, import.meta.url));
