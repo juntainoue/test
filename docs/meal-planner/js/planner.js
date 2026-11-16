@@ -205,7 +205,7 @@ function feasibility(cooks, ctx) {
 }
 
 const CANNOT_PLAN = {
-  repeat: "条件に合う料理が日数分そろわないため、同じ料理を繰り返さずに献立を作れません。日数を減らすか、「同じ料理の繰り返し」または調理時間の条件を見直してください。",
+  repeat: "条件に合う料理が足りません（繰り返さずに献立を作れません）。日数か条件を変えてください。",
   time: "調理時間の条件に合う料理が足りません。時間の条件を見直してください。",
   days: "指定した日数分の献立を作れませんでした。",
   makeAhead: "作り置きできない料理が作り置きになりました。",
@@ -293,7 +293,7 @@ export function swapCandidates(cooks, dayIndex, ctx, limit = 6) {
     return {
       ok: false,
       options: [],
-      message: "最初に選んだ料理は固定しています。変更する場合は、上の「食べたい料理」で選び直してください。",
+      message: "1日目は選んだ料理で固定です。",
     };
   const base = cooks.map((c) => ({ ...c }));
   let target = day.cookIndex;
@@ -315,7 +315,7 @@ export function swapCandidates(cooks, dayIndex, ctx, limit = 6) {
     return {
       ok: false,
       options: [],
-      message: "条件内で交換できる別の料理がありません。条件を見直すか、献立全体を作り直してください。",
+      message: "交換できる料理がありません。",
     };
   scored.sort((a, b) => a.score - b.score);
   return { ok: true, options: scored.slice(0, limit) };
@@ -334,32 +334,26 @@ export function planWarnings(cooks, ctx) {
   const warnings = [];
   const anchor = ctx.byId.get(cooks[0]?.recipeId);
   if (anchor && !fitsTime(anchor, ctx.cond))
-    warnings.push(`最初に選んだ「${anchor.name}」は約${anchor.time}分で、調理時間の条件（${ctx.cond.maxTime}分以内）を超えています。`);
+    warnings.push(`${anchor.name}は約${anchor.time}分（調理時間の条件を超えています）`);
   return warnings;
 }
 
 const ADVICE = {
   "肉・魚": {
-    freeze:
-      "1回分ずつ小分けにしてラップで包み、冷凍用の袋に入れて冷凍する。解凍は冷蔵庫で行い、再冷凍せず中心まで加熱して使う。保存できる期間は鮮度や冷凍庫の状態で変わるため、購入時の表示と状態を確認する。",
-    fridge:
-      "冷蔵で保存し、パックに表示された期限内に十分に加熱して使う。期限内に使えない場合は、次回の購入量を減らすか、下の候補の料理で使う。",
+    freeze: "小分けにして冷凍。解凍は冷蔵庫で、再冷凍しない。",
+    fridge: "冷蔵して、表示の期限内に加熱して使う。",
   },
   野菜: {
-    freeze:
-      "切ってから冷凍できる野菜もあるが、食感が変わりやすく、生で食べる用途には向かないことがある。加熱料理に使う。",
-    fridge:
-      "乾燥しないよう袋に入れて冷蔵する（常温が向く野菜もある）。傷みや変色がないか確認して使う。",
+    freeze: "切って冷凍し、加熱料理に使う（食感は変わる）。",
+    fridge: "袋に入れて冷蔵。傷みを確かめて使う。",
   },
   豆腐: {
-    freeze:
-      "冷凍すると食感が大きく変わる（すが入ったような食感）。煮物など加熱料理に使う。",
-    fridge: "開封後は冷蔵し、早めに加熱調理して使う。表示の期限を確認する。",
+    freeze: "冷凍すると食感が変わる。煮物向き。",
+    fridge: "開けたら冷蔵し、早めに加熱して使う。",
   },
   乳製品: {
-    freeze:
-      "卵は殻のままの冷凍に向かず、牛乳は冷凍で分離しやすい。チーズ・バターは小分けして冷凍できるものがある。商品の表示を確認する。",
-    fridge: "冷蔵で保存し、表示の期限内に使う。",
+    freeze: "卵・牛乳は冷凍に不向き。チーズ・バターは小分けで冷凍できる。",
+    fridge: "冷蔵して、表示の期限内に使う。",
   },
 };
 

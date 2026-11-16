@@ -53,109 +53,53 @@ async function start() {
   function qty(n, u) {
     return num(n).toLocaleString("ja-JP", { maximumFractionDigits: 2 }) + u;
   }
-  function nutrientBadges(r) {
-    let row = el("div", undefined, "nutrition");
-    row.title = "食品成分表による検証前の暫定値";
-    row.append(
-      el("span", "暫定 約" + r.kcal + " kcal", "nutri"),
-      el("span", "たんぱく質 約" + r.protein + " g", "nutri"),
-    );
-    return row;
-  }
   function renderRecipes() {
     const root = $("recipeGrid");
     const matches = searchRecipes(
       recipes,
-      {
-        query: $("recipeSearch").value,
-        cuisine: $("recipeCuisine").value,
-        maxTime: $("recipeTime").value,
-        sort: $("recipeSort").value,
-        favoritesOnly: $("favoritesOnly").checked,
-      },
+      { query: $("recipeSearch").value, favoritesOnly: $("favoritesOnly").checked },
       favorites,
     );
     root.replaceChildren();
-    $("recipeResults").textContent =
-      `${matches.length}品のレシピ${$("favoritesOnly").checked ? " · お気に入り" : ""}`;
     for (const r of matches) {
       const box = el("article", undefined, "recipe");
+      const on = favorites.has(r.id);
       const favorite = makeBtn(
-        favorites.has(r.id) ? "♥ 保存済み" : "♡ お気に入り",
+        on ? "♥" : "♡",
         () => {
           if (favorites.has(r.id)) favorites.delete(r.id);
           else favorites.add(r.id);
           try {
             localStorage.setItem(favoritesKey, JSON.stringify([...favorites]));
-            $("favoriteMessage").textContent =
-              "お気に入りはこのブラウザに保存されます。";
           } catch {
-            $("favoriteMessage").textContent =
-              "このブラウザに保存できませんでした。今回の画面内でのみ保持されます。";
+            /* kept for this visit only */
           }
           renderRecipes();
         },
         "favorite-button",
       );
-      favorite.setAttribute("aria-pressed", String(favorites.has(r.id)));
+      favorite.setAttribute("aria-pressed", String(on));
       favorite.setAttribute(
         "aria-label",
-        r.name +
-          (favorites.has(r.id) ? "をお気に入りから解除" : "をお気に入りに保存"),
+        r.name + (on ? "をお気に入りから解除" : "をお気に入りに保存"),
       );
       const actions = el("div", undefined, "recipe-actions");
-      actions.append(
-        makeBtn("材料と作り方", () => detail(r), "secondary"),
-        favorite,
-      );
-      box.append(
-        dishImage(r),
-        el(
-          "span",
-          r.type + " ・ 約" + r.time + "分" + (r.hot ? " ・ 辛口" : ""),
-          "pill",
-        ),
-        el("h3", r.name),
-        nutrientBadges(r),
-        el(
-          "p",
-          r.ingredients
-            .slice(0, 4)
-            .map((x) => x[0])
-            .join("・"),
-          "muted small",
-        ),
-        actions,
-      );
+      actions.append(makeBtn("作り方", () => detail(r), "secondary"), favorite);
+      box.append(dishImage(r), el("h3", r.name), el("p", `約${r.time}分`, "muted small"), actions);
       root.append(box);
     }
     if (!matches.length)
-      root.append(
-        el(
-          "div",
-          $("favoritesOnly").checked && !favorites.size
-            ? "お気に入りはまだありません。料理カードの「♡ お気に入り」から保存できます。"
-            : "該当するレシピがありません。検索語や条件を変えてみてください。",
-          "empty",
-        ),
-      );
+      root.append(el("div", $("favoritesOnly").checked ? "♥はまだありません" : "見つかりません", "empty"));
   }
   function detail(r, servings = 1) {
     $("detailImage").replaceChildren(dishImage(r));
     $("detailTitle").textContent = r.name;
     $("detailMeta").textContent =
-      r.type +
-      " / 約" +
-      r.time +
-      "分 / " +
-      (r.nutrition?.status === "uncalculated" || r.kcal == null
-        ? "栄養値は未計算"
-        : "約" +
-          r.kcal +
-          "kcal・たんぱく質 約" +
-          r.protein +
-          "g（1人分・未検証の暫定概算）") +
-      (r.hot ? " / 辛口" : "");
+      `${r.type}・約${r.time}分` +
+      (r.hot ? "・辛口" : "") +
+      (r.kcal == null || r.nutrition?.status === "uncalculated"
+        ? ""
+        : `・約${r.kcal}kcal（目安）`);
     $("detailServings").textContent = servings;
     $("detailIngredients").replaceChildren(
       ...r.ingredients.map(([name, n, u]) =>
@@ -165,12 +109,7 @@ async function start() {
     $("detailSteps").replaceChildren(
       ...r.steps.map((x) => el("li", formatStep(x, servings))),
     );
-    $("detailCheck").textContent =
-      r.source === "ai"
-        ? "AIが提案したレシピです。自動チェック（材料と手順の一致、数量、加熱確認の記載）のみ通過しており、人による確認・試作は未実施です。"
-        : r.recipeCheck?.status === "desk-reviewed" && !r.recipeCheck.cookTested
-          ? "手順は分量・加熱の記載を机上で確認済みです（試作による検証は未実施）。"
-          : "手順は簡易版です。";
+    $("detailCheck").textContent = r.source === "ai" ? "AI提案のレシピです（未確認）。" : "";
     $("detailStorage").textContent = r.storage;
     $("detail").showModal();
   }
@@ -187,29 +126,13 @@ async function start() {
     });
   }
   $("recipeSearch").addEventListener("input", renderRecipes);
-  for (const id of [
-    "recipeCuisine",
-    "recipeTime",
-    "recipeSort",
-    "favoritesOnly",
-  ])
-    $(id).addEventListener("change", renderRecipes);
-  $("resetRecipeFilters").addEventListener("click", () => {
-    $("recipeSearch").value = "";
-    $("recipeCuisine").value = "all";
-    $("recipeTime").value = "all";
-    $("recipeSort").value = "default";
-    $("favoritesOnly").checked = false;
-    renderRecipes();
-  });
+  $("favoritesOnly").addEventListener("change", renderRecipes);
   $("closeDetail").addEventListener("click", () => $("detail").close());
   document
     .querySelectorAll("[data-tab]")
     .forEach((b) =>
       b.addEventListener("click", () => selectTab(b.dataset.tab)),
     );
-  $("recipeCount").textContent = recipes.length;
-  $("catalogCount").textContent = recipes.length;
   renderRecipes();
   mountUsekiri({
     recipes,
