@@ -141,11 +141,11 @@ try {
   });
   // Browse filters are independent of meal-plan settings and favorites survive reload.
   await page.click("[data-tab=recipes]");
-  await page.click("#resetRecipeFilters");
+  await page.fill("#recipeSearch", "");
   await page.check("#favoritesOnly");
   check(
     (await page.locator("#recipeGrid .empty").textContent()).includes(
-      "お気に入りはまだありません",
+      "♥はまだありません",
     ),
     "empty favorites guidance",
   );
@@ -188,35 +188,16 @@ try {
     (await page.locator("#recipeGrid .recipe").count()) === 0,
     "remove favorite updates filtered results",
   );
-  await page.click("#resetRecipeFilters");
-  await page.selectOption("#recipeCuisine", "和食");
-  await page.selectOption("#recipeTime", "20");
-  const filtered = await page.locator("#recipeGrid h3").allTextContents();
-  check(
-    filtered.length > 0 &&
-      filtered.every(
-        (n) => byName.get(n).type === "和食" && byName.get(n).time <= 20,
-      ),
-    "catalog cuisine and time",
-  );
-  check(
-    (await page.locator("#recipeResults").textContent()).includes(
-      String(filtered.length),
-    ),
-    "search result count",
-  );
-  await page.selectOption("#recipeSort", "time");
-  const times = (await page.locator("#recipeGrid h3").allTextContents()).map(
-    (n) => byName.get(n).time,
-  );
-  check(
-    times.every((time, i) => i === 0 || times[i - 1] <= time),
-    "catalog time sort",
-  );
-  await page.click("#resetRecipeFilters");
+  await page.uncheck("#favoritesOnly");
+  await page.fill("#recipeSearch", "");
   check(
     (await page.locator("#recipeGrid .recipe").count()) === 60,
-    "clear all catalog filters",
+    "all recipes after clearing search",
+  );
+  check(
+    (await page.locator("#recipeGrid select").count()) === 0 &&
+      (await page.locator("#page-recipes select").count()) === 0,
+    "recipe tab has no filter dropdowns",
   );
   check((await page.locator(".hero").count()) === 0, "no large top banner; the dish photos come first");
   await page.click("[data-tab=usekiri]");
@@ -243,29 +224,21 @@ try {
     await page.click("[data-tab=usekiri]");
     const v1Before = await page.evaluate(() => localStorage.getItem("gohan-keikaku-v1"));
     check(await page.locator("#ukPlanCard").isHidden(), "planner: no plan before start");
-    check(
-      (await page.locator("#ukMakePlan").isDisabled()) &&
-        (await page.locator("#ukMakeHint").isVisible()),
-      "planner: plan button waits for a dish photo to be chosen",
-    );
+    await page.evaluate(() => document.querySelectorAll("details.uk-opts").forEach((d) => (d.open = true)));
     check(
       (await page.locator("#ukDishGrid .uk-dish-card img").count()) >= 12,
       "planner: dishes are shown as photo cards",
     );
     await pickDish(page, "鶏の照り焼き");
+    await page.locator("#ukPlan .uk-day").first().waitFor();
     check(
-      !(await page.locator("#ukMakePlan").isDisabled()) &&
-        (await page.locator('#ukDishGrid .uk-dish-card[aria-pressed="true"]').textContent()).includes("鶏の照り焼き"),
-      "planner: chosen photo is marked and the button is enabled",
-    );
-    check(
-      (await page.locator("#ukAnchor").textContent()).includes("鶏の照り焼き"),
-      "planner: wanted dish selected",
+      (await page.locator('#ukDishGrid .uk-dish-card[aria-pressed="true"]').textContent()).includes("鶏の照り焼き") &&
+        (await page.locator("#ukPlan .uk-day strong").first().textContent()) === "鶏の照り焼き",
+      "planner: one tap on a photo makes the plan",
     );
     const dayNames = () => page.locator("#ukPlan .uk-day strong").allTextContents();
     for (let days = 1; days <= 7; days++) {
       await page.selectOption("#ukDays", String(days));
-      await page.click("#ukMakePlan");
       const names = await dayNames();
       check(names.length === days && names[0] === "鶏の照り焼き", `planner: ${days} days, dish fixed on day 1`);
       check(new Set(names).size === names.length, `planner: no repeats for ${days} days`);
@@ -281,18 +254,18 @@ try {
       "planner: pantry name suggestions",
     );
     check((await page.locator("#ukPantryList li").count()) === 1, "planner: suggestion not auto-added");
-    await page.click("#ukMakePlan");
     const cabbage = page.locator('.uk-item[data-key="きゃべつ|g"]');
     check((await cabbage.count()) === 1, "planner: home ingredient used in plan");
     check(
-      (await cabbage.locator(".uk-status").textContent()).includes("未確認") &&
+      (await cabbage.locator(".uk-status").textContent()) === "" &&
         (await cabbage.locator('[aria-pressed="true"]').count()) === 0,
       "planner: home stock not assumed sufficient",
     );
-    await cabbage.getByRole("button", { name: "足りないので買う" }).click();
+    await cabbage.getByRole("button", { name: "買い足す" }).click();
     await cabbage.locator(".uk-chip.exact").click();
     check(
-      (await cabbage.locator(".uk-status").textContent()).includes("残りは計算しません"),
+      (await cabbage.locator(".uk-status").textContent()).startsWith("＋") &&
+        (await page.locator("#ukLeftovers").textContent()).indexOf("キャベツ") === -1,
       "planner: home + extra purchase has no computed leftover",
     );
     // Pack sizes by tapping: shortage / leftover / exact / unknown; other amounts typed once.
@@ -314,21 +287,21 @@ try {
       "planner: pack sizes are one-tap choices (no input fields shown)",
     );
     const needed = Number(
-      (await chicken.locator(".uk-item-name span").textContent()).match(/必要 ([\d,.]+)g/)[1].replace(/,/g, ""),
+      (await chicken.locator(".uk-item-name span").textContent()).match(/^([\d,.]+)g/)[1].replace(/,/g, ""),
     );
     check((await setPack(needed - 30)).includes("30g不足"), "planner: shortage shown");
     check(
-      (await page.locator("#ukLeftovers").textContent()).includes("足りない食材"),
+      (await page.locator("#ukLeftovers").textContent()).includes("足りない"),
       "planner: shortage in summary",
     );
     check((await setPack(needed + 40)).includes("残り40g"), "planner: leftover shown");
     check(
-      (await page.locator("#ukLeftovers").textContent()).includes(`鶏もも肉：残り40g`),
+      (await page.locator("#ukLeftovers").textContent()).includes(`鶏もも肉 40g`),
       "planner: leftover in summary with amount",
     );
     await chicken.locator(".uk-chip.exact").click();
     check(
-      (await chicken.locator(".uk-status").textContent()).includes("使い切り（残り0g）") &&
+      (await chicken.locator(".uk-status").textContent()).includes("ぴったり") &&
         (await chicken.locator('.uk-chip.exact[aria-pressed="true"]').count()) === 1,
       "planner: one tap on the exact amount",
     );
@@ -343,8 +316,8 @@ try {
     await showExtras();
     await chicken.getByRole("button", { name: "量がわからない" }).click();
     check(
-      (await chicken.locator(".uk-status").textContent()).includes("量が不明") &&
-        (await page.locator("#ukLeftovers").textContent()).includes("残りを計算できていない"),
+      (await chicken.locator(".uk-status").textContent()).includes("残りは計算しません") &&
+        (await page.locator("#ukLeftovers").textContent()).includes("量がわからない"),
       "planner: unknown pack size not guessed",
     );
     await setPack(300);
@@ -362,7 +335,7 @@ try {
     // Swap one day; the rest stays and quantities are recalculated.
     const beforeSwap = await dayNames();
     const neededBefore = await page.locator('.uk-item[data-key="鶏もも肉|g"] .uk-item-name span').textContent();
-    await page.locator("#ukPlan .uk-day").nth(1).getByRole("button", { name: "この日だけ交換" }).click();
+    await page.locator("#ukPlan .uk-day").nth(1).getByRole("button", { name: "交換", exact: true }).click();
     check(
       (await page.locator("#ukPlan .uk-swap .uk-dish-card img").count()) >= 2,
       "planner: swap shows photo choices",
@@ -381,20 +354,15 @@ try {
         "planner: swap recalculates quantities",
       );
     check(
-      (await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "この日だけ交換" }).count()) === 0,
+      (await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "交換", exact: true }).count()) === 0,
       "planner: chosen dish is fixed (no swap button on day 1)",
     );
     await page.click("#ukRegenerate");
     check((await dayNames())[0] === "鶏の照り焼き", "planner: regenerate keeps chosen dish");
-    // Cooking history: "作った" marks a dish as familiar.
-    await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "作った" }).click();
     check(
-      (await page.locator("#ukPlan .uk-day").first().textContent()).includes("定番（作った記録1回）"),
-      "planner: cooking history recorded",
-    );
-    check(
-      (await page.locator("#ukPlan .uk-day").nth(1).textContent()).includes("調理記録なし"),
-      "planner: other dishes are 'no record', not 'never cooked'",
+      (await page.locator("#ukPlan").textContent()).indexOf("調理記録") === -1 &&
+        (await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "作った" }).count()) === 0,
+      "planner: no extra labels or buttons on plan days",
     );
     await page.click("#ukCopy");
     check(
@@ -405,6 +373,7 @@ try {
     const planNow = await dayNames();
     await page.reload();
     await page.locator("#ukPlan .uk-day").first().waitFor();
+    await page.evaluate(() => document.querySelectorAll("details.uk-opts").forEach((d) => (d.open = true)));
     check((await dayNames()).join() === planNow.join(), "planner: plan persists after reload");
     check(
       await page.evaluate(
@@ -419,7 +388,6 @@ try {
     // Time limit and make-ahead conditions.
     await page.selectOption("#ukTime", "15");
     await page.selectOption("#ukDays", "5");
-    await page.click("#ukMakePlan");
     const timed = await dayNames();
     check(
       timed.slice(1).every((n) => byName.get(n).time <= 15),
@@ -432,15 +400,14 @@ try {
     await page.selectOption("#ukTime", "");
     await page.selectOption("#ukDays", "7");
     await page.selectOption("#ukMakeAhead", "yes");
-    await page.click("#ukMakePlan");
     const days7 = page.locator("#ukPlan .uk-day");
     check((await days7.count()) === 7, "planner: 7 days with make-ahead");
     for (let i = 0; i < 7; i++) {
       const text = await days7.nth(i).textContent();
-      if (text.includes("2日分まとめて作る")) {
+      if (text.includes("2日分作る")) {
         const name = await days7.nth(i).locator("strong").textContent();
         check(canMakeAhead(byName.get(name)), `planner: make-ahead allowed for ${name}`);
-        await days7.nth(i).getByRole("button", { name: "レシピ" }).click();
+        await days7.nth(i).getByRole("button", { name: "作り方" }).click();
         const steps = await page.locator("#detailSteps li").allTextContents();
         check(
           (await page.locator("#detailServings").textContent()) === "2" &&
@@ -449,22 +416,21 @@ try {
         );
         await page.click("#closeDetail");
         check(
-          (await days7.nth(i + 1).textContent()).includes("前日の作り置き"),
+          (await days7.nth(i + 1).textContent()).includes("作り置き"),
           "planner: next day eats the made-ahead dish",
         );
       }
     }
     await page.selectOption("#ukMakeAhead", "no");
     await page.selectOption("#ukDays", "3");
-    await page.click("#ukMakePlan");
     // Freeze setting changes the storage advice.
     await page.selectOption("#ukFreeze", "no");
     await setPack(2000);
     const advice = await page.locator("#ukLeftovers").textContent();
-    check(advice.includes("冷蔵で使う場合") && !advice.includes("冷凍する場合"), "planner: no freezing advice when freezing is off");
+    check(advice.includes("冷蔵：") && !advice.includes("冷凍"), "planner: no freezing advice when freezing is off");
     await page.selectOption("#ukFreeze", "yes");
     check(
-      (await page.locator("#ukLeftovers").textContent()).includes("冷凍する場合"),
+      (await page.locator("#ukLeftovers").textContent()).includes("冷凍："),
       "planner: freezing advice when allowed",
     );
     // Phones: no horizontal overflow on the planner.
@@ -481,7 +447,7 @@ try {
     await page.setViewportSize({ width: 1440, height: 1000 });
 
     // AI: not connected by default; failures and invalid output are shown.
-    await page.click("#ukAi");
+    await page.evaluate(() => document.querySelector("#ukAi").click());
     await page.waitForFunction(() => document.querySelector("#ukAiMessage").textContent.includes("接続していません"));
     check(true, "planner: AI not configured message");
     const good = {
@@ -509,10 +475,11 @@ try {
     );
     await page.reload();
     await page.locator("#ukPlan .uk-day").first().waitFor();
+    await page.evaluate(() => document.querySelectorAll("details.uk-opts").forEach((d) => (d.open = true)));
     await page.waitForTimeout(200);
     const askAi = async () => {
       await page.evaluate(() => (document.querySelector("#ukAiMessage").textContent = ""));
-      await page.click("#ukAi");
+      await page.evaluate(() => document.querySelector("#ukAi").click());
       await page.waitForFunction(() => {
         const t = document.querySelector("#ukAiMessage").textContent;
         return t && !t.includes("問い合わせています");
@@ -531,11 +498,10 @@ try {
       "planner: unsafe AI recipe rejected with reason",
     );
     await pickDish(page, "レモン蒸し");
-    await page.click("#ukMakePlan");
-    await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "レシピ" }).click();
+    await page.locator("#ukPlan .uk-day").first().getByRole("button", { name: "作り方" }).click();
     check(
-      (await page.locator("#detailMeta").textContent()).includes("栄養値は未計算") &&
-        !(await page.locator("#detailMeta").textContent()).includes("999"),
+      !(await page.locator("#detailMeta").textContent()).includes("kcal") &&
+        (await page.locator("#detailCheck").textContent()).includes("AI提案"),
       "planner: AI nutrition not shown",
     );
     check(
@@ -562,7 +528,7 @@ try {
   await openPlanTab(page);
   check(
     (await page.locator("#ukPlan .uk-day").count()) === 0 &&
-      (await page.locator("#ukMakePlan").isDisabled()),
+      (await page.locator("#ukPlanCard").isHidden()),
     "damaged planner data starts fresh",
   );
   check(
@@ -576,7 +542,7 @@ try {
   );
   await page.reload();
   await page.waitForFunction(
-    () => document.querySelector("#ukMakePlan").disabled && document.querySelector("#recipeSearch").disabled,
+    () => document.querySelector("#ukDays").disabled && document.querySelector("#recipeSearch").disabled,
   );
   check(
     (await page.locator("#ukMessage").textContent()).includes(

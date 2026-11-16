@@ -16,10 +16,7 @@
     <header class="top">
       <div class="wrap brand">
         <span class="logo">🍳</span>
-        <div>
-          <h1>ごはん計画</h1>
-          <p>献立を決めて、買うものをまとめる。毎日の食事をシンプルに。</p>
-        </div>
+        <h1>ごはん計画</h1>
       </div>
     </header>
     <main class="main wrap">
@@ -27,188 +24,119 @@
         <button class="tab active" data-tab="usekiri">🧺 使い切り計画</button
         ><button class="tab" data-tab="recipes">📖 レシピ</button>
       </nav>
-      <details class="notice">
-        <summary>このアプリについて · 栄養値は検証前の概算です</summary>
-        <p>
-          このアプリは現在、<span id="catalogCount">60</span
-          >種類の登録済みレシピから献立を提案する仕組みです。AIによる新しいレシピの提案は準備中で、まだ接続していません。入力内容はこのブラウザの保存領域にのみ保管され、サーバーへの送信機能はありません。特定の店舗・企業の公式サービスではありません。
-        </p>
-      </details>
       <section id="page-usekiri" aria-labelledby="ukTitle">
         <div class="card">
-          <h2 id="ukTitle" class="uk-title">1. 食べたい料理をタップ</h2>
-          <p class="small muted">1人分・夕食の主菜。選んだ料理を1日目にして、食材を使い回す献立をつくります。写真はAI生成の盛り付けイメージで、副菜は献立に含みません。</p>
-          <div class="uk-steps">
-            <div class="uk-step">
-              <div id="ukAnchor" class="uk-anchor" hidden></div>
-              <div id="ukDishGrid" class="uk-dish-grid"></div>
-              <button id="ukMoreDishes" class="btn ghost uk-more" type="button" hidden>
-                もっと見る
-              </button>
-            </div>
-            <div class="uk-step">
-              <h3>2. 条件（そのままでもOK）</h3>
-              <div class="settings uk-conditions">
-                <label
-                  >計画日数<select id="ukDays">
-                    <option value="1">1日</option>
-                    <option value="2">2日</option>
-                    <option value="3" selected>3日</option>
-                    <option value="4">4日</option>
-                    <option value="5">5日</option>
-                    <option value="6">6日</option>
-                    <option value="7">7日</option>
-                  </select></label
-                ><label
-                  >調理時間<select id="ukTime">
-                    <option value="">指定なし</option>
-                    <option value="15">15分以内</option>
-                    <option value="20">20分以内</option>
-                    <option value="30">30分以内</option>
-                    <option value="45">45分以内</option>
-                  </select></label
-                ><label
-                  >冷凍<select id="ukFreeze">
-                    <option value="yes">できる</option>
-                    <option value="no">できない</option>
-                  </select></label
-                ><label
-                  >作り置き<select id="ukMakeAhead">
-                    <option value="no">しない</option>
-                    <option value="yes">してもよい（2日分まとめて作る）</option>
-                  </select></label
-                ><label
-                  >同じ料理<select id="ukRepeat">
-                    <option value="no">繰り返さない</option>
-                    <option value="yes">繰り返してもよい</option>
-                  </select></label
-                >
-              </div>
-            </div>
-            <div class="uk-step">
-              <h3>3. 自宅にある食材（名前だけでOK）</h3>
-              <div class="uk-pantry-add">
-                <input
-                  id="ukPantryInput"
-                  class="search"
-                  type="text"
-                  placeholder="例：キャベツ"
-                  aria-label="自宅にある食材の名前"
-                /><button id="ukPantryAdd" class="btn secondary" type="button">追加</button>
-              </div>
-              <p id="ukPantrySuggest" class="small muted" role="status"></p>
-              <ul id="ukPantryList" class="uk-pantry"></ul>
-              <p class="small muted">
-                量は入力しなくて大丈夫です。量がわからないため「家にあるから買わなくてよい」とは判断せず、必要な量を買い物リストで確認してもらいます。
-              </p>
-            </div>
+          <div class="uk-head">
+            <h2 id="ukTitle" class="uk-title">何を食べる？</h2>
+            <label class="uk-days"
+              ><select id="ukDays" aria-label="日数">
+                <option value="1">1日分</option>
+                <option value="2">2日分</option>
+                <option value="3" selected>3日分</option>
+                <option value="4">4日分</option>
+                <option value="5">5日分</option>
+                <option value="6">6日分</option>
+                <option value="7">7日分</option>
+              </select></label
+            >
           </div>
-          <div class="actions uk-main-actions">
-            <button id="ukMakePlan" class="btn" type="button" disabled>仮の献立をつくる</button
-            ><button id="ukAi" class="btn ghost" type="button">AIに新しい料理案をきく</button>
-          </div>
-          <p id="ukMakeHint" class="small muted">先に、食べたい料理の写真を1つ選んでください。</p>
+          <div id="ukDishGrid" class="uk-dish-grid"></div>
+          <button id="ukMoreDishes" class="btn ghost uk-more" type="button" hidden>
+            もっと見る
+          </button>
+          <details class="uk-opts">
+            <summary>こだわり条件</summary>
+            <div class="settings uk-conditions">
+              <label
+                >調理時間<select id="ukTime">
+                  <option value="">指定なし</option>
+                  <option value="15">15分以内</option>
+                  <option value="20">20分以内</option>
+                  <option value="30">30分以内</option>
+                  <option value="45">45分以内</option>
+                </select></label
+              ><label
+                >冷凍<select id="ukFreeze">
+                  <option value="yes">できる</option>
+                  <option value="no">できない</option>
+                </select></label
+              ><label
+                >作り置き<select id="ukMakeAhead">
+                  <option value="no">しない</option>
+                  <option value="yes">する</option>
+                </select></label
+              ><label
+                >同じ料理<select id="ukRepeat">
+                  <option value="no">続けない</option>
+                  <option value="yes">続けてもいい</option>
+                </select></label
+              >
+            </div>
+          </details>
+          <details class="uk-opts" id="ukPantryBox">
+            <summary>家にある食材を使う</summary>
+            <div class="uk-pantry-add">
+              <input
+                id="ukPantryInput"
+                class="search"
+                type="text"
+                placeholder="例：キャベツ"
+                aria-label="家にある食材"
+              /><button id="ukPantryAdd" class="btn secondary" type="button">追加</button>
+            </div>
+            <p id="ukPantrySuggest" class="small muted" role="status"></p>
+            <ul id="ukPantryList" class="uk-pantry"></ul>
+          </details>
           <p id="ukMessage" class="info" role="status" aria-live="polite"></p>
-          <p id="ukAiMessage" class="small muted" role="status" aria-live="polite"></p>
-          <ul id="ukAiRejected" class="small muted"></ul>
+          <div hidden>
+            <button id="ukAi" type="button">AI</button>
+            <p id="ukAiMessage" role="status"></p>
+            <ul id="ukAiRejected"></ul>
+          </div>
         </div>
         <div class="card" id="ukPlanCard">
           <div class="sectionhead">
-            <h2>4. 献立（仮）</h2>
-            <button id="ukRegenerate" class="btn ghost" type="button">
-              全体を作り直す
-            </button>
+            <h2>献立</h2>
+            <button id="ukRegenerate" class="btn ghost" type="button">作り直す</button>
           </div>
-          <p class="small muted">
-            最初に選んだ料理は1日目に固定し、ほかの日を組み直します。「調理記録なし」は、このアプリで「作った」と記録していない料理です。
-          </p>
           <div id="ukWarnings" class="uk-warnings" role="status"></div>
           <ol id="ukPlan" class="uk-plan"></ol>
         </div>
         <div class="card" id="ukShopCard">
           <div class="sectionhead">
-            <h2>5. 買い物リスト</h2>
-            <button id="ukCopy" class="btn secondary" type="button">リストをコピー</button>
+            <h2>買い物</h2>
+            <button id="ukCopy" class="btn secondary" type="button">コピー</button>
           </div>
-          <p class="small muted">
-            お店で手に取ったパックの量をタップしてください。残りと不足を計算します。パックに量が書かれていなければ「量がわからない」（残りは計算しません）。
-          </p>
           <div id="ukShop" class="uk-shop"></div>
           <div class="actions">
-            <button id="ukReplan" class="btn" type="button">
-              6. パック量に合わせて組み直す
-            </button>
+            <button id="ukReplan" class="btn" type="button">この量で献立を調整</button>
           </div>
           <p id="ukReplanMessage" class="info" role="status" aria-live="polite"></p>
         </div>
         <div class="card" id="ukLeftCard">
-          <h2>7. 残る食材の確認</h2>
+          <h2>余る食材</h2>
           <div id="ukLeftovers"></div>
         </div>
       </section>
       <section id="page-recipes" class="hidden">
         <div class="card">
-          <div class="sectionhead">
-            <h2>レシピを探す</h2>
+          <div class="uk-head">
             <input
               id="recipeSearch"
               class="search"
               type="search"
-              placeholder="料理名・食材で検索"
-              aria-label="料理名や食材を検索"
+              placeholder="料理名・食材"
+              aria-label="料理名や食材で探す"
             />
-          </div>
-          <p class="muted small">
-            <span id="recipeCount">60</span
-            >種類から検索できます。追加レシピの手順は簡易版です。材料・手順・保存目安を確認できます。
-          </p>
-          <div class="recipe-filters">
-            <label
-              >ジャンル<select id="recipeCuisine">
-                <option value="all">すべてのジャンル</option>
-                <option>和食</option>
-                <option>洋食</option>
-                <option>中華</option>
-              </select></label
-            >
-            <label
-              >調理時間<select id="recipeTime">
-                <option value="all">時間の指定なし</option>
-                <option value="15">15分以内</option>
-                <option value="20">20分以内</option>
-                <option value="30">30分以内</option>
-              </select></label
-            >
-            <label
-              >並び順<select id="recipeSort">
-                <option value="default">登録順</option>
-                <option value="time">調理時間が短い順</option>
-                <option value="protein">たんぱく質が多い順（暫定）</option>
-              </select></label
-            >
             <label class="favorite-filter"
-              ><input id="favoritesOnly" type="checkbox" />
-              お気に入りだけ</label
+              ><input id="favoritesOnly" type="checkbox" /> ♥のみ</label
             >
-            <button id="resetRecipeFilters" class="btn ghost">
-              条件をクリア
-            </button>
           </div>
-          <p
-            id="recipeResults"
-            class="results-count"
-            role="status"
-            aria-live="polite"
-          ></p>
-          <p id="favoriteMessage" class="small muted" role="status"></p>
           <div id="recipeGrid" class="recipes"></div>
         </div>
       </section>
       <footer class="footer">
-        栄養値は検証前の概算で、食品成分表に基づく計算・栄養士監修は未実施です。実際の値は商品、調理、盛り付け量で変わります。料理画像はAI生成の盛り付けイメージです（お盆の副菜は献立・買い物リスト・栄養値に含みません）。画像を読み込めない場合は代替表示に切り替えます。
-        <p>
-          ※食材量・調理時間・保存期間は家庭向けの目安です。アレルギー、食中毒予防、食材の状態を個別に確認してください。共有端末ではデータが見られる可能性があります。
-        </p>
+        写真はAI生成のイメージです（副菜は献立に含みません）。栄養値は未検証の目安です。アレルギーや食材の状態はご自身で確認してください。データはこの端末にだけ保存されます。
       </footer>
     </main>
     <dialog id="detail">
@@ -226,11 +154,9 @@
         <h3>作り方</h3>
         <ol id="detailSteps"></ol>
         <p class="small muted">
-          水などの分量は人数に合わせて計算しています。加熱時間は1〜2人分の目安のため、量が多いときは火の通りを確認して調整してください。<span
-            id="detailCheck"
-          ></span>
+          加熱時間は目安です。火の通りを確かめてください。<span id="detailCheck"></span>
         </p>
-        <h3>保存の目安</h3>
+        <h3>保存</h3>
         <p id="detailStorage"></p>
       </div>
     </dialog>

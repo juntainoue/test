@@ -174,13 +174,6 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
   function renderDishList() {
     const root = $("ukDishGrid");
     root.replaceChildren();
-    const anchor = byId.get(state.anchorId);
-    $("ukAnchor").hidden = !anchor;
-    $("ukAnchor").textContent = anchor
-      ? `選んだ料理：${anchor.name}（約${anchor.time}分）。1日目に固定して、ほかの日を組み立てます。`
-      : "";
-    $("ukMakePlan").disabled = !anchor;
-    $("ukMakeHint").hidden = Boolean(anchor);
     const favorites = getFavorites();
     const rank = (r) =>
       (r.id === state.anchorId ? 8 : 0) +
@@ -198,19 +191,17 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
           selected: r.id === state.anchorId,
           note: r.source === "ai" ? "AI提案" : favorites.has(r.id) ? "♥" : "",
           onPick: () => {
+            // One tap: the plan is made right away.
             state.anchorId = r.id;
             state.cooks = [];
-            save();
-            renderAll();
-            $("ukMessage").textContent = `「${r.name}」を選びました。「仮の献立をつくる」を押してください。`;
-            $("ukMakePlan").scrollIntoView({ block: "center", behavior: "smooth" });
+            if (makePlan()) $("ukPlanCard").scrollIntoView({ block: "start", behavior: "smooth" });
           },
         }),
       );
     if (!list.length)
-      root.append(el("p", "調理時間の条件に合う料理がありません。条件を変えてください。", "small muted"));
+      root.append(el("p", "条件に合う料理がありません", "small muted"));
     $("ukMoreDishes").hidden = showAllDishes || list.length <= shown.length;
-    $("ukMoreDishes").textContent = `もっと見る（ほか${list.length - shown.length}品）`;
+    $("ukMoreDishes").textContent = `もっと見る（${list.length - shown.length}品）`;
   }
 
   // ---- Step 3: home ingredients (names only) ----
@@ -221,13 +212,13 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     const clean = name.normalize("NFKC").trim().slice(0, 30);
     if (!clean) return;
     if (state.pantry.some((p) => nameKey(p.name) === nameKey(clean))) {
-      $("ukPantrySuggest").textContent = `「${clean}」はすでに追加しています。`;
+      $("ukPantrySuggest").textContent = "追加済み";
       return;
     }
     state.pantry.push({ name: clean, use: true });
     $("ukPantryInput").value = "";
-    save();
-    renderAll();
+    $("ukPantrySuggest").replaceChildren();
+    refresh();
   }
   function onPantryAdd() {
     const input = $("ukPantryInput").value;
@@ -237,13 +228,13 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     box.replaceChildren();
     if (m.exact) return addPantry(m.exact);
     if (m.suggestions.length) {
-      box.append(el("span", `「${input.trim()}」はレシピの材料名と一致しません。近い材料：`));
+      box.append(el("span", "これ？ "));
       for (const s of m.suggestions) box.append(makeBtn(s, () => addPantry(s), "ghost uk-chip-btn"));
-      box.append(makeBtn(`「${input.trim()}」のまま追加`, () => addPantry(input), "ghost uk-chip-btn"));
+      box.append(makeBtn(`${input.trim()}のまま`, () => addPantry(input), "ghost uk-chip-btn"));
     } else {
       box.append(
-        el("span", `「${input.trim()}」を使うレシピは登録されていません。`),
-        makeBtn("それでも追加", () => addPantry(input), "ghost uk-chip-btn"),
+        el("span", "使うレシピがありません "),
+        makeBtn("追加する", () => addPantry(input), "ghost uk-chip-btn"),
       );
     }
   }
@@ -258,16 +249,14 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
       check.checked = p.use;
       check.addEventListener("change", () => {
         p.use = check.checked;
-        save();
-        renderAll();
+        refresh();
       });
-      label.append(check, el("span", ` ${p.name}を今回使う`));
+      label.append(check, el("span", ` ${p.name}`));
       li.append(
         label,
         makeBtn("削除", () => {
           state.pantry.splice(i, 1);
-          save();
-          renderAll();
+          refresh();
         }, "ghost uk-small"),
       );
       root.append(li);
@@ -275,14 +264,6 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
   }
 
   // ---- Step 4 / 7: plan ----
-  function recipeTag(r) {
-    if (r.source === "ai") return "AI提案・未検証";
-    const k = known();
-    if (!k.size) return null;
-    if (history[r.id]) return `定番（作った記録${history[r.id].count}回）`;
-    if (getFavorites().has(r.id)) return "お気に入り";
-    return "調理記録なし";
-  }
   function renderPlan() {
     const root = $("ukPlan");
     root.replaceChildren();
@@ -293,75 +274,48 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
       ...planWarnings(state.cooks, ctx()).map((w) => el("p", w, "uk-warn")),
     );
     if (!state.cooks.length) return;
-    const L = ledger();
     expandDays(state.cooks).forEach((day, i) => {
       const r = byId.get(day.recipeId);
       const cook = state.cooks[day.cookIndex];
       const li = el("li", undefined, "uk-day");
       const head = el("div", undefined, "uk-day-head");
-      head.append(el("span", `${i + 1}日目・${dateLabel(i)}`, "date"), el("strong", r.name));
-      const tags = el("div", undefined, "uk-tags");
-      if (day.cookIndex === 0 && !day.fromMakeAhead) tags.append(el("span", "最初に選んだ料理", "pill"));
-      if (cook.servings > 1)
-        tags.append(el("span", day.fromMakeAhead ? "前日の作り置きを食べる" : "2日分まとめて作る", "pill"));
-      const tag = recipeTag(r);
-      if (tag) tags.append(el("span", tag, "pill"));
-      tags.append(el("span", `約${r.time}分`, "pill"));
-      // Which perishables this day shares with other days.
-      const shared = L.filter(
-        (it) =>
-          it.perishable &&
-          new Set(it.uses.map((u) => u.cookIndex)).size > 1 &&
-          it.uses.some((u) => u.cookIndex === day.cookIndex),
-      ).map((it) => it.name);
+      head.append(el("span", dateLabel(i), "date"), el("strong", r.name));
       const isAnchorDay = day.cookIndex === 0 && !day.fromMakeAhead;
       const actions = el("div", undefined, "actions");
-      actions.append(makeBtn("レシピ", () => detail(r, day.fromMakeAhead ? 1 : cook.servings), "secondary"));
+      actions.append(makeBtn("作り方", () => detail(r, day.fromMakeAhead ? 1 : cook.servings), "secondary"));
       if (!isAnchorDay)
         actions.append(
-          makeBtn(swapOpen === i ? "交換をやめる" : "この日だけ交換", () => {
+          makeBtn(swapOpen === i ? "やめる" : "交換", () => {
             swapOpen = swapOpen === i ? null : i;
             renderPlan();
           }, "ghost"),
         );
-      if (!day.fromMakeAhead)
-        actions.append(
-          makeBtn(history[r.id] && history[r.id].last === today() ? "作った ✓" : "作った", () => {
-            const h = history[r.id] ?? { count: 0, last: "" };
-            if (h.last !== today()) history[r.id] = { count: h.count + 1, last: today() };
-            save();
-            renderAll();
-          }, "ghost"),
-        );
       const body = el("div", undefined, "uk-day-body");
-      body.append(
-        head,
-        tags,
-        el("p", shared.length ? `使い回す食材：${shared.join("・")}` : "ほかの日と共通の傷みやすい食材はありません", "small muted"),
-        actions,
-      );
+      body.append(head);
+      if (cook.servings > 1)
+        body.append(el("span", day.fromMakeAhead ? "作り置き" : "2日分作る", "pill"));
+      if (r.source === "ai") body.append(el("span", "AI提案・未検証", "pill"));
+      body.append(actions);
       li.append(dishImage(r), body);
       if (swapOpen === i) li.append(swapPicker(i));
       root.append(li);
     });
   }
-  function today() {
-    return new Date().toISOString().slice(0, 10);
-  }
   function makePlan(start = null) {
     readConditions();
     swapOpen = null;
     if (!state.anchorId) {
-      $("ukMessage").textContent = "先に、食べたい料理の写真を1つ選んでください。";
+      $("ukMessage").textContent = "料理を選んでください";
       return false;
     }
     seed = (seed * 48271 + 11) % 2147483647;
     const result = buildPlan(ctx(), { seed, start });
     if (!result.ok) {
       // Conditions are never relaxed silently; the previous plan stays.
-      $("ukMessage").textContent = result.message + (state.cooks.length ? "（前の献立はそのまま残しています）" : "");
+      $("ukMessage").textContent = result.message;
       return false;
     }
+    $("ukMessage").textContent = "";
     state.cooks = result.cooks;
     save();
     renderAll();
@@ -376,23 +330,14 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
       box.append(el("p", result.message, "small"));
       return box;
     }
-    box.append(el("p", "写真から選んでください（先頭ほど、買う食材を使い回しやすい料理です）。写真はAI生成の盛り付けイメージです。", "small muted"));
     const grid = el("div", undefined, "uk-dish-grid");
     for (const option of result.options) {
-      const others = option.cooks.filter((_, k) => k !== option.cooks.findIndex((c) => c.recipeId === option.recipe.id));
-      const otherIngredients = new Set(
-        others.flatMap((c) => byId.get(c.recipeId).ingredients.filter((x) => x[3] !== "調味料" && x[3] !== "主食").map((x) => nameKey(x[0]))),
-      );
-      const reuse = option.recipe.ingredients
-        .filter((x) => x[3] !== "調味料" && x[3] !== "主食" && otherIngredients.has(nameKey(x[0])))
-        .map((x) => x[0]);
       grid.append(
         dishCard(option.recipe, {
-          note: reuse.length ? `${reuse.slice(0, 2).join("・")}を使い回し` : "",
+          note: "",
           onPick: () => {
             state.cooks = option.cooks;
             swapOpen = null;
-            $("ukMessage").textContent = `${dayIndex + 1}日目を「${option.recipe.name}」に交換しました。買い物リストと残量を計算し直しました。`;
             save();
             renderAll();
           },
@@ -405,24 +350,24 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
 
   // ---- Step 5: shopping list and pack sizes ----
   const STATUS = {
-    none: () => "買う量をタップしてください",
-    unknown: () => "パックの量が不明のため、残りは計算していません",
-    mismatch: (i) => `単位が違うため計算できません（${i.unit}で入力してください）`,
-    invalid: () => "購入量の数値を確認してください",
-    exact: (i) => `使い切り（残り0${i.unit}）`,
+    none: () => "",
+    unknown: () => "残りは計算しません",
+    mismatch: (i) => `単位が違います（${i.unit}）`,
+    invalid: () => "数値を確認",
+    exact: () => "ぴったり",
     leftover: (i) => `残り${fmt(i.leftover)}${i.unit}`,
     short: (i) => `${fmt(i.shortage)}${i.unit}不足`,
-    "home-unknown": () => "自宅にある（量は未確認）。足りるか選んでください",
-    "home-enough": () => "自宅分を使う（量が未入力のため残りは計算しません）",
-    "home-plus-buy": (i) => `自宅分＋${fmt(i.purchase.total)}${i.unit}を購入（自宅分の量が未入力のため残りは計算しません）`,
-    "home-buy-none": () => "買い足す量をタップしてください",
-    "home-buy-unknown": () => "パックの量が不明です",
-    "home-buy-mismatch": (i) => `単位が違うため計算できません（${i.unit}で入力してください）`,
-    "home-buy-invalid": () => "購入量の数値を確認してください",
+    "home-unknown": () => "",
+    "home-enough": () => "OK",
+    "home-plus-buy": (i) => `＋${fmt(i.purchase.total)}${i.unit}`,
+    "home-buy-none": () => "",
+    "home-buy-unknown": () => "残りは計算しません",
+    "home-buy-mismatch": (i) => `単位が違います（${i.unit}）`,
+    "home-buy-invalid": () => "数値を確認",
   };
+
   const fmt = (n) => round(n).toLocaleString("ja-JP", { maximumFractionDigits: 2 });
   function statusText(item) {
-    if (item.kind === "staple" && item.status === "none") return "使い切りは求めません（必要量の目安）";
     return STATUS[item.status]?.(item) ?? "";
   }
   function statusClass(item) {
@@ -505,14 +450,9 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
   }
   function itemName(item) {
     const name = el("div", undefined, "uk-item-name");
-    name.append(el("strong", item.name));
-    const uses = item.uses.map((u) => `${byId.get(u.recipeId).name} ${fmt(u.amount)}${item.unit}`).join("＋");
     name.append(
-      el(
-        "span",
-        item.needed > 0 ? `必要 ${fmt(item.needed)}${item.unit}（${uses}）` : "今の献立では使いません（購入済みの分）",
-        "small muted",
-      ),
+      el("strong", item.name),
+      el("span", item.needed > 0 ? `${fmt(item.needed)}${item.unit}` : "使わない", "small muted"),
     );
     return name;
   }
@@ -525,10 +465,10 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     if (buy.length) {
       const section = el("section", undefined, "uk-shop-group");
       const head = el("div", undefined, "uk-shop-head");
-      head.append(el("h3", "買う食材：買う量をタップ"));
+      head.append(el("h3", "買う量をタップ"));
       const countable = buy.filter((i) => COUNT_UNITS.has(i.unit) && i.needed > 0 && !state.purchases[i.key]);
       if (countable.length)
-        head.append(makeBtn(`個数で買う${countable.length}品を必要な数にする`, fillCountItems, "secondary uk-small"));
+        head.append(makeBtn(`個数の${countable.length}品をまとめて入れる`, fillCountItems, "secondary uk-small"));
       section.append(head);
       // Rows that still need a choice come first.
       const order = (i) => (i.status === "none" ? 0 : 1);
@@ -543,12 +483,12 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     const pantry = L.filter((i) => i.kind === "pantry");
     if (pantry.length) {
       const section = el("section", undefined, "uk-shop-group");
-      section.append(el("h3", "自宅にある食材：足りるか選ぶ（量は聞きません）"));
+      section.append(el("h3", "家にあるもの"));
       for (const item of pantry) {
         const row = el("div", undefined, "uk-item " + statusClass(item));
         row.dataset.key = item.key;
         const modes = el("div", undefined, "uk-pack");
-        for (const [v, label] of [["enough", "家の分で足りる"], ["buy", "足りないので買う"]]) {
+        for (const [v, label] of [["enough", "足りる"], ["buy", "買い足す"]]) {
           const active = item.pantryMode === v;
           const chip = makeBtn(label, () => {
             if (active) delete state.pantryChoice[item.key];
@@ -572,7 +512,7 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     if (staple.length) {
       const section = el("section", undefined, "uk-shop-group");
       section.append(
-        el("h3", "調味料・主食：家になければ買う（入力は不要・使い切りは求めません）"),
+        el("h3", "調味料など（なければ買う）"),
         el("p", staple.map((i) => `${i.name} ${fmt(i.needed)}${i.unit}`).join("、"), "small uk-staples"),
       );
       root.append(section);
@@ -594,7 +534,7 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     const beforeDays = expandDays(state.cooks).map((d) => d.recipeId);
     const entered = Object.values(state.purchases).filter((p) => p.unit !== PACK_UNKNOWN && p.amount !== "");
     if (!entered.length) {
-      $("ukReplanMessage").textContent = "先に、買うパックの量を1つ以上入力してください。";
+      $("ukReplanMessage").textContent = "先に量をタップしてください";
       return;
     }
     if (!makePlan(state.cooks)) return;
@@ -603,8 +543,8 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     const changed = afterDays.filter((id, i) => id !== beforeDays[i]).length;
     $("ukReplanMessage").textContent =
       before === after
-        ? "今の献立が、入力した購入量にいちばん合っています（献立は変わっていません）。残りと不足は下で確認できます。"
-        : `入力した購入量に合わせて、${changed}日分の料理を入れ替えました。買い物リストの必要量と残りも計算し直しています。`;
+        ? "今の献立がいちばん合っています"
+        : `${changed}日分を入れ替えました`;
   }
 
   // ---- Step 7: leftovers ----
@@ -617,50 +557,39 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     const perishBuy = L.filter((i) => i.perishable && i.kind === "buy");
     const left = perishBuy.filter((i) => i.status === "leftover");
     const short = L.filter((i) => i.status === "short");
-    const unknown = perishBuy.filter((i) => ["none", "unknown", "mismatch", "invalid"].includes(i.status));
-    const homeUsed = L.filter((i) => i.kind === "pantry" && i.needed > 0);
+    const unknown = perishBuy.filter((i) => ["unknown", "mismatch", "invalid"].includes(i.status));
+    const untapped = perishBuy.filter((i) => i.status === "none");
     const unusedPantry = state.pantry.filter(
       (p) => p.use && !L.some((i) => i.needed > 0 && nameKey(i.name) === nameKey(p.name)),
     );
-    if (short.length) {
-      const box = el("section", undefined, "uk-left bad");
-      box.append(el("h3", "足りない食材"));
-      for (const i of short)
-        box.append(el("p", `${i.name}：${fmt(i.shortage)}${i.unit}不足（必要${fmt(i.needed)}${i.unit}、購入${fmt(i.purchase.total)}${i.unit}）。購入量を増やすか、「パック量に合わせて組み直す」を押してください。`));
+    const section = (cls, title, lines) => {
+      const box = el("section", undefined, "uk-left " + cls);
+      box.append(el("h3", title), ...lines);
       root.append(box);
-    }
-    if (left.length) {
-      const box = el("section", undefined, "uk-left warn");
-      box.append(el("h3", "期間内に使い切れない食材"));
-      for (const i of left) {
-        const item = el("div", undefined, "uk-left-item");
-        item.append(el("strong", `${i.name}：残り${fmt(i.leftover)}${i.unit}`));
-        item.append(el("p", (state.cond.freeze ? "冷凍する場合：" : "冷蔵で使う場合：") + storageAdvice(i, state.cond), "small"));
-        const uses = leftoverUses(i, c, state.cooks);
-        if (uses.length)
-          item.append(el("p", "この残りで作れる料理の例：" + uses.map((u) => `${u.recipe.name}（${fmt(u.amount)}${i.unit}使用）`).join("、"), "small muted"));
-        box.append(item);
-      }
-      root.append(box);
-    }
-    if (unknown.length) {
-      const box = el("section", undefined, "uk-left neutral");
-      box.append(el("h3", "残りを計算できていない食材"));
-      box.append(el("p", unknown.map((i) => `${i.name}（${STATUS[i.status](i)}）`).join("、"), "small"));
-      root.append(box);
-    }
-    if (homeUsed.length || unusedPantry.length) {
-      const box = el("section", undefined, "uk-left neutral");
-      box.append(el("h3", "自宅の食材"));
-      if (homeUsed.length)
-        box.append(el("p", `${homeUsed.map((i) => i.name).join("・")}は自宅の量が未入力のため、残りは計算していません。必要量（買い物リストに表示）と比べて確認してください。`, "small"));
-      if (unusedPantry.length)
-        box.append(el("p", `今回の献立では使い道が見つかりませんでした：${unusedPantry.map((p) => p.name).join("・")}`, "small"));
-      root.append(box);
-    }
-    if (!short.length && !left.length && !unknown.length && perishBuy.length)
-      root.append(el("p", "入力した購入量の範囲では、傷みやすい食材の残りは0です。", "info"));
-    root.append(el("p", "保存の案は一般的な目安です。食材の状態・購入時の表示を確認してください。保存できる日数はこのアプリでは判断していません。", "small muted"));
+    };
+    if (short.length)
+      section("bad", "足りない", short.map((i) => el("p", `${i.name} ${fmt(i.shortage)}${i.unit}`)));
+    if (left.length)
+      section(
+        "warn",
+        "余る",
+        left.map((i) => {
+          const item = el("div", undefined, "uk-left-item");
+          item.append(
+            el("strong", `${i.name} ${fmt(i.leftover)}${i.unit}`),
+            el("p", (state.cond.freeze ? "冷凍：" : "冷蔵：") + storageAdvice(i, state.cond), "small"),
+          );
+          const uses = leftoverUses(i, c, state.cooks);
+          if (uses.length) item.append(el("p", "使い道：" + uses.map((u) => u.recipe.name).join("、"), "small muted"));
+          return item;
+        }),
+      );
+    if (unknown.length)
+      section("neutral", "量がわからない", [el("p", unknown.map((i) => i.name).join("、"), "small")]);
+    if (unusedPantry.length)
+      section("neutral", "使わなかった家の食材", [el("p", unusedPantry.map((p) => p.name).join("、"), "small")]);
+    if (!root.children.length)
+      root.append(el("p", untapped.length ? "買う量をタップすると計算します" : "余りなし", "info"));
   }
 
   // ---- AI suggestions (backend not connected yet) ----
@@ -696,16 +625,18 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
   }
 
   // ---- wiring ----
+  // Any change re-plans at once (no extra button to press).
+  function refresh() {
+    if (state.anchorId) makePlan();
+    else {
+      save();
+      renderAll();
+    }
+  }
   for (const id of ["ukDays", "ukTime", "ukFreeze", "ukMakeAhead", "ukRepeat"])
     $(id).addEventListener("change", () => {
       readConditions();
-      const daysChanged = state.cooks.length && expandDays(state.cooks).length !== state.cond.days;
-      if (daysChanged) state.cooks = [];
-      save();
-      renderAll();
-      if (state.anchorId && !fitsTime(byId.get(state.anchorId), state.cond))
-        $("ukMessage").textContent = "選んだ料理は調理時間の条件を超えています。そのまま使う場合は献立に注意が表示されます。";
-      else if (daysChanged) $("ukMessage").textContent = "日数を変えたため、献立をもう一度つくってください。";
+      refresh();
     });
   $("ukMoreDishes").addEventListener("click", () => {
     showAllDishes = true;
@@ -718,18 +649,8 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
       onPantryAdd();
     }
   });
-  $("ukMakePlan").addEventListener("click", () => {
-    if (makePlan()) {
-      $("ukMessage").textContent = "仮の献立をつくりました。買い物リストで買うパックの量を入力すると、残りを計算して組み直せます。";
-      $("ukReplanMessage").textContent = "";
-      $("ukPlanCard").scrollIntoView({ block: "start", behavior: "smooth" });
-    }
-  });
   $("ukRegenerate").addEventListener("click", () => {
-    if (makePlan()) {
-      $("ukMessage").textContent = "最初の料理を残して、献立全体を作り直しました。";
-      $("ukReplanMessage").textContent = "";
-    }
+    if (makePlan()) $("ukReplanMessage").textContent = "";
   });
   $("ukReplan").addEventListener("click", onReplan);
   $("ukAi").addEventListener("click", onAi);
@@ -737,9 +658,9 @@ export function mountUsekiri({ recipes, getFavorites, detail, el, makeBtn, qty, 
     try {
       await navigator.clipboard.writeText(shopText());
       $("ukCopy").textContent = "コピーしました";
-      setTimeout(() => ($("ukCopy").textContent = "リストをコピー"), 1500);
+      setTimeout(() => ($("ukCopy").textContent = "コピー"), 1500);
     } catch {
-      alert("コピーできませんでした。ブラウザの権限を確認してください。");
+      alert("コピーできませんでした");
     }
   });
 
